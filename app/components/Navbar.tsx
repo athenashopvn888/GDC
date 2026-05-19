@@ -32,9 +32,9 @@ export default function Navbar() {
       {/* Top bar — logo + open now */}
       <div className={styles.topBar}>
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoEmoji}>🤝</span>
+          <img src="/favicon-32x32.png" alt="Green" className={styles.logoImage} />
           <span className={styles.brand}>
-            Green Deal <span style={{ color: "#22c55e" }}>Cannabis</span>
+            Green
           </span>
         </Link>
         <div className={styles.topBarRight}>
@@ -45,6 +45,7 @@ export default function Navbar() {
             <span className={styles.dot}></span>
             Open Now
           </span>
+          <img src="/favicon-32x32.png" alt="Logo" className={styles.logoImageRight} />
         </div>
       </div>
 
