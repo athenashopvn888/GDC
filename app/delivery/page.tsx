@@ -88,8 +88,8 @@ export default function DeliveryPage() {
           </div>
           <div className={styles.infoCard}>
             <span className={styles.infoIcon}>🌉</span>
-            <h3 className={styles.infoTitle}>York & Gatineau</h3>
-            <p className={styles.infoDesc}>Serving the entire National Capital Region.</p>
+            <h3 className={styles.infoTitle}>York & GTA</h3>
+            <p className={styles.infoDesc}>Serving York, North York, Etobicoke, and surrounding GTA.</p>
           </div>
           <div className={styles.infoCard}>
             <span className={styles.infoIcon}>💰</span>
@@ -102,7 +102,7 @@ export default function DeliveryPage() {
         <div className={styles.ctaSection}>
           <p className={styles.ctaText}>
             Can&apos;t wait? Visit us in-store at <strong>1820 Jane St, York</strong> —
-            open <strong>24 hours</strong>. Call <strong>(942) 288-4633</strong>.
+            open <strong>10am - 2am</strong>. Call <strong>(942) 288-4633</strong>.
           </p>
         </div>
       </div>

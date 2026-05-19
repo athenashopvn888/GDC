@@ -14,7 +14,7 @@ const FAQ_CATEGORIES = [
     title: "📍 Location & Hours",
     faqs: [
       { q: "Where is Green Deal Cannabis located?", a: "We are located at 1820 Jane St, York, ON M9N 2T3 — in the heart of York, near the intersection of Jane St and Weston Rd." },
-      { q: "What are your hours?", a: "We are open 24 hours a day, 7 days a week, 365 days a year. Walk in anytime — no appointment needed." },
+      { q: "What are your hours?", a: "We are open daily from 10am to 2am, 7 days a week, 365 days a year. Walk in anytime — no appointment needed." },
       { q: "Is there parking nearby?", a: "Yes. Free street parking is available nearby on Jane St and surrounding residential streets. We're also easily accessible via TTC transit." },
       { q: "How far are you from North York or Etobicoke?", a: "We are centrally located in York, making us just a 5-10 minute drive from Etobicoke, North York, and other major areas in the Greater Toronto Area (GTA)." },
       { q: "What's the best way to get to Green Deal Cannabis?", a: "We're easily accessible by car, transit, or foot. We're centrally located at 1820 Jane St, near Weston Rd, just minutes from the Weston GO / UP Express Station. TTC bus routes 35 Jane and 89 Weston stop right near our doors." },
@@ -45,7 +45,7 @@ const FAQ_CATEGORIES = [
   {
     title: "🛒 Shopping & Experience",
     faqs: [
-      { q: "Do I need an appointment?", a: "No! Green Deal Cannabis is walk-in only. Just show up anytime — we're open Open 24 Hours." },
+      { q: "Do I need an appointment?", a: "No! Green Deal Cannabis is walk-in only. Just show up anytime — we're open daily from 10am to 2am." },
       { q: "Can I order online?", a: "Currently, Green Deal Cannabis is an in-store shopping experience only. You can browse our live menu online to see what's in stock before visiting." },
       { q: "Do you offer delivery?", a: "Delivery is coming soon! Visit our delivery page to sign up for email notifications when we launch our delivery service." },
       { q: "What payment methods do you accept?", a: "We accept cash and debit. No credit cards at this time." },

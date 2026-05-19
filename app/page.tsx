@@ -340,10 +340,10 @@ export default function HomePage() {
               <p className={styles.storeCardText}>
                 1820 Jane St
                 <br />
-                York, ON M5S 2H7
+                York, ON M9N 2T3
                 <br />
                 <a
-                  href="https://www.google.com/maps/dir//654+York+Ave,+York,+ON+M5S+2H7"
+                  href="https://www.google.com/maps/dir//1820+Jane+St,+York,+ON+M9N+2T3"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.storeLink}
@@ -358,7 +358,7 @@ export default function HomePage() {
               <p className={styles.storeCardText}>
                 Open 7 Days a Week
                 <br />
-                <span className={styles.storeHighlight}>Open Open 24 Hours</span>
+                <span className={styles.storeHighlight}>10am - 2am Daily</span>
               </p>
             </div>
             <div className={styles.storeCard}>
@@ -368,7 +368,7 @@ export default function HomePage() {
                 No appointment needed
                 <br />
                 <span className={styles.storeHighlight}>
-                  Center St, York
+                  Jane St &amp; Weston Rd
                 </span>
               </p>
             </div>
@@ -377,7 +377,7 @@ export default function HomePage() {
           {/* Embedded map */}
           <div className={styles.mapWrap}>
             <iframe
-              src="https://maps.google.com/maps?q=654%20York%20Ave,%20York,%20ON%20M5S%202H7&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.092461947844!2d-79.5042654!3d43.7003889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3621e24b7bd7%3A0x1d36a6a68f11a41d!2s1820+Jane+St%2C+York%2C+ON+M9N+2T3!5e0!3m2!1sen!2sca"
               width="100%"
               height="300"
               style={{ border: 0, borderRadius: "var(--radius-lg)" }}

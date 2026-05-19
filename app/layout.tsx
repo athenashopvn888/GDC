@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | Green Deal Cannabis",
   },
   description:
-    "Shop 200+ premium cannabis strains at Green Deal Cannabis. Exotic, Premium, AAA+, AA & Budget flower from $3/g. York's uplifting dispensary at 1820 Jane St. Open 24 Hours.",
+    "Shop 200+ premium cannabis strains at Green Deal Cannabis. Exotic, Premium, AAA+, AA & Budget flower from $3/g. York's uplifting dispensary at 1820 Jane St. Open 10AM - 2AM.",
   keywords: [
     "cannabis dispensary York",
     "weed store York",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Green Deal Cannabis",
     title: "Green Deal Cannabis — Premium York Cannabis Dispensary",
     description:
-      "200+ strains from $3/g. Exotic to Budget. York's uplifting dispensary at 1820 Jane St. Open 24 Hours.",
+      "200+ strains from $3/g. Exotic to Budget. York's uplifting dispensary at 1820 Jane St. Open 10AM - 2AM.",
     images: [
       {
         url: "/banners/Green Deal Cannabis_Homepage_Hero.webp",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Green Deal Cannabis — York's Uplifting Dispensary",
-    description: "200+ strains from $3/g. Open 24 Hours at 1820 Jane St, York.",
+    description: "200+ strains from $3/g. Open 10AM - 2AM at 1820 Jane St, York.",
     images: ["/banners/Green Deal Cannabis_Homepage_Hero.webp"],
   },
   robots: {
@@ -74,7 +74,7 @@ const jsonLd = {
   additionalType: "https://schema.org/Store",
   "@id": "https://greendealcannabis.com",
   name: "Green Deal Cannabis",
-  description: "Cannabis dispensary at 1820 Jane St in York, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 Hours.",
+  description: "Cannabis dispensary at 1820 Jane St in York, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 10AM - 2AM.",
   url: "https://greendealcannabis.com",
   telephone: "+19422884633",
   image: "https://greendealcannabis.com/logo.png",
@@ -96,8 +96,8 @@ const jsonLd = {
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      opens: "00:00",
-      closes: "23:59",
+      opens: "10:00",
+      closes: "02:00",
     },
   ],
   sameAs: [

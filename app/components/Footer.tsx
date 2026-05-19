@@ -14,7 +14,7 @@ export default function Footer() {
             <p className={styles.desc}>
               Your Local Cannabis Dispensary At 1820 Jane St, York. Visit
               Green Deal Cannabis For Premium Flower, Edibles, Vapes &amp; More.
-              Open 24 Hours.
+              10AM - 2AM.
             </p>
             <div className={styles.buttons}>
               <a
@@ -49,7 +49,7 @@ export default function Footer() {
             </div>
             <div className={styles.infoBlock}>
               <span className={styles.infoLabel}>Hours:</span>
-              <span className={styles.highlight}>Open 24 Hours</span>
+              <span className={styles.highlight}>10AM - 2AM</span>
             </div>
           </div>
 
