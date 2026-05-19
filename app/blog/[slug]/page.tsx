@@ -128,7 +128,7 @@ export default function BlogPostPage() {
 
         <div className={styles.cta}>
           <p>
-            <strong>Green Deal Cannabis</strong> — 1820 Jane St, York · Open 24 Hours · (942) 288-4633
+            <strong>Green Deal Cannabis</strong> — 1820 Jane St, York · Open Daily 10am - 2am · (942) 288-4633
           </p>
           <Link href="/exotic" className={styles.ctaBtn}>Browse Our Menu</Link>
         </div>

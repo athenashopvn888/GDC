@@ -14,15 +14,15 @@ export interface SeoPageData {
 export const SEO_PAGES: SeoPageData[] = [
   {
     slug: "york-weed-dispensary",
-    title: "York Weed Dispensary — Green Deal Cannabis | 24 Hours | Jane St",
-    metaDescription: "Green Deal Cannabis is York's #1 24-hour weed dispensary at 1820 Jane St, Toronto. 200+ strains, THC up to 34%, edibles, vapes, concentrates & more. Walk in anytime.",
+    title: "York Weed Dispensary — Green Deal Cannabis | 10am - 2am | Jane St",
+    metaDescription: "Green Deal Cannabis is York's #1 weed dispensary at 1820 Jane St, Toronto. Open daily 10am - 2am. 200+ strains, THC up to 34%, edibles, vapes, concentrates & more.",
     h1: "York Weed Dispensary — Green Deal Cannabis",
     icon: "✨",
-    heroTagline: "Premium Cannabis on Jane St · Open 24 Hours · Walk-In Welcome",
+    heroTagline: "Premium Cannabis on Jane St · Open 10am - 2am Daily · Walk-In Welcome",
     sections: [
       {
         heading: "York's Premier Cannabis Destination",
-        body: "Green Deal Cannabis is a premium cannabis dispensary located at 1820 Jane St in the heart of York, Toronto. We carry over 200 hand-picked cannabis strains across five quality tiers — from ultra-rare Exotic genetics with THC up to 34% to affordable Budget flower starting at just $3/g. Whether you're a connoisseur seeking the rarest craft flower or a daily smoker looking for reliable value, Green Deal Cannabis has the perfect option for you. We're proud to be one of York's most trusted dispensaries, serving the community 24 hours a day, 7 days a week.",
+        body: "Green Deal Cannabis is a premium cannabis dispensary located at 1820 Jane St in the heart of York, Toronto. We carry over 200 hand-picked cannabis strains across five quality tiers — from ultra-rare Exotic genetics with THC up to 34% to affordable Budget flower starting at just $3/g. Whether you're a connoisseur seeking the rarest craft flower or a daily smoker looking for reliable value, Green Deal Cannabis has the perfect option for you. We're proud to be one of York's most trusted dispensaries, serving the community from 10 AM to 2 AM daily, 7 days a week.",
       },
       {
         heading: "Five Tiers of Quality Cannabis — Transparent Pricing",
@@ -33,8 +33,8 @@ export const SEO_PAGES: SeoPageData[] = [
         body: "Green Deal Cannabis is more than just a flower shop. We carry a comprehensive selection of cannabis edibles (gummies, chocolates, baked goods), vape pens and disposable vapes, concentrates (shatter, wax, hash, live resin), pre-rolled joints, magic mushrooms, native cigarettes, rolling papers, and accessories. Our live digital menu at greendealcannabis.com updates in real time so you always know exactly what's in stock before you make the trip.",
       },
       {
-        heading: "Open 24 Hours on Jane Street",
-        body: "Unlike most dispensaries in Toronto that close at 11 PM, Green Deal Cannabis is open around the clock — 24 hours a day, 7 days a week, 365 days a year. Whether you're finishing a late shift, heading out for the night, or need something at 3 AM, our doors are always open. We're centrally located at 1820 Jane St in York, steps from Weston Road, easily accessible via TTC bus routes 35 Jane and 89 Weston, and minutes from the Weston GO / UP Express Station. Free street parking is available nearby.",
+        heading: "Open Daily 10am - 2am on Jane Street",
+        body: "Unlike most dispensaries in Toronto that close early, Green Deal Cannabis is open late — from 10 AM to 2 AM daily, 7 days a week, 365 days a year. Whether you're finishing a late shift, heading out for the night, or need something in the evening, our doors are open. We're centrally located at 1820 Jane St in York, steps from Weston Road, easily accessible via TTC bus routes 35 Jane and 89 Weston, and minutes from the Weston GO / UP Express Station. Free street parking is available nearby.",
       },
       {
         heading: "Unbeatable Promotions on Every Purchase",
@@ -42,16 +42,16 @@ export const SEO_PAGES: SeoPageData[] = [
       },
       {
         heading: "Serving York, North York, Etobicoke & Toronto",
-        body: "Green Deal Cannabis proudly serves customers from across the Greater Toronto Area. Whether you're coming from Weston, Mount Dennis, Silverthorn, Humber Heights, Pelham Park, Etobicoke, North York, Vaughan, or central Toronto, we welcome you. Our 24-hour operation means you can visit on your own schedule. Call us at (942) 288-4633 or visit us at 1820 Jane St, York, ON M9N 2T3.",
+        body: "Green Deal Cannabis proudly serves customers from across the Greater Toronto Area. Whether you're coming from Weston, Mount Dennis, Silverthorn, Humber Heights, Pelham Park, Etobicoke, North York, Vaughan, or central Toronto, we welcome you. Our convenient daily schedule means you can visit on your own schedule. Call us at (942) 288-4633 or visit us at 1820 Jane St, York, ON M9N 2T3.",
       },
     ],
     faqs: [
       { q: "Where is Green Deal Cannabis located?", a: "We are located at 1820 Jane St, York, ON M9N 2T3 — in the heart of York, Toronto, near Weston Road and Lawrence Ave West. We're close to the Weston GO Station and TTC routes." },
-      { q: "What are the hours for Green Deal Cannabis?", a: "We are open 24 hours a day, 7 days a week, 365 days a year. Walk in anytime — no appointment needed. Whether it's 2 PM or 2 AM, our staff is here to help." },
+      { q: "What are the hours for Green Deal Cannabis?", a: "We are open from 10 AM to 2 AM daily, 7 days a week, 365 days a year. Walk in anytime during these hours — no appointment needed. Whether it's 2 PM or 1 AM, our staff is here to help." },
       { q: "What cannabis products does Green Deal Cannabis carry?", a: "We carry 200+ strains of cannabis flower across 5 quality tiers (Exotic, Premium, AAA+, AA, Budget), plus edibles, vapes, concentrates, pre-rolls, magic mushrooms, native cigarettes, and accessories. Our menu updates in real time online." },
       { q: "What is the cheapest weed at Green Deal Cannabis?", a: "Our Budget tier starts at $3/g with value ounces from $40. Our AA tier is $4/g. Every tier includes our Buy 2g Get 1g FREE promotion, making our prices even more competitive." },
       { q: "Does Green Deal Cannabis have a live menu?", a: "Yes! Our online menu at greendealcannabis.com updates in real time with current stock, prices, and availability. You can see exactly what we have before you visit." },
-      { q: "What makes Green Deal Cannabis different from other Toronto dispensaries?", a: "Three things set us apart: (1) We're open 24 hours, (2) our transparent 5-tier pricing system means no confusing markups, and (3) every purchase includes our Buy 2g Get 1g FREE promotion. Plus we carry one of Toronto's largest selections with over 200 strains." },
+      { q: "What makes Green Deal Cannabis different from other Toronto dispensaries?", a: "Three things set us apart: (1) We're open from 10 AM to 2 AM daily, (2) our transparent 5-tier pricing system means no confusing markups, and (3) every purchase includes our Buy 2g Get 1g FREE promotion. Plus we carry one of Toronto's largest selections with over 200 strains." },
       { q: "Can I check stock before visiting?", a: "Absolutely. Visit greendealcannabis.com to see our live menu. All flower, edibles, vapes, and accessories are listed with real-time stock status, THC levels, and pricing." },
       { q: "Is there parking near Green Deal Cannabis?", a: "Yes. Free street parking is available nearby on Jane St and surrounding residential streets. We're also easily accessible via TTC." },
     ],
@@ -60,10 +60,10 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     slug: "cheap-weed-york",
     title: "Cheap Weed York — Budget Cannabis Deals From $3/g | Green Deal Cannabis",
-    metaDescription: "Looking for cheap weed in York or Toronto? Green Deal Cannabis has budget flower from $3/g, ounces from $40, and Buy 2g Get 1g FREE promos. Open 24 hours at 1820 Jane St.",
+    metaDescription: "Looking for cheap weed in York or Toronto? Green Deal Cannabis has budget flower from $3/g, ounces from $40, and Buy 2g Get 1g FREE promos. Open daily 10am - 2am at 1820 Jane St.",
     h1: "Cheap Weed York — Budget Cannabis Deals",
     icon: "💰",
-    heroTagline: "Budget Flower From $3/g · Ounces From $40 · Always Open",
+    heroTagline: "Budget Flower From $3/g · Ounces From $40 · Open 10am - 2am Daily",
     sections: [
       {
         heading: "York's Best Prices on Quality Cannabis",
@@ -86,7 +86,7 @@ export const SEO_PAGES: SeoPageData[] = [
       { q: "What is the cheapest weed at Green Deal Cannabis?", a: "Our Budget tier starts at $3/g with value ounces from $40. These are quality, properly-cured strains at York's most competitive prices." },
       { q: "Do you have ounce deals?", a: "Yes! Budget ounces from $40, AA ounces from $90, AAA+ ounces from $100. All with excellent quality, freshness guaranteed, and Buy 2g Get 1g FREE promotions on top." },
       { q: "Is cheap weed still good quality?", a: "Absolutely. Our Budget flower delivers THC 18-22% from trusted Canadian growers. We never sell old, dry, or improperly stored flower. Every product meets our quality standards regardless of price point." },
-      { q: "Where can I buy cheap weed in York?", a: "Green Deal Cannabis at 1820 Jane St, York. Open 24 hours a day, walk in anytime, no appointment needed. We're in the heart of York, Toronto." },
+      { q: "Where can I buy cheap weed in York?", a: "Green Deal Cannabis at 1820 Jane St, York. Open daily 10am - 2am, walk in anytime, no appointment needed. We're in the heart of York, Toronto." },
       { q: "What promotions do you offer?", a: "Every tier includes Buy 2g Get 1g FREE (pay for 2g, get 3g). Our Exotic, Premium, and AAA+ tiers also offer Buy 3g Get 3g FREE (pay for 3g, get 6g). These promos apply on every visit." },
       { q: "Do you offer bulk discounts?", a: "Yes — our ounce pricing is deeply discounted compared to per-gram rates. Budget ounces are $40, AA ounces $90, and AAA+ ounces $100. The more you buy, the more you save." },
     ],
@@ -95,10 +95,10 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     slug: "native-cigarettes-york",
     title: "Native Cigarettes York — Discount Tobacco | Green Deal Cannabis",
-    metaDescription: "Buy native cigarettes in York, Toronto at Green Deal Cannabis. Wide selection of premium and value tobacco brands at the best prices. 1820 Jane St. Open 24/7.",
+    metaDescription: "Buy native cigarettes in York, Toronto at Green Deal Cannabis. Wide selection of premium and value tobacco brands at the best prices. 1820 Jane St. Open 10am - 2am Daily.",
     h1: "Native Cigarettes York — Discount Tobacco",
     icon: "🏷️",
-    heroTagline: "Premium & Value Brands · Best Prices in York · Open 24 Hours",
+    heroTagline: "Premium & Value Brands · Best Prices in York · Open 10am - 2am Daily",
     sections: [
       {
         heading: "York's Best Selection of Native Cigarettes",
@@ -106,7 +106,7 @@ export const SEO_PAGES: SeoPageData[] = [
       },
       {
         heading: "Why York Smokers Choose Green Deal Cannabis",
-        body: "There are three reasons York smokers keep coming back to Green Deal Cannabis for their cigarettes. First, our prices are among the lowest in Toronto — we buy in volume and pass the savings to our customers. Second, our selection is comprehensive — we carry brands and varieties that many other shops simply don't stock. Third, we're open 24 hours a day, 7 days a week. Need cigarettes at midnight? 3 AM? We're here. No other tobacco shop in York offers this level of convenience.",
+        body: "There are three reasons York smokers keep coming back to Green Deal Cannabis for their cigarettes. First, our prices are among the lowest in Toronto — we buy in volume and pass the savings to our customers. Second, our selection is comprehensive — we carry brands and varieties that many other shops simply don't stock. Third, we're open from 10 AM to 2 AM daily, 7 days a week. Need cigarettes in the morning or late at night? We're here. No other tobacco shop in York offers this level of convenience.",
       },
       {
         heading: "Convenient Jane Street Location",
@@ -120,8 +120,8 @@ export const SEO_PAGES: SeoPageData[] = [
     faqs: [
       { q: "Does Green Deal Cannabis sell native cigarettes?", a: "Yes! We carry one of the widest selections of native cigarettes in York, including premium brands, value brands, full-flavour, light, and menthol varieties." },
       { q: "What cigarette brands do you carry?", a: "We stock a comprehensive range of native cigarette brands in multiple varieties. Our selection rotates regularly. Visit us at 1820 Jane St to see our full current inventory and pricing." },
-      { q: "Where can I buy cheap cigarettes in York?", a: "Green Deal Cannabis at 1820 Jane St offers some of the best cigarette prices in York, Toronto. We're open 24 hours so you can shop on your own schedule." },
-      { q: "Are you open late for cigarette purchases?", a: "We're open 24 hours a day, 7 days a week. Whether you need cigarettes at noon or 3 AM, our doors are always open." },
+      { q: "Where can I buy cheap cigarettes in York?", a: "Green Deal Cannabis at 1820 Jane St offers some of the best cigarette prices in York, Toronto. We're open daily from 10 AM to 2 AM so you can shop on your own schedule." },
+      { q: "Are you open late for cigarette purchases?", a: "We're open daily from 10 AM to 2 AM, 7 days a week. Whether you need cigarettes at noon or late at night, our doors are open." },
       { q: "Can I buy cigarettes and cannabis at Green Deal Cannabis?", a: "Absolutely. Green Deal Cannabis is both a fully-licensed cannabis dispensary and a tobacco retailer. Many customers appreciate the convenience of one stop for both products." },
       { q: "Where is Green Deal Cannabis located?", a: "1820 Jane St, York, ON M9N 2T3 — in York, Toronto. Near TTC bus stops, Weston GO Station, with parking available nearby." },
     ],
@@ -130,10 +130,10 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     slug: "weed-delivery-york",
     title: "Weed Delivery York & Toronto — Fast Same-Day Delivery | Green Deal Cannabis",
-    metaDescription: "Looking for weed delivery in York, Etobicoke, or Toronto? Green Deal Cannabis at 1820 Jane St offers fast, same-day delivery. 200+ strains, open 24 hours.",
+    metaDescription: "Looking for weed delivery in York, Etobicoke, or Toronto? Green Deal Cannabis at 1820 Jane St offers fast, same-day delivery. 200+ strains, open daily 10am - 2am.",
     h1: "Weed Delivery York & Toronto — Green Deal Cannabis",
     icon: "🚗",
-    heroTagline: "Fast Same-Day Delivery in York, Etobicoke & Toronto · Open 24 Hours",
+    heroTagline: "Fast Same-Day Delivery in York, Etobicoke & Toronto · Open 10am - 2am Daily",
     sections: [
       {
         heading: "Fast, Professional Cannabis Delivery to Your Door",
@@ -163,11 +163,11 @@ export const SEO_PAGES: SeoPageData[] = [
 
   {
     slug: "dispensary-near-me-york",
-    title: "Cannabis Dispensary Near Me York — Green Deal Cannabis | Open 24 Hours",
-    metaDescription: "Find a cannabis dispensary near you in York or Toronto. Green Deal Cannabis at 1820 Jane St has 200+ strains from $3/g. Open 24 hours. Walk in anytime.",
+    title: "Cannabis Dispensary Near Me York — Green Deal Cannabis | Open 10am - 2am Daily",
+    metaDescription: "Find a cannabis dispensary near you in York or Toronto. Green Deal Cannabis at 1820 Jane St has 200+ strains from $3/g. Open 10am - 2am Daily. Walk in anytime.",
     h1: "Cannabis Dispensary Near Me — York",
     icon: "🗺️",
-    heroTagline: "Walk-In Welcome · Open 24 Hours · 200+ Strains In Stock",
+    heroTagline: "Walk-In Welcome · Open 10am - 2am Daily · 200+ Strains In Stock",
     sections: [
       {
         heading: "Find Premium Cannabis Near You in York",
@@ -175,7 +175,7 @@ export const SEO_PAGES: SeoPageData[] = [
       },
       {
         heading: "Why Choose Green Deal Cannabis Over Other Dispensaries?",
-        body: "What sets Green Deal Cannabis apart from other Toronto dispensaries is our combination of selection, pricing, and convenience. We carry 200+ strains across five clear quality tiers — no confusing markups, no inconsistent pricing. Our Buy 2g Get 1g FREE promotion applies to every tier, every purchase. And unlike most dispensaries that close at midnight, we're open 24 hours a day, 7 days a week. Whether you need flower, edibles, vapes, or concentrates at any hour, Green Deal Cannabis is here.",
+        body: "What sets Green Deal Cannabis apart from other Toronto dispensaries is our combination of selection, pricing, and convenience. We carry 200+ strains across five clear quality tiers — no confusing markups, no inconsistent pricing. Our Buy 2g Get 1g FREE promotion applies to every tier, every purchase. And unlike most dispensaries, we are open daily from 10 AM to 2 AM, 7 days a week. Whether you need flower, edibles, vapes, or concentrates, Green Deal Cannabis is here to serve you during our open hours.",
       },
       {
         heading: "Areas We Serve in Toronto & GTA",
@@ -184,7 +184,7 @@ export const SEO_PAGES: SeoPageData[] = [
     ],
     faqs: [
       { q: "Where is the closest dispensary on Jane St?", a: "Green Deal Cannabis at 1820 Jane St is conveniently located in the heart of York, Toronto — near Weston Rd and Lawrence Ave W. Walk in anytime!" },
-      { q: "Is Green Deal Cannabis walk-in friendly?", a: "Absolutely! No appointment needed. Walk in anytime — we're open 24 hours a day, 7 days a week. Our friendly staff is always ready to help." },
+      { q: "Is Green Deal Cannabis walk-in friendly?", a: "Absolutely! No appointment needed. Walk in anytime during our business hours — we're open daily from 10 AM to 2 AM, 7 days a week. Our friendly staff is always ready to help." },
       { q: "What neighbourhoods does Green Deal Cannabis serve?", a: "We serve all of York, North York, Etobicoke, Toronto, and Vaughan, with both in-store shopping and fast same-day weed delivery." },
       { q: "How do I check what's in stock?", a: "Visit greendealcannabis.com for our live menu with real-time stock, pricing, and THC levels for all products." },
       { q: "Do you sell edibles and vapes?", a: "Yes! In addition to 200+ flower strains, we carry edibles (gummies, chocolates), vape pens, disposable vapes, concentrates, pre-rolls, and accessories." },

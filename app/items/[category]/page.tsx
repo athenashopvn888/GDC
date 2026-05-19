@@ -117,7 +117,7 @@ export default async function ItemsCategoryPage({
           <div className={styles.visitCta}>
             <h3 className={styles.visitTitle}>Visit Green Deal Cannabis</h3>
             <p className={styles.visitText}>
-              1820 Jane St, York, ON M9N 2T3 · Open 24 Hours
+              1820 Jane St, York, ON M9N 2T3 · Open Daily 10am - 2am
             </p>
             <a
               href="https://maps.app.goo.gl/yVDY1PZ8qSwAjQ6s6"

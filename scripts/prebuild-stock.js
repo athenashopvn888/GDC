@@ -9,6 +9,22 @@
 const fs = require('fs');
 const path = require('path');
 
+// Manually load .env.local if present
+const envPath = path.join(__dirname, '..', '.env.local');
+if (fs.existsSync(envPath)) {
+  const envContent = fs.readFileSync(envPath, 'utf-8');
+  envContent.split(/\r?\n/).forEach((line) => {
+    const parts = line.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/);
+    if (parts) {
+      const key = parts[1];
+      let val = parts[2] || '';
+      if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
+      else if (val.startsWith("'") && val.endsWith("'")) val = val.slice(1, -1);
+      process.env[key] = val.trim();
+    }
+  });
+}
+
 const APPS_SCRIPT_URL = process.env.APPS_SCRIPT_URL || '';
 const FLOWERS_PATH = path.join(__dirname, '..', 'app', 'lib', 'flowers.json');
 const ITEMS_PATH = path.join(__dirname, '..', 'app', 'lib', 'items.json');

@@ -597,7 +597,12 @@ export default function TVMenuPage() {
   const [addOns, setAddOns] = useState<Item[]>([]);
   const [highlights, setHighlights] = useState<Record<string,number>>({});
   const [lastUpdate, setLastUpdate] = useState("");
+  const [isMounted, setIsMounted] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const TIERS = ["EXOTIC","PREMIUM","AAA+","AA","BUDGET"];
 
@@ -686,23 +691,25 @@ export default function TVMenuPage() {
   return (
     <div className={styles.tvPage}>
       {/* Floating particles */}
-      <div className={styles.particles}>
-        {Array.from({length: 25}, (_, i) => {
-          const size = 4 + Math.random() * 8;
-          const colors = ['rgba(220,38,38,.12)','rgba(245,158,11,.10)','rgba(59,130,246,.10)','rgba(16,185,129,.08)','rgba(168,85,247,.08)'];
-          const color = colors[i % colors.length];
-          return (
-            <span key={i} className={styles.dot} style={{
-              width: size, height: size,
-              left: `${5 + Math.random() * 90}%`,
-              background: color,
-              boxShadow: `0 0 ${size*3}px ${color}`,
-              animationDuration: `${18 + Math.random() * 22}s`,
-              animationDelay: `${-Math.random() * 25}s`,
-            }} />
-          );
-        })}
-      </div>
+      {isMounted && (
+        <div className={styles.particles}>
+          {Array.from({length: 25}, (_, i) => {
+            const size = 4 + Math.random() * 8;
+            const colors = ['rgba(220,38,38,.12)','rgba(245,158,11,.10)','rgba(59,130,246,.10)','rgba(16,185,129,.08)','rgba(168,85,247,.08)'];
+            const color = colors[i % colors.length];
+            return (
+              <span key={i} className={styles.dot} style={{
+                width: size, height: size,
+                left: `${5 + Math.random() * 90}%`,
+                background: color,
+                boxShadow: `0 0 ${size*3}px ${color}`,
+                animationDuration: `${18 + Math.random() * 22}s`,
+                animationDelay: `${-Math.random() * 25}s`,
+              }} />
+            );
+          })}
+        </div>
+      )}
       <div className={styles.wrap} ref={wrapRef}>
 
         {/* TV BANNER */}
