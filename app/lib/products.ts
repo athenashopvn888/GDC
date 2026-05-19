@@ -170,7 +170,7 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
     ],
   },
   "VAPE PENS": {
-      banner: "/banners/Green Deal Cannabis_THC_Vape.webp",
+      banner: "/banners/GreenDeal_Nic_Vape.webp",
     name: "THC Vape", slug: "vapes", color: "#8b5cf6", icon: "💨",
     seoTitle: "Vape Pens York — THC & Nicotine Cartridges",
     seoIntro: "Shop THC and nicotine vape pens at Green Deal Cannabis, York. Cartridges, 510-thread batteries, and premium vape brands — all in stock.",
@@ -181,7 +181,7 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
     ],
   },
   "VAPE DISPOSABLE": {
-      banner: "/banners/GreenDeal_Nic_Vape.webp",
+      banner: "/banners/Green Deal Cannabis_THC_Vape.webp",
     name: "Nic Vape", slug: "vape-disposables", color: "#a78bfa", icon: "💨",
     seoTitle: "Disposable Vapes York — THC Disposable Pens",
     seoIntro: "THC disposable vapes available at Green Deal Cannabis, York. No charging, no refilling — just open and enjoy.",
