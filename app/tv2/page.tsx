@@ -63,8 +63,24 @@ function ItemCard({ title, accent, items, hiIdx, preset }: {
         <div className={styles.mediaSide}>
           <div className={styles.mediaFrame}>
             <div className={styles.mediaViewport}>
-              {prevImg && <img src={prevImg} alt="" className={`${styles.budImg} ${styles.budImgFadeOut}`} referrerPolicy="no-referrer" />}
-              {fadeImg && <img key={fadeImg} src={fadeImg} alt={hi?.name||""} className={`${styles.budImg} ${styles.budImgFadeIn}`} referrerPolicy="no-referrer" />}
+              {prevImg && <img src={prevImg} alt="" className={`${styles.budImg} ${styles.budImgFadeOut}`} referrerPolicy="no-referrer" 
+            onError={(e) => {
+              const t = e.currentTarget;
+              if (t.src.indexOf('r2.dev') !== -1 || t.src.indexOf('images.torontodispensaryhub.com') !== -1) {
+                const filename = t.src.split('/').pop();
+                t.src = 'https://athena-cannabis-images.vercel.app/products/' + filename;
+              }
+            }}
+          />}
+              {fadeImg && <img key={fadeImg} src={fadeImg} alt={hi?.name||""} className={`${styles.budImg} ${styles.budImgFadeIn}`} referrerPolicy="no-referrer" 
+            onError={(e) => {
+              const t = e.currentTarget;
+              if (t.src.indexOf('r2.dev') !== -1 || t.src.indexOf('images.torontodispensaryhub.com') !== -1) {
+                const filename = t.src.split('/').pop();
+                t.src = 'https://athena-cannabis-images.vercel.app/products/' + filename;
+              }
+            }}
+          />}
             </div>
           </div>
           <div className={styles.detailCard}>
@@ -211,15 +227,31 @@ export default function TV2Page() {
   return (
     <div className={styles.tvPage}>
       <div className={styles.wrap} ref={wrapRef}>
-        {/* TV BANNER */}
-        <div style={{margin:"-40px -40px 30px -40px", width:"calc(100% + 80px)"}}>
-          <img src="/banners/26_Mohawk_ItemTV.webp" alt="Mohawk Medicine Items TV Menu" style={{width:"100%",display:"block"}} />
-        </div>
+        
         {/* GRID */}
         <div className={styles.stage}>
           <div className={styles.grid}>
             {CARD_CONFIG.map(card => {
               const filtered = items.filter(card.filter);
+
+              if (card.id === "CIGARETTES" && daytime) {
+                return (
+                  <div key={card.id} className={styles.card} style={{"--accent":card.accent} as React.CSSProperties}>
+                    <div className={styles.cardHeader}>PROMO</div>
+                    <div className={styles.promoMain}>
+                      <div className={styles.promoViewport}>
+                        <img
+                          className={`${styles.promoImg} ${styles.promoActive}`}
+                          src="/banners/cig-poster-1.png"
+                          alt="Cigarettes Promo"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
               return (
                 <ItemCard key={card.id} title={card.title} accent={card.accent}
                   items={filtered} hiIdx={highlights[card.id]||0} preset={card.preset} />
@@ -227,7 +259,7 @@ export default function TV2Page() {
             })}
           </div>
         </div>
-        <VerticalTicker />
+        
       </div>
       <div className={styles.lastUpdated}>Updated: {lastUpdate}</div>
     </div>
