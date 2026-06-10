@@ -4,13 +4,16 @@ import Footer from "../components/Footer";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Green Deal Cannabis | 1820 Jane St, York",
+  title: "Contact Us — Green Deal Cannabis | 1664 Jane St, York",
   description:
-    "Visit Green Deal Cannabis at 1820 Jane St, York, ON M9N 2T3. Open daily 10am - 2am. Walk-ins welcome.",
+    "Visit Green Deal Cannabis at 1664 Jane St, York, ON M9N 2S1. Open daily 10am - 2am. Walk-ins welcome.",
+  alternates: {
+    canonical: "https://greendealcannabis.com/contact",
+  },
   openGraph: {
     title: "Contact Green Deal Cannabis — York Dispensary",
     description:
-      "1820 Jane St, York. Open daily 10am - 2am. Premium cannabis, always fire.",
+      "1664 Jane St, York. Open daily 10am - 2am. Premium cannabis, always fire.",
   },
 };
 

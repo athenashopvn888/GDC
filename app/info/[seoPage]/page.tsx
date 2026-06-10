@@ -25,6 +25,9 @@ export async function generateMetadata({
   return {
     title: page.title,
     description: page.metaDescription,
+    alternates: {
+      canonical: `https://greendealcannabis.com/info/${slug}`,
+    },
   };
 }
 

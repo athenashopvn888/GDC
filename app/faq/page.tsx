@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "FAQ — Green Deal Cannabis | York Dispensary Questions",
   description:
     "Frequently asked questions about Green Deal Cannabis in York. Hours, location, products, pricing, promotions, and everything you need to know before visiting.",
+  alternates: {
+    canonical: "https://greendealcannabis.com/faq",
+  },
 };
 
 const FAQ_CATEGORIES = [
