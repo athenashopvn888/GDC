@@ -149,6 +149,9 @@ export default function HomePage() {
     <main className={styles.main}>
       {/* ── NAVBAR ── */}
       <Navbar />
+      <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", border: 0 }}>
+        Green Deal Cannabis — Premium Etobicoke Cannabis Dispensary
+      </h1>
 
       {/* ── HERO BANNER ── */}
       <section className={styles.hero} id="hero" style={{ paddingTop: "92px", paddingBottom: "24px", minHeight: "auto", display: "block" }}>
