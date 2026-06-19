@@ -25,7 +25,7 @@ export const gbpLocation = {
   ],
   menuUrl: "/",
   directionsUrl: "https://maps.google.com/?q=1820+Jane+St,+York,+ON+M9N+2T3",
-  mapEmbedUrl: "https://maps.google.com/maps?q=Green%20Deal%20Cannabis%201820%20Jane%20St%2C%20York%2C%20ON%20M9N%202T3&t=&z=15&ie=UTF8&iwloc=&output=embed",
+  mapEmbedUrl: "https://maps.google.com/maps?q=1820%20Jane%20St%2C%20York%2C%20ON%20M9N%202T3&t=&z=15&ie=UTF8&iwloc=&output=embed",
   latitude: "43.7003889",
   longitude: "-79.5042654",
   hours: ["Open 24 Hours"],
