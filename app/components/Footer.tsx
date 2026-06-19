@@ -75,6 +75,7 @@ export default function Footer() {
               <Link href="/info/native-cigarettes-york">Native Cigarettes</Link>
               <Link href="/info/weed-delivery-york">Weed Delivery York</Link>
               <Link href="/info/dispensary-near-me-york">Dispensary Near Me</Link>
+              <Link href="/weed-dispensary-york/">Green Deal Cannabis Weed Dispensary in York</Link>
               <Link href="/contact">Contact Us</Link>
               <a
                 href="https://maps.app.goo.gl/yVDY1PZ8qSwAjQ6s6"
