@@ -120,14 +120,6 @@ export default async function ItemsCategoryPage({
             <p className={styles.visitText}>
               1820 Jane St, York, ON M9N 2T3 · Open Daily 10am - 2am
             </p>
-            <a
-              href="https://maps.app.goo.gl/yVDY1PZ8qSwAjQ6s6"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.visitBtn}
-            >
-              📍 Get Directions
-            </a>
           </div>
         </div>
       </section>

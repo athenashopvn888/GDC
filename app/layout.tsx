@@ -100,19 +100,9 @@ const jsonLd = {
       closes: "02:00",
     },
   ],
-  sameAs: [
-    "https://maps.google.com/?q=1820+Jane+St,+York,+ON+M9N+2T3",
-  ],
-  hasMap: "https://maps.google.com/?q=1820+Jane+St,+York,+ON+M9N+2T3",
   areaServed: {
     "@type": "City",
     name: "York",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "15",
-    bestRating: "5",
   },
 };
 

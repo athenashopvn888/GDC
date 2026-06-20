@@ -345,14 +345,6 @@ export default function HomePage() {
                 <br />
                 York, ON M9N 2T3
                 <br />
-                <a
-                  href="https://www.google.com/maps/dir//1820+Jane+St,+York,+ON+M9N+2T3"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.storeLink}
-                >
-                  Get Directions →
-                </a>
               </p>
             </div>
             <div className={styles.storeCard}>
@@ -379,16 +371,6 @@ export default function HomePage() {
 
           {/* Embedded map */}
           <div className={styles.mapWrap}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.092461947844!2d-79.5042654!3d43.7003889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3621e24b7bd7%3A0x1d36a6a68f11a41d!2s1820+Jane+St%2C+York%2C+ON+M9N+2T3!5e0!3m2!1sen!2sca"
-              width="100%"
-              height="300"
-              style={{ border: 0, borderRadius: "var(--radius-lg)" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Green Deal Cannabis — 1820 Jane St, York"
-            ></iframe>
           </div>
         </div>
       </section>
