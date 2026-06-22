@@ -37,8 +37,8 @@ export const SEO_PAGES: SeoPageData[] = [
         body: "Unlike most dispensaries in Toronto that close early, Green Deal Cannabis is open late — from 10 AM to 2 AM daily, 7 days a week, 365 days a year. Whether you're finishing a late shift, heading out for the night, or need something in the evening, our doors are open. We're centrally located at 1820 Jane St in York, steps from Weston Road, easily accessible via TTC bus routes 35 Jane and 89 Weston, and minutes from the Weston GO / UP Express Station. Free street parking is available nearby.",
       },
       {
-        heading: "Unbeatable Promotions on Every Purchase",
-        body: "Every purchase at Green Deal Cannabis comes with our signature promotions. Our Buy 2g Get 1g FREE deal applies to every single tier — you always get a bonus gram. Our top three tiers (Exotic, Premium, and AAA+) also qualify for Buy 3g Get 3g FREE, effectively doubling your order. Combined with our already competitive pricing, Green Deal Cannabis offers some of the best cannabis value in York, North York, and the surrounding Toronto area.",
+        heading: "Clear Bundle Pricing on Flower",
+        body: "Every purchase at Green Deal Cannabis uses clear flower bundle pricing. The 3g bundle offer applies to every single tier — the 3g total is shown clearly before purchase. Our top three tiers (Exotic, Premium, and AAA+) also qualify for 6g bundle pricing for 6g total. Combined with our already competitive pricing, Green Deal Cannabis offers some of the best cannabis value in York, North York, and the surrounding Toronto area.",
       },
       {
         heading: "Serving York, North York, Etobicoke & Toronto",
@@ -49,9 +49,9 @@ export const SEO_PAGES: SeoPageData[] = [
       { q: "Where is Green Deal Cannabis located?", a: "We are located at 1820 Jane St, York, ON M9N 2T3 — in the heart of York, Toronto, near Weston Road and Lawrence Ave West. We're close to the Weston GO Station and TTC routes." },
       { q: "What are the hours for Green Deal Cannabis?", a: "We are open from 10 AM to 2 AM daily, 7 days a week, 365 days a year. Walk in anytime during these hours — no appointment needed. Whether it's 2 PM or 1 AM, our staff is here to help." },
       { q: "What cannabis products does Green Deal Cannabis carry?", a: "We carry 200+ strains of cannabis flower across 5 quality tiers (Exotic, Premium, AAA+, AA, Budget), plus edibles, vapes, concentrates, pre-rolls, native cigarettes, and accessories. Our menu updates in real time online." },
-      { q: "What is the cheapest weed at Green Deal Cannabis?", a: "Our Budget tier starts at $3/g with value ounces from $40. Our AA tier is $4/g. Every tier includes our Buy 2g Get 1g FREE promotion, making our prices even more competitive." },
+      { q: "What is the cheapest weed at Green Deal Cannabis?", a: "Our Budget tier starts at $3/g with value ounces from $40. Our AA tier is $4/g. The flower menu includes 3g bundle pricing, making our prices even more competitive." },
       { q: "Does Green Deal Cannabis have a live menu?", a: "Yes! Our online menu at greendealcannabis.com updates in real time with current stock, prices, and availability. You can see exactly what we have before you visit." },
-      { q: "What makes Green Deal Cannabis different from other Toronto dispensaries?", a: "Three things set us apart: (1) We're open from 10 AM to 2 AM daily, (2) our transparent 5-tier pricing system means no confusing markups, and (3) every purchase includes our Buy 2g Get 1g FREE promotion. Plus we carry one of Toronto's largest selections with over 200 strains." },
+      { q: "What makes Green Deal Cannabis different from other Toronto dispensaries?", a: "Three things set us apart: (1) We're open from 10 AM to 2 AM daily, (2) our transparent 5-tier pricing system means no confusing markups, and (3) the flower menu includes 3g bundle pricing. Plus we carry one of Toronto's largest selections with over 200 strains." },
       { q: "Can I check stock before visiting?", a: "Absolutely. Visit greendealcannabis.com to see our live menu. All flower, edibles, vapes, and accessories are listed with real-time stock status, THC levels, and pricing." },
       { q: "Is there parking near Green Deal Cannabis?", a: "Yes. Free street parking is available nearby on Jane St and surrounding residential streets. We're also easily accessible via TTC." },
     ],
@@ -60,7 +60,7 @@ export const SEO_PAGES: SeoPageData[] = [
   {
     slug: "cheap-weed-york",
     title: "Cheap Weed York — Budget Cannabis Deals From $3/g | Green Deal Cannabis",
-    metaDescription: "Looking for cheap weed in York or Toronto? Green Deal Cannabis has budget flower from $3/g, ounces from $40, and Buy 2g Get 1g FREE promos. Open daily 10am - 2am at 1820 Jane St.",
+    metaDescription: "Looking for cheap weed in York or Toronto? Green Deal Cannabis has budget flower from $3/g, ounces from $40, and 3g bundle pricing. Open daily 10am - 2am at 1820 Jane St.",
     h1: "Cheap Weed York — Budget Cannabis Deals",
     icon: "💰",
     heroTagline: "Budget Flower From $3/g · Ounces From $40 · Open 10am - 2am Daily",
@@ -70,8 +70,8 @@ export const SEO_PAGES: SeoPageData[] = [
         body: "Looking for cheap weed in York without sacrificing quality? Green Deal Cannabis offers some of the most competitive cannabis prices in Toronto. Our Budget tier starts at just $3/g with value ounces from $40. Our AA tier ($4/g) and AAA+ tier ($5-$6/g) also deliver incredible value with THC levels from 22% to 28%. We believe great cannabis shouldn't break the bank, and our transparent tier-based pricing ensures you always get exactly what you pay for — no hidden markups, no gimmicks.",
       },
       {
-        heading: "Unbeatable Promotions That Stack",
-        body: "Every tier at Green Deal Cannabis comes with our signature Buy 2g Get 1g FREE promotion — meaning you always get a free gram with every purchase. Our top three tiers (Exotic, Premium, AAA+) also offer Buy 3g Get 3g FREE, effectively doubling your order. When you combine our already low prices with these promos, Green Deal Cannabis delivers the best cannabis value in York. A $15 AAA+ 3g purchase actually gets you 6g of flower — that's just $2.50/g for THC 22%+ cannabis.",
+        heading: "Flower Bundle Pricing",
+        body: "Every tier at Green Deal Cannabis uses clear 3g bundle pricing so the total grams and price are shown before purchase. Our top three tiers (Exotic, Premium, AAA+) also offer 6g bundle pricing for 6g total. When you combine our already low prices with these bundle offers, Green Deal Cannabis delivers the best cannabis value in York. A $15 AAA+ 3g purchase actually gets you 6g of flower — that's just $2.50/g for THC 22%+ cannabis.",
       },
       {
         heading: "Budget Doesn't Mean Low Quality",
@@ -79,15 +79,15 @@ export const SEO_PAGES: SeoPageData[] = [
       },
       {
         heading: "Compare Our Prices",
-        body: "Budget: $3/g — $40/oz. AA: $4/g — $90/oz. AAA+: $5-$6/g — $100/oz. Premium: $7-$10/g. Exotic: $10-$12/g. Every tier includes Buy 2g Get 1g FREE. Top tiers include Buy 3g Get 3g FREE. These are some of the lowest prices you'll find at any dispensary in York, Weston, North York, or the Greater Toronto Area.",
+        body: "Budget: $3/g — $40/oz. AA: $4/g — $90/oz. AAA+: $5-$6/g — $100/oz. Premium: $7-$10/g. Exotic: $10-$12/g. Every tier includes 3g bundle pricing. Top tiers include 6g bundle pricing. These are some of the lowest prices you'll find at any dispensary in York, Weston, North York, or the Greater Toronto Area.",
       },
     ],
     faqs: [
       { q: "What is the cheapest weed at Green Deal Cannabis?", a: "Our Budget tier starts at $3/g with value ounces from $40. These are quality, properly-cured strains at York's most competitive prices." },
-      { q: "Do you have ounce deals?", a: "Yes! Budget ounces from $40, AA ounces from $90, AAA+ ounces from $100. All with excellent quality, freshness guaranteed, and Buy 2g Get 1g FREE promotions on top." },
+      { q: "Do you have ounce deals?", a: "Yes! Budget ounces from $40, AA ounces from $90, AAA+ ounces from $100. All with excellent quality, freshness guaranteed, and 3g bundle pricing on top." },
       { q: "Is cheap weed still good quality?", a: "Absolutely. Our Budget flower delivers THC 18-22% from trusted Canadian growers. We never sell old, dry, or improperly stored flower. Every product meets our quality standards regardless of price point." },
       { q: "Where can I buy cheap weed in York?", a: "Green Deal Cannabis at 1820 Jane St, York. Open daily 10am - 2am, walk in anytime, no appointment needed. We're in the heart of York, Toronto." },
-      { q: "What promotions do you offer?", a: "Every tier includes Buy 2g Get 1g FREE (pay for 2g, get 3g). Our Exotic, Premium, and AAA+ tiers also offer Buy 3g Get 3g FREE (pay for 3g, get 6g). These promos apply on every visit." },
+      { q: "What bundle pricing do you offer?", a: "Every tier includes 3g bundle pricing (pay for 3g total). Our Exotic, Premium, and AAA+ tiers also offer 6g bundle pricing (pay for 6g total). These bundle offers apply on every visit." },
       { q: "Do you offer bulk discounts?", a: "Yes — our ounce pricing is deeply discounted compared to per-gram rates. Budget ounces are $40, AA ounces $90, and AAA+ ounces $100. The more you buy, the more you save." },
     ],
   },
@@ -141,7 +141,7 @@ export const SEO_PAGES: SeoPageData[] = [
       },
       {
         heading: "Why Order Delivery From Green Deal Cannabis?",
-        body: "We offer the same incredible menu and pricing for delivery as we do for walk-ins. Choose from over 200 strains across our five quality tiers — from cheap $3/g Budget flower to connoisseur-grade $10-$12/g Exotics. Our Buy 2g Get 1g FREE and Buy 3g Get 3g FREE promotions also apply to delivery orders, so you never miss out on our legendary deals.",
+        body: "We offer the same incredible menu and pricing for delivery as we do for walk-ins. Choose from over 200 strains across our five quality tiers — from cheap $3/g Budget flower to connoisseur-grade $10-$12/g Exotics. Our 3g bundle pricing and 6g bundle pricing also apply to delivery orders, so you never miss out on our legendary deals.",
       },
       {
         heading: "Fast Same-Day Service & Convenient Payment Options",
@@ -155,7 +155,7 @@ export const SEO_PAGES: SeoPageData[] = [
     faqs: [
       { q: "How fast is weed delivery from Green Deal Cannabis?", a: "We offer fast, same-day delivery. Delivery times vary depending on your location and order volume, but most orders are delivered within 1 to 2 hours." },
       { q: "Do you deliver cannabis to Etobicoke and North York?", a: "Yes! We deliver across York, North York, Etobicoke, Vaughan, and many other areas in Toronto. Check our live menu to confirm delivery to your postal code." },
-      { q: "What promotions apply to weed delivery?", a: "All of our store promotions apply! You get Buy 2g Get 1g FREE on all tiers, and Buy 3g Get 3g FREE on Exotic, Premium, and AAA+ tiers. Order online and get the same great value." },
+      { q: "What promotions apply to weed delivery?", a: "All of our store promotions apply! You get 3g bundle pricing on all tiers, and 6g bundle pricing on Exotic, Premium, and AAA+ tiers. Order online and get the same great value." },
       { q: "What are the hours for weed delivery?", a: "We take delivery orders during our operational hours. Check greendealcannabis.com/delivery for the current delivery schedule and cut-off times." },
       { q: "Is weed delivery discreet?", a: "Yes. All delivery orders are packaged securely and discreetly in plain packaging. Our drivers are professional, polite, and maintain your privacy." },
     ],
@@ -175,7 +175,7 @@ export const SEO_PAGES: SeoPageData[] = [
       },
       {
         heading: "Why Choose Green Deal Cannabis Over Other Dispensaries?",
-        body: "What sets Green Deal Cannabis apart from other Toronto dispensaries is our combination of selection, pricing, and convenience. We carry 200+ strains across five clear quality tiers — no confusing markups, no inconsistent pricing. Our Buy 2g Get 1g FREE promotion applies to every tier, every purchase. And unlike most dispensaries, we are open daily from 10 AM to 2 AM, 7 days a week. Whether you need flower, edibles, vapes, or concentrates, Green Deal Cannabis is here to serve you during our open hours.",
+        body: "What sets Green Deal Cannabis apart from other Toronto dispensaries is our combination of selection, pricing, and convenience. We carry 200+ strains across five clear quality tiers — no confusing markups, no inconsistent pricing. Our 3g bundle pricing applies to every tier, every purchase. And unlike most dispensaries, we are open daily from 10 AM to 2 AM, 7 days a week. Whether you need flower, edibles, vapes, or concentrates, Green Deal Cannabis is here to serve you during our open hours.",
       },
       {
         heading: "Areas We Serve in Toronto & GTA",
