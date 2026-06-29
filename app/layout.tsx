@@ -4,11 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://greendealcannabis.com"),
   title: {
-    default: "Green Deal Cannabis — Premium Cannabis Dispensary, York",
+    default: "Green Deal Cannabis | Jane St Dispensary",
     template: "%s | Green Deal Cannabis",
   },
   description:
-    "Shop 200+ premium cannabis strains at Green Deal Cannabis. Exotic, Premium, AAA+, AA & Budget flower from $3/g. York's uplifting dispensary at 1820 Jane St. Open 10AM - 2AM.",
+    "Green Deal Cannabis is a cannabis dispensary on Jane St with adult 19+ store info and category browsing for flower, pre-rolls, vapes, edibles, concentrates, and accessories. Open 10AM - 2AM.",
   keywords: [
     "cannabis dispensary York",
     "weed store York",
