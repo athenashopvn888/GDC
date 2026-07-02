@@ -25,7 +25,7 @@ export const STORE_BLOG_CONFIG = {
   storeCode: "GDC01",
   storeName: "Green Deal Cannabis",
   city: "York",
-  domain: "greendealcannabis.com",
+  domain: "www.greendealcannabis.com",
   storePath: "/weed-dispensary-york",
 };
 
