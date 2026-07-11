@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.grid}>
-          {/* Column 1 — Store Description */}
+          {/* Column 1 â€” Store Description */}
           <div className={styles.col}>
             <div className={styles.brand}>
               GREEN DEAL CANNABIS
@@ -26,7 +26,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2 — Contact Info */}
+          {/* Column 2 â€” Contact Info */}
           <div className={styles.col}>
             <h3 className={styles.colTitle}>Contact Info</h3>
             <div className={styles.infoBlock}>
@@ -45,7 +45,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 3 — Quick Links */}
+          {/* Column 3 â€” Quick Links */}
           <div className={styles.col}>
             <h3 className={styles.colTitle}>Quick Links</h3>
             <nav className={styles.links}>
@@ -62,7 +62,6 @@ export default function Footer() {
               <Link href="/blog/green-deal-cannabis-local-visit-guide-2026">Local Visit Guide</Link>
               <Link href="/faq">FAQ</Link>
               <Link href="/delivery">Delivery (Coming Soon)</Link>
-              <Link href="/games">Games Arcade</Link>
               <Link href="/info/york-weed-dispensary">York Dispensary</Link>
               <Link href="/info/cheap-weed-york">Cheap Weed York</Link>
               <Link href="/info/native-cigarettes-york">Native Cigarettes</Link>
@@ -76,7 +75,7 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <p>
-            © {new Date().getFullYear()} Green Deal Cannabis. Must be 19+ to
+            Â© {new Date().getFullYear()} Green Deal Cannabis. Must be 19+ to
             enter. Please consume responsibly.
           </p>
         </div>

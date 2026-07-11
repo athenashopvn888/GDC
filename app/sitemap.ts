@@ -1,4 +1,4 @@
-import type { MetadataRoute } from "next";
+﻿import type { MetadataRoute } from "next";
 import {TIER_CONFIG, CATEGORY_CONFIG, allFlowers, allItems} from "./lib/products";
 import { SEO_PAGES } from "./lib/seoPages";
 import { STATIC_POSTS } from "./blog/staticPosts";
@@ -15,7 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/delivery`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE}/games`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
   ];
 
   /* Tier pages */

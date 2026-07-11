@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -18,10 +18,9 @@ const ALL_LINKS = [
   { href: "/items/magic", label: "Magic Stuff" },
   { href: "/items/cigarettes", label: "Cigarettes" },
   { href: "/items/add-ons", label: "Accessories" },
-  { href: "/delivery", label: "🚗 Delivery" },
+  { href: "/delivery", label: "ðŸš— Delivery" },
   { href: "/faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },
-  { href: "/games", label: "🎮" },
 ];
 
 export default function Navbar() {
@@ -29,18 +28,15 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar} id="main-nav">
-      {/* Top bar — logo + open now */}
+      {/* Top bar â€” logo + open now */}
       <div className={styles.topBar}>
         <Link href="/" className={styles.logo}>
           <img src="/icon.png" alt="Green Deal Cannabis" className={styles.logoImage} />
           <span className={styles.brand}>
-            Green
+            Green Deal
           </span>
         </Link>
         <div className={styles.topBarRight}>
-          <Link href="/games" className={styles.gamesBtn}>
-            🎮 Play Games
-          </Link>
           <span className={styles.open}>
             <span className={styles.dot}></span>
             Open Now

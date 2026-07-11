@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import styles from "./tv.module.css";
@@ -23,7 +23,7 @@ const TIER_ACCENT: Record<string,string> = {
   AA:"#ea580c", BUDGET:"#16a34a", OZ:"#db2777"
 };
 const TIER_CROWN: Record<string,string> = {
-  EXOTIC:"👑", PREMIUM:"👑", "AAA+":"👑", AA:"🏅", BUDGET:"💰", OZ:"🎯"
+  EXOTIC:"ðŸ‘‘", PREMIUM:"ðŸ‘‘", "AAA+":"ðŸ‘‘", AA:"ðŸ…", BUDGET:"ðŸ’°", OZ:"ðŸŽ¯"
 };
 const TIER_UNIT: Record<string,string> = {
   EXOTIC:"$20/G", PREMIUM:"$15/G", "AAA+":"$10/G", AA:"$5/G", BUDGET:"$3.33/G"
@@ -66,9 +66,9 @@ function TypeTag({ type }: { type: string }) {
 
 /* -- Vibe card -- */
 const VIBE_MAP: Record<string, [string,string][]> = {
-  indica: [["🛋️","Couch Lock"],["😌","Relax"],["🌙","Sleepy"]],
-  sativa: [["⚡","Energy"],["🧠","Cerebral"],["🚀","Uplift"]],
-  hybrid: [["🧘","Balance"],["🌿","Calm"],["✨","Creative"]],
+  indica: [["ðŸ›‹ï¸","Couch Lock"],["ðŸ˜Œ","Relax"],["ðŸŒ™","Sleepy"]],
+  sativa: [["âš¡","Energy"],["ðŸ§ ","Cerebral"],["ðŸš€","Uplift"]],
+  hybrid: [["ðŸ§˜","Balance"],["ðŸŒ¿","Calm"],["âœ¨","Creative"]],
 };
 function VibeCard({ type }: { type: string }) {
   const t = type?.toLowerCase();
@@ -111,7 +111,7 @@ function cleanName(name: string): string {
    SLOT RESERVATION SYSTEM (matches original TVMenu.html)
    ============================================================
    Each tier shows max 10 rows at a time with reserved slots:
-   SALE (max 2) → TOP PICK (max 1) → MUST TRY (max 1) → SATIVA (max 3) → INDICA (fills rest)
+   SALE (max 2) â†’ TOP PICK (max 1) â†’ MUST TRY (max 1) â†’ SATIVA (max 3) â†’ INDICA (fills rest)
    Products rotate through their bucket windows over time.
    ============================================================ */
 const MAX_VIS = 10;
@@ -140,7 +140,7 @@ function buildSlotWindow(flowers: Flower[], hiIdx: number): { vis: Flower[]; hiW
     else indAll.push(f);
   }
 
-  // 2) Only first 1 TOP / 1 MUST — extras fall back to SAT/IND by type
+  // 2) Only first 1 TOP / 1 MUST â€” extras fall back to SAT/IND by type
   const topWin = topAll.slice(0, CAP_TOP);
   for (const r of topAll.slice(CAP_TOP)) {
     (r.type === "sativa" ? satAll : indAll).push(r);
@@ -193,7 +193,7 @@ function buildSlotWindow(flowers: Flower[], hiIdx: number): { vis: Flower[]; hiW
     ? Array.from({length: indCap}, (_, i) => indAll[(indOff + i) % indAll.length])
     : indAll.slice(0, indCap);
 
-  // 4) Assemble in fixed order: SALE → TOP → MUST → SAT → IND
+  // 4) Assemble in fixed order: SALE â†’ TOP â†’ MUST â†’ SAT â†’ IND
   const vis = [...saleWin, ...topWin, ...mustWin, ...satWin, ...indWin].slice(0, MAX_VIS);
 
   // 5) Highlight within the visible window
@@ -237,7 +237,7 @@ function FlowerCard({
       {/* HEADER */}
       <div className={`${styles.cardHeader} ${isTop3 ? styles.headerSheen : ""}`}
         style={{ background:`linear-gradient(180deg, ${accent} 0%, color-mix(in srgb, ${accent} 82%, #000 18%) 100%)` }}>
-        <span className={styles.tierCrown}>{TIER_CROWN[tier]||"🌿"}</span>
+        <span className={styles.tierCrown}>{TIER_CROWN[tier]||"ðŸŒ¿"}</span>
         <span className={styles.headerTitle}>
           {isTop3 ? (
             <div className={styles.dealScroller}>
@@ -306,9 +306,9 @@ function FlowerCard({
             <div className={styles.detailName}>{hi?.name || ""}</div>
             <div className={styles.detailMeta}>
               {hi?.thc && <span className={styles.detailThc}>{fmtTHC(hi.thc)}</span>}
-              {hi?.price3g && <><span className={styles.detailSep}>·</span><span>3g <b>${hi.price3g.sale ?? hi.price3g.regular}</b></span></>}
-              {hi?.price5g && <><span className={styles.detailSep}>·</span><span>5g <b>${hi.price5g.sale ?? hi.price5g.regular}</b></span></>}
-              {hi?.price14g && <><span className={styles.detailSep}>·</span><span>14g <b>${hi.price14g.sale ?? hi.price14g.regular}</b></span></>}
+              {hi?.price3g && <><span className={styles.detailSep}>Â·</span><span>3g <b>${hi.price3g.sale ?? hi.price3g.regular}</b></span></>}
+              {hi?.price5g && <><span className={styles.detailSep}>Â·</span><span>5g <b>${hi.price5g.sale ?? hi.price5g.regular}</b></span></>}
+              {hi?.price14g && <><span className={styles.detailSep}>Â·</span><span>14g <b>${hi.price14g.sale ?? hi.price14g.regular}</b></span></>}
             </div>
           </div>
 
@@ -494,7 +494,7 @@ function OZCard({ flowers, hiIdx }: { flowers: Flower[]; hiIdx: number }) {
     <div className={`${styles.card} ${styles.cardOz} ${styles.tierOz}`}>
       <div className={`${styles.cardHeader}`}
         style={{ background:`linear-gradient(180deg, ${accent} 0%, color-mix(in srgb, ${accent} 82%, #000 18%) 100%)` }}>
-        <span className={styles.tierCrown}>🎯</span>
+        <span className={styles.tierCrown}>ðŸŽ¯</span>
         <span className={styles.headerTitle}><span className={styles.headerDeal}>$40 up OZ</span></span>
         <div className={`${styles.tierBadge} ${styles.tierBadgeOz}`}><span>OZ</span></div>
       </div>
@@ -533,7 +533,7 @@ function OZCard({ flowers, hiIdx }: { flowers: Flower[]; hiIdx: number }) {
             <div className={styles.ozDetailName}>{hi?.name||""}</div>
             <div className={styles.ozDetailMeta}>
               {hi?.thc && <span className={styles.ozDetailThc}>{fmtTHC(hi.thc)}</span>}
-              {hi?.price28g && <><span className={styles.ozDetailSep}>·</span><span className={styles.ozDetailPrice}>oz <b>${hi.price28g.sale ?? hi.price28g.regular}</b></span></>}
+              {hi?.price28g && <><span className={styles.ozDetailSep}>Â·</span><span className={styles.ozDetailPrice}>oz <b>${hi.price28g.sale ?? hi.price28g.regular}</b></span></>}
             </div>
             {hi?.type && <VibeCard type={hi.type} />}
           </div>
@@ -635,7 +635,7 @@ function AddOnsCard({ items, hiIdx }: { items: Item[]; hiIdx: number }) {
           <div className={styles.addonsDetailCard}>
             <div className={styles.addonsDetailName}>{hi?.name||""}</div>
             <div className={styles.addonsDetailPrice}>PRICE {(hi?.price||'').replace(/\[object.*\]/,'')}</div>
-            <div className={styles.effectIcons}>🌿 ✨ 💚</div>
+            <div className={styles.effectIcons}>ðŸŒ¿ âœ¨ ðŸ’š</div>
           </div>
         </div>
 
@@ -671,11 +671,11 @@ function AddOnsCard({ items, hiIdx }: { items: Item[]; hiIdx: number }) {
    VERTICAL TICKER
    ============================================================ */
 const TICKER_SLIDES = [
-  "🔥 Mohawk Medicine — 2655 Eglinton Ave E, Scarborough",
+  "ðŸ”¥ Mohawk Medicine â€” 2655 Eglinton Ave E, Scarborough",
   "200+ Strains In Stock",
   "Open 24 Hours",
   "ALL SALES ARE FINAL",
-  "🎮 Play Games at mohawkmedicine.com/games",
+  "Browse Green Deal Cannabis categories online",
 ];
 
 function VerticalTicker() {
@@ -751,7 +751,7 @@ export default function TVMenuPage() {
         grouped[t].push(f);
       }
 
-      // OZ: pull from ALL tiers — any flower with 28g pricing (matches original TVMenu)
+      // OZ: pull from ALL tiers â€” any flower with 28g pricing (matches original TVMenu)
       const oz: Flower[] = [];
       const ozSeen = new Set<string>();
       // First add any explicitly OZ-tier items
@@ -880,3 +880,4 @@ export default function TVMenuPage() {
     </div>
   );
 }
+
