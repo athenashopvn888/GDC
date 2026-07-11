@@ -295,16 +295,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── GAMES ARCADE BANNER ── */}
-      <section className={styles.promoSection}>
-        <a href="/games" className={styles.promoBannerLink}>
-          <img
-            src="/banners/Green Deal Cannabis_Games_Arcade.webp"
-            alt="Games Arcade — Flappy Bud, Snake Munchies, Brick Breaker 420"
-            className={styles.promoBannerImg}
-          />
-        </a>
-      </section>
 
       {/* ── DEALS & PROMOS BANNER ── */}
       <section className={styles.promoSection}>

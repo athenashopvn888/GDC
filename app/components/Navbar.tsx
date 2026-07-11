@@ -21,7 +21,6 @@ const ALL_LINKS = [
   { href: "/delivery", label: "🚗 Delivery" },
   { href: "/faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },
-  { href: "/games", label: "🎮" },
 ];
 
 export default function Navbar() {
@@ -34,13 +33,10 @@ export default function Navbar() {
         <Link href="/" className={styles.logo}>
           <img src="/icon.png" alt="Green Deal Cannabis" className={styles.logoImage} />
           <span className={styles.brand}>
-            Green
+            Green Deal
           </span>
         </Link>
         <div className={styles.topBarRight}>
-          <Link href="/games" className={styles.gamesBtn}>
-            🎮 Play Games
-          </Link>
           <span className={styles.open}>
             <span className={styles.dot}></span>
             Open Now

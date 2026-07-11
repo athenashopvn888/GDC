@@ -675,7 +675,6 @@ const TICKER_SLIDES = [
   "200+ Strains In Stock",
   "Open 24 Hours",
   "ALL SALES ARE FINAL",
-  "🎮 Play Games at mohawkmedicine.com/games",
 ];
 
 function VerticalTicker() {
