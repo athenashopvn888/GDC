@@ -113,7 +113,7 @@ export default function PostContent({ managerPost = null, slug, storeName = STOR
   }
   const relatedLinks = relatedLinksForPost(post);
   const authorName = post.authorName || post.author || `The ${storeName} Team`;
-  const authorRole = post.authorRole || "Store Editorial Desk";
+  const authorRole = post.authorRole || "House Writer";
   const authorHandle = post.authorHandle || "";
   return (
     <main className={styles.main}>
