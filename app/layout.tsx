@@ -3,6 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://greendealcannabis.com"),
+  manifest: "/site.webmanifest",
   title: {
     default: "Green Deal Cannabis | Jane St Dispensary",
     template: "%s | Green Deal Cannabis",
