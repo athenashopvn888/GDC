@@ -42,7 +42,7 @@ export default function BlogContent({ managerPosts = [], storeName = STORE_BLOG_
             {storeName} <span className={styles.heroAccent}>Blog</span>
           </h1>
           <p className={styles.heroSub}>
-            Adult 19+ store guides, local visit-planning notes, and safe menu-category context.
+            Store guides, local visit notes, and menu-category context for adults 19+.
           </p>
         </div>
       </section>
@@ -107,7 +107,7 @@ export default function BlogContent({ managerPosts = [], storeName = STORE_BLOG_
         <div className={styles.ctaInner}>
           <h2 className={styles.ctaTitle}>Plan With Store Details</h2>
           <p className={styles.ctaSub}>
-            Use the official store page for current details before visiting as an adult 19+ visitor.
+            Use the official store page for current details before visiting.
           </p>
           <div className={styles.ctaBtns}>
             <Link href={STORE_BLOG_CONFIG.storePath} className={styles.ctaBtn}>
