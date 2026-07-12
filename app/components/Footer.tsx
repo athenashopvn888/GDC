@@ -67,6 +67,7 @@ export default function Footer() {
               <Link href="/info/dispensary-near-me-york">Dispensary Near Me</Link>
               <Link href="/weed-dispensary-york/">Green Deal Cannabis Weed Dispensary in York</Link>
               <Link href="/contact">Contact Us</Link>
+                          <Link href="/resources">Resources</Link>
             </nav>
           </div>
         </div>
