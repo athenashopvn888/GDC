@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import styles from "./tv2.module.css";
 
@@ -10,12 +10,12 @@ interface Item {
 
 /* -- CATEGORY CONFIG -- */
 const CARD_CONFIG = [
-  { id:"PREROLLS_ADDONS", title:"ðŸ”¥ PREROLLS & ADD ONS", accent:"#dc2626", filter:(it:Item)=>it.category==="PREROLLS"||it.category==="ADD ONS", preset:"ðŸ”¥ START SLOW Â· 2â€“3 PUFFS Â· WAIT 5 MIN" },
-  { id:"VAPES",           title:"ðŸ’¨ VAPES",              accent:"#0284c7", filter:(it:Item)=>["VAPE PENS","VAPE DISPOSABLE"].includes(it.category), preset:"ðŸ’¨ 1â€“2 PUFFS Â· WAIT 2â€“3 MIN Â· REPEAT" },
-  { id:"EDIBLES",         title:"ðŸ¬ EDIBLES",            accent:"#7c3aed", filter:(it:Item)=>it.category==="EDIBLES", preset:"ðŸ¬ START SMALL Â· WAIT 45 MIN Â· THEN MORE" },
-  { id:"CONCENTRATES",    title:"âš—ï¸ CONCENTRATES",       accent:"#b45309", filter:(it:Item)=>it.category==="CONCENTRATES", preset:"âš ï¸ VERY STRONG Â· TINY AMOUNT Â· WAIT 10â€“15 MIN" },
-  { id:"CIGARETTES",      title:"ðŸš¬ CIGARETTES",         accent:"#78350f", filter:(it:Item)=>it.category==="CIGARETTES", preset:"" },
-  { id:"MAGIC",           title:"ðŸ„ MAGIC & OTHERS",     accent:"#9333ea", filter:(it:Item)=>it.category==="MAGIC & OTHERS", preset:"ðŸ« START SMALL Â· WAIT 45 MIN Â· THEN MORE" },
+  { id:"PREROLLS_ADDONS", title:"PREROLLS & ADD ONS", accent:"#dc2626", filter:(it:Item)=>it.category==="PREROLLS"||it.category==="ADD ONS", preset:"START SLOW - 2-3 PUFFS - WAIT 5 MIN" },
+  { id:"VAPES",           title:"VAPES",              accent:"#0284c7", filter:(it:Item)=>["VAPE PENS","VAPE DISPOSABLE"].includes(it.category), preset:"1-2 PUFFS - WAIT 2-3 MIN - REPEAT" },
+  { id:"EDIBLES",         title:"EDIBLES",            accent:"#7c3aed", filter:(it:Item)=>it.category==="EDIBLES", preset:"START SMALL - WAIT 45 MIN - THEN MORE" },
+  { id:"CONCENTRATES",    title:" CONCENTRATES",       accent:"#b45309", filter:(it:Item)=>it.category==="CONCENTRATES", preset:" VERY STRONG - TINY AMOUNT - WAIT 10-15 MIN" },
+  { id:"CIGARETTES",      title:"CIGARETTES",         accent:"#78350f", filter:(it:Item)=>it.category==="CIGARETTES", preset:"" },
+  { id:"MAGIC",           title:"MAGIC & OTHERS",     accent:"#9333ea", filter:(it:Item)=>it.category==="MAGIC & OTHERS", preset:"START SMALL - WAIT 45 MIN - THEN MORE" },
 ];
 
 function isDaytime() { const h = new Date().getHours(); return h >= 10 && h < 17; }
@@ -89,7 +89,7 @@ function ItemCard({ title, accent, items, hiIdx, preset }: {
               <div className={styles.detailTop}>
                 {metaParts.map((p,i) => (
                   <span key={i}>
-                    {i > 0 && <span className={styles.detailSep}> Â· </span>}
+                    {i > 0 && <span className={styles.detailSep}> - </span>}
                     <span className={p===fmtTHC(hi?.thc)?styles.detailThc:undefined} style={p===fmtPrice(hi?.price)?{fontWeight:900}:undefined}>{p}</span>
                   </span>
                 ))}
@@ -117,9 +117,9 @@ function ItemCard({ title, accent, items, hiIdx, preset }: {
                 <div key={it.sku+i} className={`${styles.row} ${isHi?styles.rowHi:""}`} style={hiStyle}>
                   <div className={styles.mcItem}>
                     {it.name}
-                    {it.type && <span className={styles.submeta}> Â· {it.type}</span>}
-                    {it.thc && <span className={styles.submeta}> Â· {fmtTHC(it.thc)}</span>}
-                    {it.mg && <span className={styles.submeta}> Â· {fmtMG(it.mg)}</span>}
+                    {it.type && <span className={styles.submeta}> - {it.type}</span>}
+                    {it.thc && <span className={styles.submeta}> - {fmtTHC(it.thc)}</span>}
+                    {it.mg && <span className={styles.submeta}> - {fmtMG(it.mg)}</span>}
                   </div>
                   <div className={styles.mcPrice}>{fmtPrice(it.price)}</div>
                 </div>
@@ -134,10 +134,10 @@ function ItemCard({ title, accent, items, hiIdx, preset }: {
 
 /* -- TICKER -- */
 const TICKER_SLIDES = [
-  "ðŸ”¥ Mohawk Medicine â€” 2655 Eglinton Ave E, Scarborough",
+  "* Green Deal Cannabis - 1820 Jane St, York",
   "200+ Strains In Stock",
   "Open 24 Hours",
-  "Pre-Rolls Â· Edibles Â· Vapes Â· Concentrates",
+  "Pre-Rolls - Edibles - Vapes - Concentrates",
   "ALL SALES ARE FINAL",
   "Browse Green Deal Cannabis categories online",
 ];
