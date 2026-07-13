@@ -9,16 +9,16 @@ export interface TierSeoData {
 
 export const TIER_SEO: Record<string, TierSeoData> = {
   EXOTIC: {
-    seoTitle: "Exotic Cannabis Flower York  Ultra-Rare, Top-Shelf Genetics",
-    seoIntro: "Explore the Exotic tier at Green Deal Cannabis  our most exclusive cannabis flower selection. Hand-picked strains with THC levels up to 39%, stunning bag appeal, and unique terpene profiles you won't find anywhere else in York.",
+    seoTitle: "Exotic Cannabis Flower York - Ultra-Rare, Top-Shelf Genetics",
+    seoIntro: "Explore the Exotic tier at Green Deal Cannabis - our most exclusive cannabis flower selection. Hand-picked strains with THC levels up to 39%, stunning bag appeal, and unique terpene profiles you won't find anywhere else in York.",
     sections: [
       {
         heading: "What Makes Exotic Flower Special?",
-        body: "Exotic cannabis flower represents the absolute pinnacle of cannabis cultivation. These strains are grown by elite craft cultivators, hand-trimmed to perfection, and selected for their exceptional terpene profiles, bag appeal, and potency. At Green Deal Cannabis, our Exotic tier features strains with THC levels ranging from 35% to 39%  the highest potency flower available in York.",
+        body: "Exotic cannabis flower represents the absolute pinnacle of cannabis cultivation. These strains are grown by elite craft cultivators, hand-trimmed to perfection, and selected for their exceptional terpene profiles, bag appeal, and potency. At Green Deal Cannabis, our Exotic tier features strains with THC levels ranging from 35% to 39% - the highest potency flower available in York.",
       },
       {
-        heading: "Exotic Pricing  $20/g with 3g bundle pricing",
-        body: "Our Exotic flower starts at $20 per gram. With our 3g bundle pricing, you get 3 grams for just $40  that's $13.33/g. For even better value, our 6g bundle offer gives you 6 grams for $60  just $10.00/g. 14g is available for $140 ($10/g) and full ounces (28g) for $250 ($8.93/g).",
+        heading: "Exotic Pricing - $20/g with 3g bundle pricing",
+        body: "Our Exotic flower starts at $20 per gram. With our 3g bundle pricing, you get 3 grams for just $40 - that's $13.33/g. For even better value, our 6g bundle offer gives you 6 grams for $60 - just $10.00/g. 14g is available for $140 ($10/g) and full ounces (28g) for $250 ($8.93/g).",
       },
       {
         heading: "Why Shop Exotic at Green Deal Cannabis?",
@@ -28,13 +28,13 @@ export const TIER_SEO: Record<string, TierSeoData> = {
     faqs: [
       { q: "What is Exotic cannabis flower?", a: "Exotic flower is our top-tier cannabis, featuring ultra-rare genetics with THC levels from 35% to 39%. These strains are hand-selected for exceptional bag appeal, unique terpene profiles, and maximum potency." },
       { q: "How much does Exotic flower cost?", a: "Exotic flower is $20/g. With our 3g bundle pricing, 3g is just $40. 6g bundle pricing gives you 6g for $60. 14g is $140 and 28g is $250." },
-      { q: "What strains are available in the Exotic tier?", a: "Our Exotic selection rotates frequently. Check our live online menu for the current strains in stock  it updates in real time." },
-      { q: "Is Exotic worth the price?", a: "If you value the highest potency, rarest genetics, and best bag appeal, Exotic is absolutely worth it. Our bundle pricing brings the per-gram price down significantly  as low as $8.93/g for an ounce." },
+      { q: "What strains are available in the Exotic tier?", a: "Our Exotic selection rotates frequently. Check our live online menu for the current strains in stock - it updates in real time." },
+      { q: "Is Exotic worth the price?", a: "If you value the highest potency, rarest genetics, and best bag appeal, Exotic is absolutely worth it. Our bundle pricing brings the per-gram price down significantly - as low as $8.93/g for an ounce." },
     ],
   },
 
   PREMIUM: {
-    seoTitle: "Premium Cannabis Flower York  Hand-Picked Connoisseur Grade",
+    seoTitle: "Premium Cannabis Flower York - Hand-Picked Connoisseur Grade",
     seoIntro: "Shop Premium cannabis flower at Green Deal Cannabis, York. Connoisseur-grade strains with THC 32-34%, exceptional flavour, and smooth smoke. Starting at $15/g.",
     sections: [
       {
@@ -42,7 +42,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
         body: "Premium flower sits just below Exotic in our quality hierarchy. These are connoisseur-grade strains with THC levels between 32% and 34%, offering exceptional flavour, smooth smoke, and consistent potency. Premium is the sweet spot for cannabis enthusiasts who want top-quality flower without the Exotic price tag.",
       },
       {
-        heading: "Premium Pricing  $15/g with Bundle Pricing",
+        heading: "Premium Pricing - $15/g with Bundle Pricing",
         body: "Premium flower starts at $15 per gram. Our 3g bundle pricing gets you 3 grams for $30 ($10/g). The 6g bundle offer delivers 6 grams for just $45 ($7.50/g). 14g is available for $100 ($7.14/g) and 28g for $180 ($6.43/g).",
       },
       {
@@ -53,12 +53,12 @@ export const TIER_SEO: Record<string, TierSeoData> = {
     faqs: [
       { q: "What is Premium cannabis flower?", a: "Premium is our connoisseur-grade tier featuring strains with THC 32-34%. Hand-picked for exceptional flavour, smooth smoke, and consistent quality." },
       { q: "How much does Premium flower cost?", a: "Premium starts at $15/g. 3g bundle pricing = $30/3g. 6g bundle pricing = $45/6g. 14g = $100. 28g = $180." },
-      { q: "What's the difference between Exotic and Premium?", a: "Exotic features ultra-rare genetics with THC 35-39%, while Premium offers excellent connoisseur-grade strains at THC 32-34%  still top-shelf, but at a lower price point." },
+      { q: "What's the difference between Exotic and Premium?", a: "Exotic features ultra-rare genetics with THC 35-39%, while Premium offers excellent connoisseur-grade strains at THC 32-34% - still top-shelf, but at a lower price point." },
     ],
   },
 
   "AAA+": {
-    seoTitle: "AAA+ Cannabis Flower York  Heavy Hitters at Great Prices",
+    seoTitle: "AAA+ Cannabis Flower York - Heavy Hitters at Great Prices",
     seoIntro: "Shop AAA+ cannabis flower at Green Deal Cannabis, York. Strong, reliable strains with THC 30-32% starting at just $10/g. The best value for experienced smokers.",
     sections: [
       {
@@ -66,8 +66,8 @@ export const TIER_SEO: Record<string, TierSeoData> = {
         body: "AAA+ is where potency meets value. These heavy-hitting strains deliver THC levels from 30% to 32%, making them perfect for daily smokers who want solid potency without paying the premium markup. AAA+ flower at Green Deal Cannabis is sourced from trusted Canadian craft growers.",
       },
       {
-        heading: "AAA+ Pricing  $10/g with Bundle Pricing",
-        body: "AAA+ flower starts at just $10 per gram. Our 3g bundle pricing delivers 3 grams for $20 ($6.67/g). The 6g bundle offer gives you 6 grams for $30  just $5.00/g. 14g is $60 ($4.29/g) and full ounces (28g) start at $100 ($3.57/g).",
+        heading: "AAA+ Pricing - $10/g with Bundle Pricing",
+        body: "AAA+ flower starts at just $10 per gram. Our 3g bundle pricing delivers 3 grams for $20 ($6.67/g). The 6g bundle offer gives you 6 grams for $30 - just $5.00/g. 14g is $60 ($4.29/g) and full ounces (28g) start at $100 ($3.57/g).",
       },
     ],
     faqs: [
@@ -78,7 +78,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
   },
 
   AA: {
-    seoTitle: "AA Cannabis Flower York  Quality Daily Drivers",
+    seoTitle: "AA Cannabis Flower York - Quality Daily Drivers",
     seoIntro: "Shop AA cannabis flower at Green Deal Cannabis, York. Solid everyday strains with THC 27-29% at just $5/g. Perfect for regular smokers on a budget.",
     sections: [
       {
@@ -86,7 +86,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
         body: "AA flower is designed for the everyday smoker. These quality daily drivers deliver consistent THC levels between 27% and 29%, providing reliable effects at an affordable price. AA is perfect for regular smokers who want quality without overspending.",
       },
       {
-        heading: "AA Pricing  $5/g, 5g bundle for $20",
+        heading: "AA Pricing - $5/g, 5g bundle for $20",
         body: "AA flower is just $5 per gram. Our 5g bundle for $20 gives you 5 grams total ($4.00/g). 14g is available for $50 ($3.57/g) and 28g for $90 ($3.21/g). Great value for daily use.",
       },
     ],
@@ -97,7 +97,7 @@ export const TIER_SEO: Record<string, TierSeoData> = {
   },
 
   BUDGET: {
-    seoTitle: "Budget Cannabis York  Cheap Weed From $3/g",
+    seoTitle: "Budget Cannabis York - Cheap Weed From $3/g",
     seoIntro: "Cheap weed in York starting at $3/g. Green Deal Cannabis Budget tier features shreds and value ounces for cost-conscious smokers. Check current store hours before visiting Green Deal Cannabis.",
     sections: [
       {
@@ -105,14 +105,14 @@ export const TIER_SEO: Record<string, TierSeoData> = {
         body: "Our Budget tier proves that affordable cannabis doesn't mean low quality. With THC levels from 24% to 27%, these value strains deliver solid effects at rock-bottom prices. Whether you're looking for shreds or value ounces, Green Deal Cannabis has the cheapest weed in York.",
       },
       {
-        heading: "Budget Pricing  From $3/g, OZs from $40",
-        body: "Budget flower starts at just $3 per gram. Value ounces start from $40  some of the best prices you'll find in York. Selected Budget flower may show value bundle pricing on the flower bundle menu.",
+        heading: "Budget Pricing - From $3/g, OZs from $40",
+        body: "Budget flower starts at just $3 per gram. Value ounces start from $40 - some of the best prices you'll find in York. Selected Budget flower may show value bundle pricing on the flower bundle menu.",
       },
     ],
     faqs: [
       { q: "What is the cheapest weed at Green Deal Cannabis?", a: "Our Budget tier starts at $3/g with value ounces from $40. These are quality strains at the lowest possible price." },
       { q: "Is budget flower still good quality?", a: "Yes! Budget strains still deliver THC 24-27%. They're perfect for daily smokers who want value without sacrificing potency." },
-      { q: "Do you have shreds?", a: "Yes, our Budget tier includes shredded flower options  great for rolling and value pricing." },
+      { q: "Do you have shreds?", a: "Yes, our Budget tier includes shredded flower options - great for rolling and value pricing." },
     ],
   },
 };
