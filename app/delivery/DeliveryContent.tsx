@@ -38,12 +38,12 @@ export default function DeliveryContent() {
         </h1>
         <p className={styles.pageSubtitle}>
           Green Deal Cannabis is launching delivery across York.
-          Sign up below to be the first to know when we go live — and get an exclusive launch-day deal.
+          Sign up below to be the first to know when we go live  and get an exclusive launch-day deal.
         </p>
 
         {/* Email signup */}
         <div className={styles.formSection}>
-          <h2 className={styles.formTitle}>🔔 Get Notified When We Launch</h2>
+          <h2 className={styles.formTitle}>Get Notified When We Launch</h2>
           <p className={styles.formDesc}>
             Enter your email to join our delivery waitlist. We&apos;ll send you one email when delivery goes live.
           </p>
@@ -69,7 +69,7 @@ export default function DeliveryContent() {
           </form>
           {status === "success" && (
             <p className={styles.successMsg}>
-              ✅ You&apos;re on the list! We&apos;ll notify you when delivery launches.
+              You&apos;re on the list! We&apos;ll notify you when delivery launches.
             </p>
           )}
           {status === "error" && (
@@ -82,17 +82,17 @@ export default function DeliveryContent() {
         {/* Info cards */}
         <div className={styles.infoGrid}>
           <div className={styles.infoCard}>
-            <span className={styles.infoIcon}>📦</span>
+            <span className={styles.infoIcon}>BOX</span>
             <h3 className={styles.infoTitle}>Same-Day Delivery</h3>
             <p className={styles.infoDesc}>Order before 6 PM, delivered same day across York.</p>
           </div>
           <div className={styles.infoCard}>
-            <span className={styles.infoIcon}>🌉</span>
+            <span className={styles.infoIcon}></span>
             <h3 className={styles.infoTitle}>York & GTA</h3>
             <p className={styles.infoDesc}>Serving York, North York, Etobicoke, and surrounding GTA.</p>
           </div>
           <div className={styles.infoCard}>
-            <span className={styles.infoIcon}>💰</span>
+            <span className={styles.infoIcon}>$</span>
             <h3 className={styles.infoTitle}>Same Great Prices</h3>
             <p className={styles.infoDesc}>All in-store promotions apply to delivery orders too.</p>
           </div>
@@ -101,7 +101,7 @@ export default function DeliveryContent() {
         {/* CTA */}
         <div className={styles.ctaSection}>
           <p className={styles.ctaText}>
-            Can&apos;t wait? Visit us in-store at <strong>1820 Jane St, York</strong> —
+            Can&apos;t wait? Visit us in-store at <strong>1820 Jane St, York</strong>
             open <strong>10am - 2am</strong>. Call <strong>(942) 288-4633</strong>.
           </p>
         </div>

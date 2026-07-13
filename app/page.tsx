@@ -1,9 +1,9 @@
-﻿import styles from "./page.module.css";
+import styles from "./page.module.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { allFlowers } from "./lib/products";
 
-/* â”€â”€ Tier data (will come from Supabase later) â”€â”€ */
+/* Tier data (will come from Supabase later) */
 const TIERS = [
   {
     name: "EXOTIC",
@@ -15,7 +15,7 @@ const TIERS = [
     deal6g: "6g bundle for $60",
     color: "#f59e0b",
     glow: "rgba(245, 158, 11, 0.2)",
-    icon: "ðŸ”¥",
+    icon: "*",
     count: 42,
     banner: "/banners/Green Deal Cannabis_Exotic.webp",
   },
@@ -29,7 +29,7 @@ const TIERS = [
     deal6g: "6g bundle for $45",
     color: "#a78bfa",
     glow: "rgba(167, 139, 250, 0.2)",
-    icon: "ðŸ’Ž",
+    icon: "*",
     count: 38,
     banner: "/banners/Green Deal Cannabis_Premium.webp",
   },
@@ -43,7 +43,7 @@ const TIERS = [
     deal6g: "6g bundle for $30",
     color: "#22d3ee",
     glow: "rgba(34, 211, 238, 0.2)",
-    icon: "âš¡",
+    icon: "*",
     count: 55,
     banner: "/banners/Green Deal Cannabis_AAAplus.webp",
   },
@@ -57,7 +57,7 @@ const TIERS = [
     deal6g: null,
     color: "#34d399",
     glow: "rgba(52, 211, 153, 0.2)",
-    icon: "âœ¦",
+    icon: "*",
     count: 35,
     banner: "/banners/Green Deal Cannabis_AA.webp",
   },
@@ -71,7 +71,7 @@ const TIERS = [
     deal6g: null,
     color: "#94a3b8",
     glow: "rgba(148, 163, 184, 0.15)",
-    icon: "ðŸ’°",
+    icon: "*",
     count: 18,
     banner: "/banners/Green Deal Cannabis_Budget.webp",
   },
@@ -85,13 +85,13 @@ const TIERS = [
     deal6g: null,
     color: "#fb923c",
     glow: "rgba(251, 146, 60, 0.2)",
-    icon: "ðŸ¬",
+    icon: "*",
     count: 80,
     banner: "/banners/Green Deal Cannabis_Edibles.webp",
   },
 ];
 
-/* â”€â”€ Build featured strains dynamically from real inventory â”€â”€ */
+/* Build featured strains dynamically from real inventory */
 function buildFeatured() {
   const pool = [...allFlowers].filter(f => f.image);
   
@@ -120,7 +120,7 @@ function buildFeatured() {
     tier: f.tier.toUpperCase(),
     thc: f.thc,
     type: f.type === "indica" ? "IH" : f.type === "sativa" ? "SH" : "H",
-    price3g: f.price3g ? `$${f.price3g.sale ?? f.price3g.regular}` : "â€”",
+    price3g: f.price3g ? `$${f.price3g.sale ?? f.price3g.regular}` : "-",
     image: f.image,
   }));
 }
@@ -147,31 +147,31 @@ function getTierColor(tier: string) {
 export default function HomePage() {
   return (
     <main className={styles.main}>
-      {/* â”€â”€ NAVBAR â”€â”€ */}
+      {/* NAVBAR */}
       <Navbar />
       <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", border: 0 }}>
-        Green Deal Cannabis â€” Premium Etobicoke Cannabis Dispensary
+        Green Deal Cannabis - Premium Etobicoke Cannabis Dispensary
       </h1>
 
-      {/* â”€â”€ HERO BANNER â”€â”€ */}
+      {/* HERO BANNER */}
       <section className={styles.hero} id="hero" style={{ paddingTop: "92px", paddingBottom: "24px", minHeight: "auto", display: "block" }}>
         <a href="#menu" className={styles.heroBanner} style={{ display: "block", position: "relative", width: "100%", cursor: "pointer" }}>
           <img
             src="/banners/Green Deal Cannabis_Homepage_Hero.webp"
-            alt="Green Deal Cannabis â€” Premium York Cannabis Dispensary"
+            alt="Green Deal Cannabis - Premium York Cannabis Dispensary"
             className={styles.heroBannerImg}
             style={{ width: "100%", height: "auto", display: "block" }}
           />
         </a>
       </section>
 
-      {/* â”€â”€ SHOP BY TIER BANNER â”€â”€ */}
+      {/* SHOP BY TIER BANNER */}
       <section className={styles.tierSection} id="menu">
         <div className={styles.container}>
           <div className={styles.sectionBanner}>
             <img
               src="/banners/Green Deal Cannabis_Welcome_Banner.webp"
-              alt="Shop by Tier â€” From exotic craft flower to value budget OZs"
+              alt="Shop by Tier - From exotic craft flower to value budget OZs"
               className={styles.sectionBannerImg}
             />
           </div>
@@ -221,25 +221,25 @@ export default function HomePage() {
                   </div>
                   {tier.deal3g && (
                     <div className={styles.tierCardDeals}>
-                      <span className={styles.tierCardDeal}>ðŸŽ {tier.deal3g}</span>
-                      {tier.deal6g && <span className={styles.tierCardDeal}>ðŸŽ {tier.deal6g}</span>}
+                      <span className={styles.tierCardDeal}>* {tier.deal3g}</span>
+                      {tier.deal6g && <span className={styles.tierCardDeal}>* {tier.deal6g}</span>}
                     </div>
                   )}
                 </div>
-                <div className={styles.tierCardArrow}>â†’</div>
+                <div className={styles.tierCardArrow}>-&gt;</div>
               </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* â”€â”€ FEATURE PRODUCTS â”€â”€ */}
+      {/*  FEATURE PRODUCTS  */}
       <section className={styles.featuredSection}>
         <div className={styles.container}>
           <div className={styles.sectionBanner}>
             <img
               src="/banners/Green Deal Cannabis_Feature_Products.webp"
-              alt="Feature Products â€” Staff picks and top sellers"
+              alt="Feature Products - Staff picks and top sellers"
               className={styles.sectionBannerImg}
             />
           </div>
@@ -287,7 +287,7 @@ export default function HomePage() {
                     </span>
                     <span className={styles.productPriceUnit}>/ 3g</span>
                   </div>
-                  <div className={styles.productCta}>View Strain â†’</div>
+                  <div className={styles.productCta}>View Strain -&gt;</div>
                 </div>
               </a>
             ))}
@@ -295,29 +295,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ DEALS & PROMOS BANNER â”€â”€ */}
+      {/*  DEALS & PROMOS BANNER  */}
       <section className={styles.promoSection}>
         <a href="/items/edibles" className={styles.promoBannerLink}>
           <img
             src="/banners/Green Deal Cannabis_Edibles.webp"
-            alt="High THC Gummies & Edibles â€” Green Deal Cannabis"
+            alt="High THC Gummies & Edibles - Green Deal Cannabis"
             className={styles.promoBannerImg}
           />
         </a>
       </section>
 
-      {/* â”€â”€ VAPES & PREROLL DEALS BANNER â”€â”€ */}
+      {/*  VAPES & PREROLL DEALS BANNER  */}
       <section className={styles.promoSection}>
         <a href="/items/vapes" className={styles.promoBannerLink}>
           <img
             src="/banners/Green Deal Cannabis_Daily_Deals.webp"
-            alt="24 Hour Cannabis Deals â€” Vapes, Pre-Rolls & More"
+            alt="24 Hour Cannabis Deals - Vapes, Pre-Rolls & More"
             className={styles.promoBannerImg}
           />
         </a>
       </section>
 
-      {/* â”€â”€ STORE INFO â”€â”€ */}
+      {/*  STORE INFO  */}
       <section className={styles.storeSection} id="contact">
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
@@ -327,7 +327,7 @@ export default function HomePage() {
           </div>
           <div className={styles.storeGrid}>
             <div className={styles.storeCard}>
-              <div className={styles.storeIcon}>ðŸ“</div>
+              <div className={styles.storeIcon}>*</div>
               <h3 className={styles.storeCardTitle}>Location</h3>
               <p className={styles.storeCardText}>
                 1820 Jane St
@@ -337,7 +337,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className={styles.storeCard}>
-              <div className={styles.storeIcon}>ðŸ•’</div>
+              <div className={styles.storeIcon}>*</div>
               <h3 className={styles.storeCardTitle}>Hours</h3>
               <p className={styles.storeCardText}>
                 Open 7 Days a Week
@@ -346,7 +346,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className={styles.storeCard}>
-              <div className={styles.storeIcon}>ðŸ”¥</div>
+              <div className={styles.storeIcon}>*</div>
               <h3 className={styles.storeCardTitle}>Walk In</h3>
               <p className={styles.storeCardText}>
                 No appointment needed
@@ -364,7 +364,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ FOOTER â”€â”€ */}
+      {/*  FOOTER  */}
       <Footer />
     </main>
   );
