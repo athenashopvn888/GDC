@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./page.module.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -164,6 +165,19 @@ export default function HomePage() {
           />
         </a>
       </section>
+
+      <section className={styles.hiringCallout} aria-label="Hiring at Green Deal Cannabis">
+        <div className={styles.hiringCalloutInner}>
+          <div>
+            <span className={styles.hiringEyebrow}>Budtenders / Managers Wanted</span>
+            <h2>Join Green Deal</h2>
+            <p>Green Deal is taking online applications for budtender and manager roles. We are looking for motivated, reliable people with sharp customer service and good follow-through. Online applications only. Please do not call the store about hiring.</p>
+          </div>
+          <Link href="/careers/budtender" className={styles.hiringButton}>Apply Online</Link>
+        </div>
+      </section>
+
+
 
       {/* SHOP BY TIER BANNER */}
       <section className={styles.tierSection} id="menu">
