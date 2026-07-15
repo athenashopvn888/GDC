@@ -79,7 +79,7 @@ export const SEO_PAGES: SeoPageData[] = [
       { heading: "Check Before Relying On Delivery", body: "Do not rely on old delivery descriptions. Confirm any future delivery launch, service area, ordering method, and schedule through the current store website." },
     ],
     faqs: [
-      { q: "Is delivery active?", a: "This page does not confirm an active delivery service. Check the current delivery information page for future updates." },
+      { q: "Where can I find delivery updates?", a: "Use the delivery information page for future service updates." },
       { q: "Does this page confirm a delivery area?", a: "No. Any future service area and ordering instructions must be confirmed on the current store website." },
       { q: "What are the store hours?", a: "Green Deal Cannabis is open daily from 10 AM to 2 AM for store visits." },
     ],

@@ -253,7 +253,7 @@ export default function HomePage() {
           <div className={styles.sectionBanner}>
             <img
               src="/banners/Green Deal Cannabis_Feature_Products.webp"
-              alt="Feature Products - Staff picks and top sellers"
+              alt="Featured menu listings"
               className={styles.sectionBannerImg}
             />
           </div>
