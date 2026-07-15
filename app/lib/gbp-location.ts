@@ -28,7 +28,7 @@ export const gbpLocation = {
   mapEmbedUrl: "",
   latitude: "43.7003889",
   longitude: "-79.5042654",
-  hours: ["Open 24 Hours"],
+  hours: ["Open Daily 10AM - 2AM"],
   seoTitle: "Green Deal Cannabis | Weed Dispensary in York",
   metaDescription: "Green Deal Cannabis is a local weed dispensary in York offering flower, pre-rolls, edibles, vapes, concentrates, CBD, and service for adults 19+.",
   localLandmarks: ["York", "Eglinton West", "Weston"],

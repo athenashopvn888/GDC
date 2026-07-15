@@ -28,7 +28,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     seoTitle: "Green Deal Cannabis Resources | York / Weston Menu And Visit Guides",
     description: "Green Deal Cannabis resource pages for York / Weston shoppers, with local visit planning, menu shortcuts, flower tier pricing, value shopping, pre-roll tips, and Native smokes prices.",
     eyebrow: "Weston And Jane Resource Hub",
-    intro: "A practical resource hub for York and Weston shoppers around Jane Street. Use it to move from local search intent to the right menu shelf: flower, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, Native smokes, Backwoods, and grabba.",
+    intro: "A practical resource hub for York and Weston shoppers around Jane Street. Use it to move from local visit planning to the right menu section: flower, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, Native smokes, Backwoods, and grabba.",
     cards: [
       { title: "Local Visit Guide", href: "/resources/weston-jane-visit-guide", text: "Plan the stop around York, Weston, Jane Street, Eglinton West, Keelesdale, Mount Dennis, Caledonia, Rogers Road, and TTC routes." },
       { title: "Menu Guide", href: "/resources/menu-guide", text: "Start with flower, pre-rolls, edibles, vapes, or smokes, then compare current products." },
@@ -40,7 +40,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
       {
         heading: "Local Search, Useful Next Step",
         body: "Green Deal Cannabis is listed at 1820 Jane St, York, ON M9N 2T3. These guides help shoppers plan the visit. Start with the local page for address and visit details, then use these guides to compare categories.",
-        bullets: ["Local store page: /weed-dispensary-york", "Local areas: York, Weston, Jane Street, Eglinton West, Keelesdale, Mount Dennis, Caledonia, Rogers Road, and TTC routes", "Listed store hours: Open 24 Hours"]
+        bullets: ["Local store page: /weed-dispensary-york", "Local areas: York, Weston, Jane Street, Eglinton West, Keelesdale, Mount Dennis, Caledonia, Rogers Road, and TTC routes", "Listed store hours: 10AM - 2AM daily"]
       },
       {
         heading: "Built Around Real Menu Choices",
