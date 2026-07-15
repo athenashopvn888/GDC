@@ -135,7 +135,7 @@ function ItemCard({ title, accent, items, hiIdx, preset }: {
 /* -- TICKER -- */
 const TICKER_SLIDES = [
   "* Green Deal Cannabis - 1820 Jane St, York",
-  "200+ Strains In Stock",
+  "Browse Flower Tiers",
   "Open 24 Hours",
   "Pre-Rolls - Edibles - Vapes - Concentrates",
   "ALL SALES ARE FINAL",
@@ -277,4 +277,3 @@ export default function TV2Page() {
     </div>
   );
 }
-

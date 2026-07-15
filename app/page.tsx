@@ -9,7 +9,7 @@ const TIERS = [
   {
     name: "EXOTIC",
     slug: "exotic",
-    tagline: "Ultra-rare, top-shelf genetics",
+    tagline: "Explore the Exotic flower tier",
     thc: "35-39%",
     unitPrice: 20,
     deal3g: "3g bundle for $40",
@@ -23,7 +23,7 @@ const TIERS = [
   {
     name: "PREMIUM",
     slug: "premium",
-    tagline: "Hand-picked connoisseur grade",
+    tagline: "Explore the Premium flower tier",
     thc: "32-34%",
     unitPrice: 15,
     deal3g: "3g bundle for $30",
@@ -37,7 +37,7 @@ const TIERS = [
   {
     name: "AAA+",
     slug: "aaa",
-    tagline: "Heavy hitters, proven strains",
+    tagline: "Explore the AAA+ flower tier",
     thc: "30-32%",
     unitPrice: 10,
     deal3g: "3g bundle for $20",
@@ -51,7 +51,7 @@ const TIERS = [
   {
     name: "AA",
     slug: "aa",
-    tagline: "Quality daily drivers",
+    tagline: "Explore the AA flower tier",
     thc: "27-29%",
     unitPrice: 4,
     deal3g: null,
@@ -65,7 +65,7 @@ const TIERS = [
   {
     name: "BUDGET",
     slug: "budget",
-    tagline: "Shreds & value OZs",
+    tagline: "Explore the Budget flower tier",
     thc: "24-27%",
     unitPrice: 3,
     deal3g: "3g bundle for $10",
@@ -79,7 +79,7 @@ const TIERS = [
   {
     name: "EDIBLES & MORE",
     slug: "items/edibles",
-    tagline: "Gummies, vapes, pre-rolls, hash",
+    tagline: "Explore edibles and other categories",
     thc: "Up to 98%",
     unitPrice: null,
     deal3g: null,
@@ -220,10 +220,10 @@ export default function HomePage() {
                   </h3>
                   <div className={styles.tierCardMeta}>
                     <span className={styles.tierCardThc}>
-                      THC {tier.thc}
+                      Details on menu
                     </span>
                     <span className={styles.tierCardCount}>
-                      {tier.count} strains
+                      Browse category
                     </span>
                   </div>
                   <div className={styles.tierCardPrice}>
@@ -275,7 +275,7 @@ export default function HomePage() {
                   />
                   <div className={styles.productBadges}>
                     <span className={styles.productBadgeThc}>
-                      THC {strain.thc}
+                      View listing
                     </span>
                     <span
                       className={`${styles.productBadgeTier}`}
@@ -314,7 +314,7 @@ export default function HomePage() {
         <a href="/items/edibles" className={styles.promoBannerLink}>
           <img
             src="/banners/Green Deal Cannabis_Edibles.webp"
-            alt="High THC Gummies & Edibles - Green Deal Cannabis"
+            alt="Gummies and Edibles - Green Deal Cannabis"
             className={styles.promoBannerImg}
           />
         </a>
@@ -383,4 +383,3 @@ export default function HomePage() {
     </main>
   );
 }
-

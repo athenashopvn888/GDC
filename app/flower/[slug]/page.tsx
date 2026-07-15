@@ -57,9 +57,8 @@ function getJsonLd(flower: FlowerProduct) {
 
   const offers: any = {
     "@type": "Offer",
-    url: `https://greendealcannabis.com/flower/${flower.slug}`,
+    url: `https://www.greendealcannabis.com/flower/${flower.slug}`,
     priceCurrency: "CAD",
-    availability: "https://schema.org/InStock",
     itemCondition: "https://schema.org/NewCondition",
     seller: { "@type": "Organization", name: "Green Deal Cannabis" },
     hasMerchantReturnPolicy: {
@@ -77,7 +76,7 @@ function getJsonLd(flower: FlowerProduct) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: flower.name,
-    image: flower.image ? [flower.image.startsWith('http') ? flower.image : `https://greendealcannabis.com${flower.image.startsWith('/') ? '' : '/'}${flower.image}`] : undefined,
+    image: flower.image ? [flower.image.startsWith('http') ? flower.image : `https://www.greendealcannabis.com${flower.image.startsWith('/') ? '' : '/'}${flower.image}`] : undefined,
     description: strainData.description,
     brand: { "@type": "Brand", name: "Green Deal Cannabis" },
     sku: cleanSku(flower.sku || flower.slug),
@@ -98,19 +97,19 @@ function getBreadcrumbJsonLd(flower: FlowerProduct) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://greendealcannabis.com"
+        "item": "https://www.greendealcannabis.com"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": tierName,
-        "item": `https://greendealcannabis.com/${tierSlug}`
+        "item": `https://www.greendealcannabis.com/${tierSlug}`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": flower.name,
-        "item": `https://greendealcannabis.com/flower/${flower.slug}`
+        "item": `https://www.greendealcannabis.com/flower/${flower.slug}`
       }
     ]
   };
@@ -233,7 +232,7 @@ export default async function FlowerPage({
                 </div>
               </div>
 
-              {/* Effects */}
+              {/* Menu notes */}
               <div className={styles.effectsRow}>
                 {strainData.effects.map((e) => (
                   <span key={e.label} className={styles.effectPill}>
@@ -294,7 +293,7 @@ export default async function FlowerPage({
               </div>
 
               <div className={styles.visitCta}>
-                <p>Available in-store &middot; Walk-in welcome &middot; No appointment needed</p>
+                <p>Check the current menu &middot; Walk-in welcome &middot; No appointment needed</p>
               </div>
             </div>
           </div>

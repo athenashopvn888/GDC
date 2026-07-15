@@ -75,7 +75,7 @@ function VibeCard({ type }: { type: string }) {
   const vibes = VIBE_MAP[t] || VIBE_MAP.hybrid;
   return (
     <div className={styles.vibeSection}>
-      <div className={styles.vibeHead}>EFFECTS</div>
+      <div className={styles.vibeHead}>MENU NOTES</div>
       <div className={styles.vibePills}>
         {vibes.map(([emoji, label]) => (
           <span key={label} className={styles.vibePill}>
@@ -635,7 +635,7 @@ function AddOnsCard({ items, hiIdx }: { items: Item[]; hiIdx: number }) {
           <div className={styles.addonsDetailCard}>
             <div className={styles.addonsDetailName}>{hi?.name||""}</div>
             <div className={styles.addonsDetailPrice}>PRICE {(hi?.price||'').replace(/\[object.*\]/,'')}</div>
-            <div className={styles.effectIcons}>CALM - CREATIVE - GREEN</div>
+            <div className={styles.effectIcons}>MENU - TIERS - DETAILS</div>
           </div>
         </div>
 
@@ -672,7 +672,7 @@ function AddOnsCard({ items, hiIdx }: { items: Item[]; hiIdx: number }) {
    ============================================================ */
 const TICKER_SLIDES = [
   "* Green Deal Cannabis - 1820 Jane St, York",
-  "200+ Strains In Stock",
+  "Browse Flower Tiers",
   "Open 24 Hours",
   "ALL SALES ARE FINAL",
   "Browse Green Deal Cannabis categories online",
@@ -880,4 +880,3 @@ export default function TVMenuPage() {
     </div>
   );
 }
-

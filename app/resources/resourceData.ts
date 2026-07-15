@@ -123,7 +123,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
       },
       {
         heading: "Budget And AA Keep It Simple",
-        body: "For cheap weed and budget weed searches, Budget at $3/g and AA at $4/g are the simplest lanes to compare. The final product name, strain note, and availability should still be checked on the current tier page."
+        body: "For value-focused browsing, start with the Budget and AA tier pages. Check the current product name, item note, weight, and posted price on the tier page."
       }
     ],
   },
@@ -170,7 +170,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
       },
       {
         heading: "Useful For Local Quick Stops",
-        body: "For York and Weston shoppers around Jane Street, pre-rolls can be the fastest shelf to check before heading through York, Weston, Jane Street, Eglinton West, Keelesdale, Mount Dennis, Caledonia, Rogers Road, and TTC routes. Use the current category page for live details."
+        body: "For York and Weston shoppers around Jane Street, the pre-roll category provides a direct place to compare current names, formats, and posted details before visiting."
       }
     ],
   },

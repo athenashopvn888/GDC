@@ -38,8 +38,8 @@ export default function NotFound() {
             lineHeight: 1.6,
           }}
         >
-          This page doesn&apos;t exist — but our shelves are fully stocked.
-          Browse 200+ strains at York&apos;s most fire dispensary.
+          This page doesn&apos;t exist. Use the menu or resources to keep browsing.
+          Browse Green Deal Cannabis menu categories and store resources.
         </p>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
           <Link

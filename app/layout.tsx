@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://greendealcannabis.com"),
+  metadataBase: new URL("https://www.greendealcannabis.com"),
   title: {
     default: "Green Deal Cannabis | Jane St Dispensary",
     template: "%s | Green Deal Cannabis",
@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_CA",
-    url: "https://greendealcannabis.com",
+    url: "https://www.greendealcannabis.com",
     siteName: "Green Deal Cannabis",
     title: "Green Deal Cannabis — Premium York Cannabis Dispensary",
     description:
-      "200+ strains from $3/g. Exotic to Budget. York's uplifting dispensary at 1820 Jane St. Open 10AM - 2AM.",
+      "Browse flower tiers and cannabis categories at Green Deal Cannabis on Jane St in York. Open 10AM - 2AM.",
     images: [
       {
         url: "/banners/Green Deal Cannabis_Homepage_Hero.webp",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Green Deal Cannabis — York's Uplifting Dispensary",
-    description: "200+ strains from $3/g. Open 10AM - 2AM at 1820 Jane St, York.",
+    description: "Browse Green Deal Cannabis categories. Open 10AM - 2AM at 1820 Jane St, York.",
     images: ["/banners/Green Deal Cannabis_Homepage_Hero.webp"],
   },
   robots: {
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://greendealcannabis.com",
+    canonical: "https://www.greendealcannabis.com",
   },
   verification: {
     // google: "your-google-verification-code",
@@ -72,12 +72,12 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Store",
   additionalType: "https://schema.org/Store",
-  "@id": "https://greendealcannabis.com",
+  "@id": "https://www.greendealcannabis.com",
   name: "Green Deal Cannabis",
   description: "Cannabis dispensary at 1820 Jane St in York, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 10AM - 2AM.",
-  url: "https://greendealcannabis.com",
+  url: "https://www.greendealcannabis.com",
   telephone: "+19422884633",
-  image: "https://greendealcannabis.com/logo.png",
+  image: "https://www.greendealcannabis.com/logo.png",
   priceRange: "$3 - $12/g",
   address: {
     "@type": "PostalAddress",

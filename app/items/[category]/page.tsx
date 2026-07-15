@@ -71,7 +71,7 @@ export default async function ItemsCategoryPage({
             <h1 className={styles.heroTitle}>
               <span style={{ color: "#fff" }}>{config.name}</span>
             </h1>
-            <p className={styles.heroSub} style={{ color: "rgba(255,255,255,0.8)" }}>{items.length} products available</p>
+            <p className={styles.heroSub} style={{ color: "rgba(255,255,255,0.8)" }}>{items.length} products listed</p>
           </div>
         )}
       </section>
@@ -89,7 +89,7 @@ export default async function ItemsCategoryPage({
             <div className={styles.emptyState}>
               <span className={styles.emptyIcon}>🌱</span>
               <h3>Coming Soon</h3>
-              <p>We&apos;re stocking this category. Check back soon!</p>
+              <p>No items are listed in this category right now. Check the current menu later.</p>
             </div>
           )}
         </div>

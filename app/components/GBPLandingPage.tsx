@@ -103,15 +103,15 @@ export function GBPLandingPage() {
 
       {/* Intro Section */}
       <section className={styles.section}>
-        <h2 className={styles.h2}>Your Trusted Local Weed Dispensary</h2>
+        <h2 className={styles.h2}>Your Local Weed Dispensary</h2>
         <p className={styles.introText}>{gbpLocation.introVariant}</p>
       </section>
 
       {/* Product Section */}
       <section className={styles.section}>
-        <h2 className={styles.h2}>Weed and Cannabis Products Available</h2>
+        <h2 className={styles.h2}>Weed and Cannabis Categories</h2>
         <p className={styles.infoText}>
-          At {gbpLocation.storeName}, we offer a curated selection of weed and cannabis products for adults 19+ in {gbpLocation.city}. Enjoy some of Ontario&apos;s finest quality and value in the following categories:
+          Adults 19+ can use the following links to browse the cannabis categories shown for {gbpLocation.storeName} in {gbpLocation.city}:
         </p>
         <div className={styles.productGrid}>
           {gbpLocation.products.map((p) => {
@@ -205,7 +205,7 @@ export function GBPLandingPage() {
       <section className={styles.section}>
         <h2 className={styles.h2}>Helpful Category Links Before You Visit</h2>
         <p className={styles.infoText}>
-          These internal links are provided as planning shortcuts for adults 19+ who want to understand the main menu sections before visiting {gbpLocation.storeName}. They do not confirm live product availability, pricing, or checkout details.
+          Adults 19+ can use these category links to understand the main menu sections before visiting {gbpLocation.storeName}. Check the current menu or ask staff for details that may change.
         </p>
         <div className={styles.productGrid}>
           {categoryGuideLinks.map((item) => (

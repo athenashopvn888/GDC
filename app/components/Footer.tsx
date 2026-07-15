@@ -75,7 +75,7 @@ export default function Footer() {
         <div className={styles.bottom}>
           <p>
             (c) {new Date().getFullYear()} Green Deal Cannabis. Must be 19+ to
-            enter. Please consume responsibly.
+            enter.
           </p>
         </div>
       </div>

@@ -6,7 +6,7 @@ import BudtenderApplicationForm from "./BudtenderApplicationForm";
 import styles from "./budtender.module.css";
 
 export const metadata: Metadata = {
-  title: "Budtender Or Manager Application | Green Deal Cannabis",
+  title: { absolute: "Budtender Or Manager Application | Green Deal Cannabis" },
   description:
     "Apply online for budtender or manager opportunities at Green Deal Cannabis. Submit availability, customer-service experience, motivation, determination, and a required selfie.",
   alternates: {

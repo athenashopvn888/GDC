@@ -1,7 +1,7 @@
 // Auto-generated Google Business Profile Local SEO Location Configuration
 export const gbpLocation = {
   storeName: "Green Deal Cannabis",
-  domain: "greendealcannabis.com",
+  domain: "www.greendealcannabis.com",
   city: "York",
   province: "ON",
   country: "CA",
@@ -32,7 +32,7 @@ export const gbpLocation = {
   seoTitle: "Green Deal Cannabis | Weed Dispensary in York",
   metaDescription: "Green Deal Cannabis is a local weed dispensary in York offering flower, pre-rolls, edibles, vapes, concentrates, CBD, and service for adults 19+.",
   localLandmarks: ["York", "Eglinton West", "Weston"],
-  introVariant: "Welcome to Green Deal Cannabis, your premier weed dispensary in York situated right on 1820 Jane St. We are dedicated to providing adults 19+ with top-tier weed, premium cannabis flower, pre-rolls, edibles, THC vapes, concentrates, and CBD products. If you are looking for a trusted cannabis store near York / Weston or a weed shop near Eglinton West, stop by today to consult with our knowledgeable staff.",
+  introVariant: "Green Deal Cannabis is located at 1820 Jane St in York. Adults 19+ can browse cannabis flower, pre-rolls, edibles, THC vapes, concentrates, CBD products, and accessories. Visit the store page and menu categories for current details near York and Weston.",
   neighborhoodDescription: "Located in the vibrant York / Weston district, our cannabis store fits right into this active and historic community, surrounded by local retail shops and convenient transit links.",
   parkingNote: "Designated customer parking is available on-site",
   transitNote: "Accessible by local TTC bus routes around Jane Street and Eglinton Avenue.",
