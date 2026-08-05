@@ -113,7 +113,7 @@ export default function FAQPage() {
           <div className={styles.ctaSection}>
             <h2 className={styles.ctaTitle}>Still have questions?</h2>
             <p className={styles.ctaText}>
-              Call us at <strong>(942) 288-4633</strong> or visit us at 1820 Jane St, York.
+              Call us at <strong>+1 (437) 292-0413</strong> or visit us at 1820 Jane St, York.
             </p>
           </div>
         </div>
