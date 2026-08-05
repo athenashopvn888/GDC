@@ -102,7 +102,7 @@ export default function DeliveryContent() {
         <div className={styles.ctaSection}>
           <p className={styles.ctaText}>
             Can&apos;t wait? Visit us in-store at <strong>1820 Jane St, York</strong>
-            open <strong>10am - 2am</strong>. Call <strong>(942) 288-4633</strong>.
+            open <strong>10am - 2am</strong>. Call <strong>+1 (437) 292-0413</strong>.
           </p>
         </div>
       </div>

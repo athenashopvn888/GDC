@@ -9,8 +9,8 @@ export const gbpLocation = {
   address: "1820 Jane St, York, ON M9N 2T3",
   streetAddress: "1820 Jane St",
   postalCode: "M9N 2T3",
-  phone: "(942) 288-4633",
-  phoneIntl: "+19422884633",
+  phone: "+1 (437) 292-0413",
+  phoneIntl: "+14372920413",
   neighborhood: "York / Weston",
   nearbyAreas: ["York", "Eglinton West", "Weston", "Keelesdale", "Mount Dennis", "Caledonia", "Rogers Road", "TTC"],
   products: [
