@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "verify:web-chat": "node scripts/verify-consent-webchat.mjs",
     "prebuild": "node scripts/prebuild-stock.js",
     "dev": "next dev",
     "build": "next build",

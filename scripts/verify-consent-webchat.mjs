@@ -1,0 +1,12 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+const chat = await readFile(new URL("../app/delivery/GreenDealWebChat.tsx", import.meta.url), "utf8");
+const delivery = await readFile(new URL("../app/delivery/DeliveryContent.tsx", import.meta.url), "utf8");
+const footer = await readFile(new URL("../app/components/Footer.tsx", import.meta.url), "utf8");
+for (const expected of ['storeId: "GDC01"', 'sod-web-chat:GDC01', 'smsConsent', 'required type="checkbox"', 'workflowVersion: "READY_V1"', 'I agree to receive one READY delivery-link text for this order.', '/api/web-chat/session', '/api/web-chat/messages', '/api/web-chat/id-review', '/api/web-chat/phone', 'phoneConfirmation: replacementPhoneConfirmation', 'phoneVersion: conversation.phoneVersion', 'START ANOTHER ORDER', '/api/web-chat/order-cycle', 'requestId: crypto.randomUUID()', 'securely retained for future identity and address verification', 'NEW_CUSTOMER', 'RETURNING_CUSTOMER']) assert.ok(chat.includes(expected), `Missing Web Chat contract: ${expected}`);
+assert.ok(delivery.includes("<GreenDealWebChat />")); assert.ok(delivery.includes("$60 PRODUCT MINIMUM")); assert.ok(delivery.includes("HOW TO ORDER")); assert.ok(footer.includes('Delivery Menu'));
+assert.ok(delivery.includes("store=GDC01")); assert.ok(!chat.includes('storeId: "GAC01"'), "Reference identity must not remain");
+assert.doesNotMatch(`${chat}\n${delivery}`, /href=["'{`]sms:|DELIVERY TEXT NUMBER|Reply YES|YES confirmation/i);
+assert.doesNotMatch(delivery, /Call <strong>|href=["'{`]tel:/i, "Delivery page must not expose a customer-facing phone CTA");
+assert.doesNotMatch(`${chat}\n${delivery}`, /SOD_(?:OPERATOR_ALERT|DISPATCHER_MAIN)_PHONE|Dispatcher Main/i);
+console.log("Green Deal Cannabis consent Web Chat contract passed.");
