@@ -8,6 +8,16 @@ const NATIVE_HERO_PRODUCTS = [
   { name: "Canadian Menthol", image: "/products/1013-CANADIAN-MENTHOL.webp" },
 ] as const;
 
+const NICOTINE_VAPE_PRODUCTS = [
+  { name: "Geek Promax — 30K Puffs", image: "https://pub-eb3e1fe18a43477eabc885cfb791d97c.r2.dev/products/GEEK-PROMAX.jpg", sourceSlug: "geek-promax-5-30k-puffs" },
+  { name: "Geek Universe — 25K Puffs", image: "https://pub-eb3e1fe18a43477eabc885cfb791d97c.r2.dev/products/geek_universe_pulse_x_25k.webp", sourceSlug: "geek-universe-25k-puffs" },
+  { name: "Level X G2 Pod", image: "https://pub-eb3e1fe18a43477eabc885cfb791d97c.r2.dev/products/1086-Level-X-G2-pod.webp", sourceSlug: "level-x-g2-pod" },
+  { name: "NEXA PIX — 30K Puffs", image: "https://pub-eb3e1fe18a43477eabc885cfb791d97c.r2.dev/products/nexa_showcase_600x600.webp", sourceSlug: "nexa-pix-30k-puffs-many-flavors" },
+  { name: "OVNS 10000 — 10K Puffs", image: "https://pub-eb3e1fe18a43477eabc885cfb791d97c.r2.dev/products/1081OVNS10000.jpg", sourceSlug: "ovns-10000-5-10k-puffs" },
+  { name: "OVNS Disposable — 8 mL", image: "https://pub-eb3e1fe18a43477eabc885cfb791d97c.r2.dev/products/OVNS500x500HQ.webp", sourceSlug: "ovns-disposable-5-8ml-many-flavors" },
+  { name: "OVNS Pioneer — 22K Puffs", image: "https://pub-eb3e1fe18a43477eabc885cfb791d97c.r2.dev/products/OVNS_PIONEER_5_22K_PUFFS.webp", sourceSlug: "ovns-pioneer-5-22k-puffs" },
+] as const;
+
 export interface SeoPageData {
   slug: string;
   title: string;
@@ -15,11 +25,22 @@ export interface SeoPageData {
   h1: string;
   icon: string;
   heroTagline: string;
+  canonical?: string;
+  warning?: string;
+  suppressCannabisSections?: boolean;
   heroPreview?: {
     eyebrow: string;
     intro: string;
-    products: typeof NATIVE_HERO_PRODUCTS;
-    disclosure: typeof NATIVE_HERO_DISCLOSURE;
+    products: ReadonlyArray<{ name: string; image: string; sourceSlug?: string }>;
+    disclosure: string;
+    theme?: "nicotine";
+    menuHref?: string;
+    primaryLabel?: string;
+    secondaryLabel?: string;
+    secondaryHref?: string;
+    identityStrip?: string;
+    featuredHeading?: string;
+    featuredIntro?: string;
   };
   sections: { heading: string; body: string }[];
   faqs: { q: string; a: string }[];
@@ -86,6 +107,41 @@ export const SEO_PAGES: SeoPageData[] = [
       { q: "Does the site include a cigarette category?", a: "Yes. Use the cigarette category for the listings currently shown." },
       { q: "What cigarette brands are listed?", a: "Check the current cigarette category or ask staff because brand names and formats can change." },
       { q: "What are the store hours?", a: "Green Deal Cannabis is open daily from 10 AM to 2 AM." },
+    ],
+  },
+  {
+    slug: "nicotine-vapes-york",
+    title: "Nicotine Vapes in York | Green Deal Cannabis",
+    metaDescription: "Adults 19+: review seven live-checked nicotine vape product pages from Green Deal Cannabis in York, then use /items/vapes for current category information. Nicotine is addictive.",
+    canonical: "https://www.greendealcannabis.com/info/nicotine-vapes-york",
+    h1: "Nicotine Vapes at Green Deal Cannabis in York",
+    icon: "",
+    heroTagline: "Adult nicotine vape guide for York and Weston",
+    warning: "Adults 19+. Nicotine is addictive.",
+    suppressCannabisSections: true,
+    heroPreview: {
+      theme: "nicotine",
+      eyebrow: "GREEN DEAL CANNABIS • YORK • JANE STREET / WESTON • ADULTS 19+",
+      intro: "This Green Deal Cannabis guide presents seven image-backed product pages live-checked in the VAPE PENS category. Use the cards to open /items/vapes, where the storefront presents its nicotine category information. Product details can change. Nicotine is addictive.",
+      products: NICOTINE_VAPE_PRODUCTS,
+      disclosure: "Seven live-checked product pages. This is not a claim about complete selection, stock, price or availability.",
+      menuHref: "/items/vapes",
+      primaryLabel: "Browse Nicotine Vapes",
+      secondaryLabel: "Compare Seven Featured Items",
+      secondaryHref: "#featured-vapes",
+      identityStrip: "Green Deal Cannabis | York | Jane Street and Weston | Adults 19+ | Nicotine is addictive.",
+      featuredHeading: "Seven Live-Checked Green Deal Vape Cards",
+      featuredIntro: "These image-backed cards were verified from Green Deal Cannabis’s current VAPE PENS pages. They are navigation aids, not a guarantee of complete selection, stock, price or availability. Use /items/vapes for the category information currently presented by the storefront.",
+    },
+    sections: [
+      { heading: "Product Names Help Separate the Listings", body: "The verified set includes Geek, Level X, NEXA and OVNS pages. Puff counts and format terms are used only as listing identifiers, not as promises of duration, performance or superiority. Open /items/vapes before choosing." },
+      { heading: "Keep Each Format With Its Own Product", body: "One live-checked page identifies a Level X G2 Pod, while another identifies an OVNS Disposable. Do not apply pod or disposable wording to another item unless its current record supports that format." },
+      { heading: "A Clear Nicotine and THC Boundary", body: "This adult guide uses nicotine products from Green Deal Cannabis’s VAPE PENS category under /items/vapes. THC and cannabis vape products under /items/vape-disposables are excluded from the featured cards and calls to action." },
+    ],
+    faqs: [
+      { q: "Where should I check Green Deal Cannabis’s current nicotine category?", a: "Use /items/vapes. The seven featured cards are live-checked starting points, while the current category page should control changing product information." },
+      { q: "Does every featured Green Deal item use the same format?", a: "No format should be assumed. Read the current category record and keep pod or disposable wording attached only to the item it describes." },
+      { q: "Does this York nicotine vape guide include cannabis vapes?", a: "No. It covers nicotine products from the VAPE PENS category for adults 19+. THC and cannabis vape products under /items/vape-disposables are excluded." },
     ],
   },
   {
