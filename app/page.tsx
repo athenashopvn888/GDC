@@ -151,7 +151,7 @@ export default function HomePage() {
       {/* NAVBAR */}
       <Navbar />
       <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", border: 0 }}>
-        Green Deal Cannabis - Premium Etobicoke Cannabis Dispensary
+        Green Deal Cannabis - Premium York Cannabis Dispensary
       </h1>
 
       {/* HERO BANNER */}
@@ -329,6 +329,9 @@ export default function HomePage() {
             className={styles.promoBannerImg}
           />
         </a>
+        <p className={styles.guideLinkRow}>
+          Adults 19+: <Link href="/info/nicotine-vapes-york">read the Green Deal nicotine vape guide</Link>.
+        </p>
       </section>
 
       {/*  STORE INFO  */}
