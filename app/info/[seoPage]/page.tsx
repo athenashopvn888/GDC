@@ -6,6 +6,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { SEO_PAGES, getSeoPageBySlug } from "../../lib/seoPages";
 import { TIER_CONFIG } from "../../lib/products";
+import { resolveStorefrontTitle } from "../../lib/metadataTitle";
 import styles from "./seo.module.css";
 
 /* ── Generate all SEO pages ── */
@@ -24,7 +25,7 @@ export async function generateMetadata({
   if (!page) return {};
 
   return {
-    title: page.title,
+    title: resolveStorefrontTitle(page.title),
     description: page.metaDescription,
     alternates: {
       canonical: page.canonical ?? `https://www.greendealcannabis.com/info/${slug}`,

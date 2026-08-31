@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { resolveStorefrontTitle } from "../lib/metadataTitle";
 import styles from "./faq.module.css";
 
 export const metadata: Metadata = {
-  title: "FAQ — Green Deal Cannabis | York Dispensary Questions",
+  title: resolveStorefrontTitle("FAQ — Green Deal Cannabis | York Dispensary Questions"),
   description:
     "Frequently asked questions about Green Deal Cannabis in York. Hours, location, products, pricing, bundle offers, and everything you need to know before visiting.",
   alternates: {

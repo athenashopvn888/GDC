@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { resolveStorefrontTitle } from "../lib/metadataTitle";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Green Deal Cannabis | 1664 Jane St, York",
+  title: resolveStorefrontTitle("Contact Us — Green Deal Cannabis | 1664 Jane St, York"),
   description:
     "Visit Green Deal Cannabis at 1664 Jane St, York, ON M9N 2S1. Open daily 10am - 2am. Walk-ins welcome.",
   alternates: {
