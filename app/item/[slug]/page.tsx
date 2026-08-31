@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { allItems, CATEGORY_CONFIG, type ItemProduct } from "../../lib/products";
 import { getItemData } from "../../lib/itemData";
+import { resolveStorefrontTitle } from "../../lib/metadataTitle";
 import Magnifier from "../../components/Magnifier";
 import styles from "../../flower/[slug]/flower.module.css";
 
@@ -26,7 +27,7 @@ export async function generateMetadata({
   const itemData = getItemData(item.category, item.name);
 
   return {
-    title: `${item.name} | ${item.category} | Green Deal Cannabis York`,
+    title: resolveStorefrontTitle(`${item.name} | ${item.category} | Green Deal Cannabis York`),
     description: itemData.metaDescription,
     alternates: {
       canonical: `https://www.greendealcannabis.com/item/${slug}`,
