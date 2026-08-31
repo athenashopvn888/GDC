@@ -26,12 +26,21 @@ if (fs.existsSync(envPath)) {
 }
 
 const APPS_SCRIPT_URL = process.env.APPS_SCRIPT_URL || '';
+const MAY_WRITE_TRACKED_STOCK =
+  process.env.VERCEL === '1' ||
+  process.env.GDC_ALLOW_TRACKED_STOCK_WRITE === '1';
 const FLOWERS_PATH = path.join(__dirname, '..', 'app', 'lib', 'flowers.json');
 const ITEMS_PATH = path.join(__dirname, '..', 'app', 'lib', 'items.json');
 
 async function main() {
   if (!APPS_SCRIPT_URL) {
     console.log('[prebuild] No APPS_SCRIPT_URL set — using existing static JSON files');
+    return;
+  }
+
+  if (!MAY_WRITE_TRACKED_STOCK) {
+    console.log('[prebuild] Local safe mode — authoritative stock refresh skipped to keep the worktree clean');
+    console.log('[prebuild] Vercel production builds refresh automatically; inventory worktrees may opt in with GDC_ALLOW_TRACKED_STOCK_WRITE=1');
     return;
   }
 

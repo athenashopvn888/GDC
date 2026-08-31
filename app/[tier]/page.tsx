@@ -30,9 +30,12 @@ export async function generateMetadata({
 
   return {
     title: seo?.seoTitle || `${tierInfo.config.name} Cannabis Flower — ${flowers.length} Strains`,
-    description: seo?.seoIntro || `Shop ${flowers.length} ${tierInfo.config.name.toLowerCase()} cannabis strains at Cafe Value.`,
+    description: seo?.seoIntro || `Shop ${flowers.length} ${tierInfo.config.name.toLowerCase()} cannabis strains at Green Deal Cannabis.`,
+    alternates: {
+      canonical: `https://www.greendealcannabis.com/${tierInfo.config.slug}`,
+    },
     openGraph: {
-      title: `${tierInfo.config.name} Flower | Cafe Value`,
+      title: `${tierInfo.config.name} Flower | Green Deal Cannabis`,
       description: `Browse the ${tierInfo.config.name.toLowerCase()} flower tier and review current menu details.`,
     },
   };

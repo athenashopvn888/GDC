@@ -52,7 +52,7 @@ function getJsonLd(item: ItemProduct) {
   const itemData = getItemData(item.category, item.name);
   const priceNum = item.price ? parseFloat(item.price.replace('$', '')) : 0;
 
-  const offers: any = {
+  const offers: Record<string, unknown> = {
     "@type": "Offer",
     url: `https://www.greendealcannabis.com/item/${item.slug}`,
     priceCurrency: "CAD",
