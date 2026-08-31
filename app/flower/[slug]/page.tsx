@@ -30,6 +30,9 @@ export async function generateMetadata({
   return {
     title: `${flower.name} | ${tierName} ${flower.type === "indica" ? "Indica" : flower.type === "sativa" ? "Sativa" : "Hybrid"} | THC ${flower.thc} | Green Deal Cannabis York`,
     description: strainData.metaDescription,
+    alternates: {
+      canonical: `https://www.greendealcannabis.com/flower/${flower.slug}`,
+    },
     openGraph: {
       title: `${flower.name} | Green Deal Cannabis`,
       description: strainData.metaDescription,
@@ -55,7 +58,7 @@ function getJsonLd(flower: FlowerProduct) {
 
   const strainData = getStrainData(flower.name, flower.type, flower.tier, flower.thc);
 
-  const offers: any = {
+  const offers: Record<string, unknown> = {
     "@type": "Offer",
     url: `https://www.greendealcannabis.com/flower/${flower.slug}`,
     priceCurrency: "CAD",

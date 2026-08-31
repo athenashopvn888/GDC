@@ -12,7 +12,8 @@
     "verify:mojibake": "node scripts/verify-mojibake.mjs",
     "test:staff-photo": "node --experimental-strip-types --experimental-specifier-resolution=node --test tests/staff-photo.test.ts",
     "verify:delivery-images": "node scripts/verify-athena-delivery-images.mjs",
-    "test:nicotine-vapes": "node --experimental-strip-types --experimental-specifier-resolution=node --test tests/nicotine-vape-landing.test.ts"
+    "test:nicotine-vapes": "node --experimental-strip-types --experimental-specifier-resolution=node --test tests/nicotine-vape-landing.test.ts",
+    "test:seo-stabilization": "node --test tests/seo-stabilization.test.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.6.1",

@@ -32,6 +32,32 @@ const TIER_DEAL: Record<string,string> = {
   EXOTIC:"Buy 3g Get 3 FREE", PREMIUM:"Buy 3g Get 3 FREE",
   "AAA+":"Buy 3g Get 3 FREE", BUDGET:"$10 / 3g Special"
 };
+const TV_TIERS = ["EXOTIC", "PREMIUM", "AAA+", "AA", "BUDGET"] as const;
+const PARTICLE_COLORS = [
+  "rgba(220,38,38,.12)",
+  "rgba(245,158,11,.10)",
+  "rgba(59,130,246,.10)",
+  "rgba(16,185,129,.08)",
+  "rgba(168,85,247,.08)",
+];
+
+function seededParticleValue(index: number, salt: number) {
+  const value = Math.sin((index + 1) * (salt + 11) * 12.9898) * 43758.5453;
+  return value - Math.floor(value);
+}
+
+const TV_PARTICLES = Array.from({ length: 25 }, (_, index) => {
+  const size = 4 + seededParticleValue(index, 1) * 8;
+  const color = PARTICLE_COLORS[index % PARTICLE_COLORS.length];
+  return {
+    size,
+    left: `${5 + seededParticleValue(index, 2) * 90}%`,
+    color,
+    shadow: `0 0 ${size * 3}px ${color}`,
+    dur: `${18 + seededParticleValue(index, 3) * 22}s`,
+    delay: `${-seededParticleValue(index, 4) * 25}s`,
+  };
+});
 
 /* -- Helpers -- */
 function fmtTHC(v: string): string {
@@ -725,10 +751,7 @@ export default function TVMenuPage() {
   const [addOns, setAddOns] = useState<Item[]>([]);
   const [highlights, setHighlights] = useState<Record<string,number>>({});
   const [lastUpdate, setLastUpdate] = useState("");
-  const [particles, setParticles] = useState<Array<{size:number;left:string;color:string;shadow:string;dur:string;delay:string}>>([]);
   const wrapRef = useRef<HTMLDivElement>(null);
-
-  const TIERS = ["EXOTIC","PREMIUM","AAA+","AA","BUDGET"];
 
   const loadData = useCallback(async () => {
     try {
@@ -759,7 +782,7 @@ export default function TVMenuPage() {
         if (!ozSeen.has(f.sku)) { oz.push(f); ozSeen.add(f.sku); }
       }
       // Then add items from all other tiers that have 28g pricing
-      for (const tier of ["EXOTIC","PREMIUM","AAA+","AA","BUDGET"]) {
+      for (const tier of TV_TIERS) {
         for (const f of (grouped[tier] || [])) {
           if (f.price28g && !ozSeen.has(f.sku)) { oz.push(f); ozSeen.add(f.sku); }
         }
@@ -774,7 +797,7 @@ export default function TVMenuPage() {
       setAddOns(iData.filter(it => it.category === "ADD ONS" || it.category === "PREROLLS").slice(0, 14));
 
       const hi: Record<string,number> = {};
-      for (const t of TIERS) hi[t] = 0;
+      for (const t of TV_TIERS) hi[t] = 0;
       hi["OZ"] = 0; hi["ADDONS"] = 0;
       setHighlights(hi);
       setLastUpdate(new Date().toLocaleTimeString());
@@ -792,23 +815,15 @@ export default function TVMenuPage() {
   }, []);
 
   useEffect(() => {
-    const colors = ['rgba(220,38,38,.12)','rgba(245,158,11,.10)','rgba(59,130,246,.10)','rgba(16,185,129,.08)','rgba(168,85,247,.08)'];
-    setParticles(Array.from({length: 25}, (_, i) => {
-      const size = 4 + Math.random() * 8;
-      const color = colors[i % colors.length];
-      return {
-        size,
-        left: `${5 + Math.random() * 90}%`,
-        color,
-        shadow: `0 0 ${size*3}px ${color}`,
-        dur: `${18 + Math.random() * 22}s`,
-        delay: `${-Math.random() * 25}s`,
-      };
-    }));
-    loadData(); fitToScreen();
+    fitToScreen();
+    const initialLoad = window.setTimeout(() => void loadData(), 0);
     window.addEventListener("resize", fitToScreen);
     const refresh = setInterval(loadData, 5*60*1000);
-    return () => { window.removeEventListener("resize", fitToScreen); clearInterval(refresh); };
+    return () => {
+      window.clearTimeout(initialLoad);
+      window.removeEventListener("resize", fitToScreen);
+      clearInterval(refresh);
+    };
   }, [loadData, fitToScreen]);
 
   useEffect(() => {
@@ -816,7 +831,7 @@ export default function TVMenuPage() {
     const interval = setInterval(() => {
       setHighlights(prev => {
         const next = {...prev};
-        for (const t of TIERS) {
+        for (const t of TV_TIERS) {
             const total = flowers[t]?.length || 1;
             next[t] = ((prev[t]||0)+1) % Math.max(MAX_VIS, total * MAX_VIS);
           }
@@ -840,7 +855,7 @@ export default function TVMenuPage() {
     <div className={styles.tvPage} style={bgUrl ? { backgroundImage: `url(${bgUrl})`, backgroundSize: "cover" } : undefined}>
       {/* Floating particles */}
       <div className={styles.particles}>
-        {particles.map((p, i) => (
+        {TV_PARTICLES.map((p, i) => (
           <span key={i} className={styles.dot} style={{
             width: p.size, height: p.size,
             left: p.left,
@@ -859,14 +874,14 @@ export default function TVMenuPage() {
         <div className={styles.stage}>
           <div className={styles.grid}>
             {/* Row 1: EXOTIC, PREMIUM, AAA+ */}
-            {TIERS.slice(0,3).map(tier => (
+            {TV_TIERS.slice(0,3).map(tier => (
               <FlowerCard key={tier} tier={tier} flowers={flowers[tier]||[]} hiIdx={highlights[tier]||0}
                 cardCls={CM[tier].c} tierCls={CM[tier].t} badgeCls={CM[tier].b} />
             ))}
             {/* ADDONS right rail */}
             <AddOnsCard items={addOns} hiIdx={highlights["ADDONS"]||0} />
             {/* Row 2: AA, BUDGET, OZ */}
-            {TIERS.slice(3).map(tier => (
+            {TV_TIERS.slice(3).map(tier => (
               <FlowerCard key={tier} tier={tier} flowers={flowers[tier]||[]} hiIdx={highlights[tier]||0}
                 cardCls={CM[tier].c} tierCls={CM[tier].t} badgeCls={CM[tier].b} />
             ))}

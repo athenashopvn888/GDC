@@ -311,24 +311,24 @@ export default function HomePage() {
 
       {/*  DEALS & PROMOS BANNER  */}
       <section className={styles.promoSection}>
-        <a href="/items/edibles" className={styles.promoBannerLink}>
+        <Link href="/items/edibles" className={styles.promoBannerLink}>
           <img
             src="/banners/Green Deal Cannabis_Edibles.webp"
             alt="Gummies and Edibles - Green Deal Cannabis"
             className={styles.promoBannerImg}
           />
-        </a>
+        </Link>
       </section>
 
       {/*  VAPES & PREROLL DEALS BANNER  */}
       <section className={styles.promoSection}>
-        <a href="/items/vapes" className={styles.promoBannerLink}>
+        <Link href="/items/vapes" className={styles.promoBannerLink}>
           <img
             src="/banners/Green Deal Cannabis_Daily_Deals.webp"
             alt="24 Hour Cannabis Deals - Vapes, Pre-Rolls & More"
             className={styles.promoBannerImg}
           />
-        </a>
+        </Link>
         <p className={styles.guideLinkRow}>
           Adults 19+: <Link href="/info/nicotine-vapes-york">read the Green Deal nicotine vape guide</Link>.
         </p>

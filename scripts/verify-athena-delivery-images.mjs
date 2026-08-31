@@ -10,10 +10,35 @@ const source = fs.readFileSync(new URL("../app/delivery/DeliveryContent.tsx", im
 assert(source.includes("unoptimized"), "catalog images must bypass the storefront optimizer");
 assert(!source.includes("/api/catalog-image"), "legacy SOD image proxy must not appear");
 assert(!source.includes("__SOD_"), "placeholders must not ship");
-for (const url of [...new Set(images)]) {
-  const response = await fetch(url);
-  assert.equal(response.status, 200, `${url} must return 200`);
-  assert.match(response.headers.get("content-type") || "", /^image\//, `${url} must be an image`);
-  assert.match(response.headers.get("cache-control") || "", /immutable/, `${url} must be immutable`);
+const uniqueImages = [...new Set(images)];
+const batchSize = 8;
+const requestTimeoutMs = 15_000;
+const requestAttempts = 3;
+
+async function fetchWithRetry(url) {
+  let lastError;
+  for (let attempt = 1; attempt <= requestAttempts; attempt += 1) {
+    try {
+      return await fetch(url, { signal: AbortSignal.timeout(requestTimeoutMs) });
+    } catch (error) {
+      lastError = error;
+      if (attempt < requestAttempts) {
+        console.warn(`Retrying ${url} after attempt ${attempt}/${requestAttempts} failed: ${error.message}`);
+      }
+    }
+  }
+  throw new Error(`${url} failed after ${requestAttempts} attempts`, { cause: lastError });
 }
-console.log(`Verified ${menu.products.length} products, ${images.length} image slots, ${new Set(images).size} immutable Athena assets.`);
+
+console.log(`Checking ${uniqueImages.length} Athena delivery assets in bounded batches of ${batchSize}...`);
+for (let start = 0; start < uniqueImages.length; start += batchSize) {
+  const batch = uniqueImages.slice(start, start + batchSize);
+  await Promise.all(batch.map(async (url) => {
+    const response = await fetchWithRetry(url);
+    assert.equal(response.status, 200, `${url} must return 200`);
+    assert.match(response.headers.get("content-type") || "", /^image\//, `${url} must be an image`);
+    assert.match(response.headers.get("cache-control") || "", /immutable/, `${url} must be immutable`);
+  }));
+  console.log(`Checked ${Math.min(start + batch.length, uniqueImages.length)}/${uniqueImages.length} assets.`);
+}
+console.log(`Verified ${menu.products.length} products, ${images.length} image slots, ${uniqueImages.length} immutable Athena assets.`);

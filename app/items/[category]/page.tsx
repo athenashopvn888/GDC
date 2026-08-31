@@ -31,6 +31,9 @@ export async function generateMetadata({
   return {
     title: catInfo.config.seoTitle || `${catInfo.config.name} — ${items.length} Products`,
     description: catInfo.config.seoIntro || `Shop ${items.length} ${catInfo.config.name.toLowerCase()} at Green Deal Cannabis.`,
+    alternates: {
+      canonical: `https://www.greendealcannabis.com/items/${catInfo.config.slug}`,
+    },
   };
 }
 
