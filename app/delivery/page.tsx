@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import DeliveryContent from "./DeliveryContent";
 import menu from "./delivery-menu.json";
+import { resolveStorefrontTitle } from "../lib/metadataTitle";
 
 export const metadata: Metadata = {
-  title: "Delivery Menu | Green Deal Cannabis",
+  title: resolveStorefrontTitle("Delivery Menu | Green Deal Cannabis"),
   description: "Browse the Green Deal Cannabis delivery product catalog and compare flower tiers and prices.",
   alternates: { canonical: "https://www.greendealcannabis.com/delivery" },
 };

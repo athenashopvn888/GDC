@@ -29,3 +29,27 @@ for (const [routeFamily, relativeFile] of routes) {
 }
 
 console.log("Rendered storefront titles contain Green Deal Cannabis exactly once across all representative route families.");
+
+function allHtmlFiles(directory) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) return allHtmlFiles(entryPath);
+    return entry.name.endsWith(".html") ? [entryPath] : [];
+  });
+}
+
+let renderedTitleCount = 0;
+for (const file of allHtmlFiles(appOutput)) {
+  const relativeFile = path.relative(appOutput, file);
+  if (relativeFile === "_global-error.html") continue;
+
+  const html = fs.readFileSync(file, "utf8");
+  const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+  if (!title) continue;
+
+  const brandCount = title.match(/Green Deal Cannabis/gi)?.length || 0;
+  assert.equal(brandCount, 1, `${relativeFile} must contain ${storefrontName} exactly once: ${title}`);
+  renderedTitleCount += 1;
+}
+
+console.log(`Verified ${renderedTitleCount} generated HTML titles contain Green Deal Cannabis exactly once.`);
