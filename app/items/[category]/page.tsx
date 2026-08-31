@@ -11,6 +11,7 @@ import {
   type ItemProduct,
 } from "../../lib/products";
 import styles from "./items.module.css";
+import { resolveStorefrontTitle } from "../../lib/metadataTitle";
 
 /* ── Generate all category pages ── */
 export function generateStaticParams() {
@@ -28,8 +29,10 @@ export async function generateMetadata({
   if (!catInfo) return {};
   const items = getItemsByCategory(catInfo.key);
 
+  const title = catInfo.config.seoTitle || `${catInfo.config.name} — ${items.length} Products`;
+
   return {
-    title: catInfo.config.seoTitle || `${catInfo.config.name} — ${items.length} Products`,
+    title: resolveStorefrontTitle(title),
     description: catInfo.config.seoIntro || `Shop ${items.length} ${catInfo.config.name.toLowerCase()} at Green Deal Cannabis.`,
     alternates: {
       canonical: `https://www.greendealcannabis.com/items/${catInfo.config.slug}`,

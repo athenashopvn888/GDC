@@ -9,6 +9,7 @@ import {
   TIER_CONFIG,
 } from "../lib/products";
 import { TIER_SEO } from "../lib/tierSeoContent";
+import { resolveStorefrontTitle } from "../lib/metadataTitle";
 import styles from "./tier.module.css";
 
 /* -- Generate all tier pages at build -- */
@@ -28,8 +29,10 @@ export async function generateMetadata({
   const flowers = getFlowersByTier(tierInfo.key);
   const seo = TIER_SEO[tierInfo.key];
 
+  const title = seo?.seoTitle || `${tierInfo.config.name} Cannabis Flower — ${flowers.length} Strains`;
+
   return {
-    title: seo?.seoTitle || `${tierInfo.config.name} Cannabis Flower — ${flowers.length} Strains`,
+    title: resolveStorefrontTitle(title),
     description: seo?.seoIntro || `Shop ${flowers.length} ${tierInfo.config.name.toLowerCase()} cannabis strains at Green Deal Cannabis.`,
     alternates: {
       canonical: `https://www.greendealcannabis.com/${tierInfo.config.slug}`,
