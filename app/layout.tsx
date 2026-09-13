@@ -138,6 +138,9 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <div className="hermesHomepageAnnouncement" data-hermes-change="homepage-banner" role="status" aria-label="Store announcement">
+          OPEN 24 HOURS
+        </div>
         <Link className="deliveryAnnouncement" href="/delivery">
           NEW DELIVERY MENU IS HERE — CLICK TO EXPLORE
         </Link>

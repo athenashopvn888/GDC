@@ -148,10 +148,7 @@ function getTierColor(tier: string) {
 export default function HomePage() {
   return (
     <main className={styles.main}>
-      <div className="hermesHomepageAnnouncement" data-hermes-change="homepage-banner" role="status" aria-label="Store announcement">
-        OPEN 24 HOURS
-      </div>
-      {/* NAVBAR */}
+{/* NAVBAR */}
       <Navbar />
       <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", border: 0 }}>
         Green Deal Cannabis - Premium York Cannabis Dispensary
