@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Green Deal Cannabis",
   },
   description:
-    "Green Deal Cannabis is a cannabis dispensary on Jane St with adult 19+ store info and category browsing for flower, pre-rolls, vapes, edibles, concentrates, and accessories. Open 10AM - 2AM.",
+    "Green Deal Cannabis is a cannabis dispensary on Jane St with adult 19+ store info and category browsing for flower, pre-rolls, vapes, edibles, concentrates, and accessories. Open 24 hours.",
   keywords: [
     "cannabis dispensary York",
     "weed store York",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "Green Deal Cannabis",
     title: "Green Deal Cannabis — Premium York Cannabis Dispensary",
     description:
-      "Browse flower tiers and cannabis categories at Green Deal Cannabis on Jane St in York. Open 10AM - 2AM.",
+      "Browse flower tiers and cannabis categories at Green Deal Cannabis on Jane St in York. Open 24 hours.",
     images: [
       {
         url: "/banners/Green Deal Cannabis_Homepage_Hero.webp",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Green Deal Cannabis — York's Uplifting Dispensary",
-    description: "Browse Green Deal Cannabis categories. Open 10AM - 2AM at 1820 Jane St, York.",
+    description: "Browse Green Deal Cannabis categories. Open 24 hours at 1820 Jane St, York.",
     images: ["/banners/Green Deal Cannabis_Homepage_Hero.webp"],
   },
   robots: {
@@ -75,7 +75,7 @@ const jsonLd = {
   additionalType: "https://schema.org/Store",
   "@id": "https://www.greendealcannabis.com",
   name: "Green Deal Cannabis",
-  description: "Cannabis dispensary at 1820 Jane St in York, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 10AM - 2AM.",
+  description: "Cannabis dispensary at 1820 Jane St in York, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 hours.",
   url: "https://www.greendealcannabis.com",
   telephone: "+14372920413",
   image: "https://www.greendealcannabis.com/logo.png",
@@ -97,8 +97,8 @@ const jsonLd = {
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      opens: "10:00",
-      closes: "02:00",
+      opens: "00:00",
+      closes: "23:59",
     },
   ],
   areaServed: {

@@ -162,11 +162,11 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
     name: "Edibles", slug: "edibles", color: "#f97316", icon: "🍬",
     seoTitle: "Cannabis Edibles York — Gummies, Chocolates & Drinks",
     seoIntro: "Browse the edibles category at Green Deal Cannabis on Jane St in York. Compare current names, formats, package details, and posted prices.",
-    seoDescription: "Use the edibles category to compare current product names, package details, and posted prices at Green Deal Cannabis. Visit us at 1820 Jane St — open daily 10am - 2am.",
+    seoDescription: "Use the edibles category to compare current product names, package details, and posted prices at Green Deal Cannabis. Visit us at 1820 Jane St — open 24 hours daily.",
     faqs: [
       { q: "What edible formats are listed?", a: "Use the current menu to review listed gummies, chocolates, beverages, capsules, baked goods, and package details." },
       { q: "Where should shoppers confirm edible details?", a: "Review the current menu and package information, or ask staff when an item detail matters." },
-      { q: "Where can I review edible listings?", a: "Use the current edibles category or ask staff. Visit us at 1820 Jane St, York — open daily 10am - 2am." },
+      { q: "Where can I review edible listings?", a: "Use the current edibles category or ask staff. Visit us at 1820 Jane St, York — open 24 hours daily." },
     ],
   },
   "VAPE PENS": {
@@ -206,7 +206,7 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
     banner: "/banners/Green Deal Cannabis_Pre-Rolls.webp", name: "Pre-Rolls", slug: "prerolls", color: "#22c55e", icon: "🚬",
     seoTitle: "Pre-Rolls York — Ready-to-Smoke Cannabis Joints",
     seoIntro: "Browse pre-roll listings at Green Deal Cannabis in York, including singles and multi-packs where listed.",
-    seoDescription: "Use the pre-roll category to compare current product names, formats, pack details, and posted prices. Visit us at 1820 Jane St — open daily 10am - 2am.",
+    seoDescription: "Use the pre-roll category to compare current product names, formats, pack details, and posted prices. Visit us at 1820 Jane St — open 24 hours daily.",
     faqs: [
       { q: "What pre-roll formats are listed?", a: "Use the current menu to compare listed singles, multi-packs, and other pre-roll formats." },
       { q: "Where can I confirm pre-roll details?", a: "Review the current menu and package information, or ask staff when a pack detail matters." },
@@ -237,7 +237,7 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
     name: "Cigarettes", slug: "cigarettes", color: "#78716c", icon: "🏷️",
     seoTitle: "Native Cigarettes York — Discount Tobacco at Green Deal Cannabis",
     seoIntro: "Browse Native cigarette listings at Green Deal Cannabis in York and compare current brand and format details.",
-    seoDescription: "Use the cigarette category to compare current brand names, formats, and posted prices. Green Deal Cannabis is located at 1820 Jane St and is open daily 10am - 2am.",
+    seoDescription: "Use the cigarette category to compare current brand names, formats, and posted prices. Green Deal Cannabis is located at 1820 Jane St and is open 24 hours daily.",
     faqs: [
       { q: "Does the site include cigarettes?", a: "Yes. Use the cigarette category for the listings currently shown." },
       { q: "What cigarette brands are listed?", a: "Check the current menu or ask staff because brand names and formats can change." },
