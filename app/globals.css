@@ -47,6 +47,7 @@ body > .deliveryAnnouncement ~ * nav {
 
 :root {
   --delivery-announcement-height: 42px;
+  --hermes-homepage-announcement-height: 52px;
   /* Core palette - clean white */
   --bg-primary: #ffffff;
   --bg-secondary: #f8faf9;
@@ -466,17 +467,32 @@ button { cursor: pointer; font-family: inherit; }
   border: 1px solid var(--border-subtle);
 }
 
-/* Hermes bounded additive homepage announcement */
+/* Hermes bounded existing homepage announcement: RED_LARGE_BOLD */
 .hermesHomepageAnnouncement {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1101;
   width: 100%;
-  min-height: 36px;
+  min-height: var(--hermes-homepage-announcement-height);
   display: grid;
   place-items: center;
   box-sizing: border-box;
-  padding: 0.5rem 1rem;
-  background: #111827;
+  padding: 0.65rem 1rem;
+  background: #b91c1c;
   color: #ffffff;
-  font: 800 clamp(0.78rem, 2.5vw, 0.95rem)/1.25 system-ui, sans-serif;
+  font: 900 clamp(1.1rem, 3vw, 1.5rem)/1.2 system-ui, sans-serif;
   letter-spacing: 0.04em;
   text-align: center;
+}
+
+.hermesHomepageAnnouncement + .deliveryAnnouncement {
+  top: var(--hermes-homepage-announcement-height);
+}
+
+body:has(> .hermesHomepageAnnouncement) {
+  padding-top: calc(var(--hermes-homepage-announcement-height) + var(--delivery-announcement-height));
+}
+
+body > .hermesHomepageAnnouncement ~ * nav {
+  top: calc(var(--hermes-homepage-announcement-height) + var(--delivery-announcement-height)) !important;
 }
