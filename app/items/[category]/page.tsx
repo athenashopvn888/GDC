@@ -124,7 +124,7 @@ export default async function ItemsCategoryPage({
           <div className={styles.visitCta}>
             <h3 className={styles.visitTitle}>Visit Green Deal Cannabis</h3>
             <p className={styles.visitText}>
-              1820 Jane St, York, ON M9N 2T3 · Open Daily 10am - 2am
+              1820 Jane St, York, ON M9N 2T3 · Open 24 Hours Daily
             </p>
           </div>
         </div>

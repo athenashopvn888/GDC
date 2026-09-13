@@ -40,7 +40,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
       {
         heading: "Local Search, Useful Next Step",
         body: "Green Deal Cannabis is listed at 1820 Jane St, York, ON M9N 2T3. These guides help shoppers plan the visit. Start with the local page for address and visit details, then use these guides to compare categories.",
-        bullets: ["Local store page: /weed-dispensary-york", "Local areas: York, Weston, Jane Street, Eglinton West, Keelesdale, Mount Dennis, Caledonia, Rogers Road, and TTC routes", "Listed store hours: 10AM - 2AM daily"]
+        bullets: ["Local store page: /weed-dispensary-york", "Local areas: York, Weston, Jane Street, Eglinton West, Keelesdale, Mount Dennis, Caledonia, Rogers Road, and TTC routes", "Listed store hours: Open 24 hours daily"]
       },
       {
         heading: "Built Around Real Menu Choices",

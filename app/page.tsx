@@ -359,7 +359,7 @@ export default function HomePage() {
               <p className={styles.storeCardText}>
                 Open 7 Days a Week
                 <br />
-                <span className={styles.storeHighlight}>10am - 2am Daily</span>
+                <span className={styles.storeHighlight}>Open 24 Hours Daily</span>
               </p>
             </div>
             <div className={styles.storeCard}>

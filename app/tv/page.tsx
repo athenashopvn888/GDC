@@ -699,7 +699,7 @@ function AddOnsCard({ items, hiIdx }: { items: Item[]; hiIdx: number }) {
 const TICKER_SLIDES = [
   "* Green Deal Cannabis - 1820 Jane St, York",
   "Browse Flower Tiers",
-  "Open Daily 10AM - 2AM",
+  "Open 24 Hours Daily",
   "ALL SALES ARE FINAL",
   "Browse Green Deal Cannabis categories online",
 ];
