@@ -41,7 +41,7 @@ export default function Footer() {
             </div>
             <div className={styles.infoBlock}>
               <span className={styles.infoLabel}>Hours:</span>
-              <span className={styles.highlight}>Open 24 Hours</span>
+              <span className={styles.highlight}><Link href="/hours">Open 24 Hours</Link></span>
             </div>
           </div>
 
@@ -79,6 +79,10 @@ export default function Footer() {
             enter.
           </p>
         </div>
+      </div>
+          <div style={{ textAlign: "center", padding: "12px 16px", display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+        <Link href="/visit">Visit / directions</Link>
+        <Link href="/hours">Store hours</Link>
       </div>
     </footer>
   );
