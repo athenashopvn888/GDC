@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: resolveStorefrontTitle(gbpLocation.seoTitle),
   description: gbpLocation.metaDescription,
   alternates: {
-    canonical: `https://${gbpLocation.domain}/${gbpLocation.slug}/`,
+    canonical: `https://${gbpLocation.domain}/${gbpLocation.slug}`,
   },
   robots: {
     index: true,
