@@ -1,0 +1,6 @@
+import assert from "node:assert/strict";import fs from "node:fs";import test from "node:test";import{HOME_DELIVERY_CARDS,HOME_DELIVERY_FAQS,HOME_TITLE}from"../app/lib/homeDelivery.ts";
+const page=fs.readFileSync("app/page.tsx","utf8"),layout=fs.readFileSync("app/layout.tsx","utf8"),globals=fs.readFileSync("app/globals.css","utf8");
+test("locked title",()=>{assert.equal(HOME_TITLE,"Green Deal Cannabis Dispensary - Weed Delivery in York");assert.match(page,/\{HOME_TITLE\}/);assert.match(layout,/default: HOME_TITLE/);});
+test("correct paths",()=>{assert.match(page,/href="\/exotic"[\s\S]*>STORE MENU<\/Link>/);assert.match(page,/href="\/delivery"[\s\S]*>Delivery<\/Link>/);});
+test("delivery body",()=>{assert.ok(HOME_DELIVERY_FAQS.length>=5&&HOME_DELIVERY_FAQS.length<=8);assert.ok(HOME_DELIVERY_CARDS.length>=3&&HOME_DELIVERY_CARDS.length<=6);for(const c of HOME_DELIVERY_CARDS)assert.match(c.href,/^\/(delivery|faq|visit|weed-dispensary-york)$/);});
+test("sticky order",()=>{assert.ok(page.indexOf("<FleetAnnouncementBanner />")>page.indexOf("<Navbar />"));assert.match(globals,/margin-top:\s*var\(--homepage-nav-clearance\)/);});

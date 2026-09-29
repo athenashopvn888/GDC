@@ -2,8 +2,10 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import FleetAnnouncementBanner from "./components/FleetAnnouncementBanner";
 import Navbar from "./components/Navbar";
+import HomeDeliverySection from "./components/HomeDeliverySection";
 import Footer from "./components/Footer";
 import { allFlowers } from "./lib/products";
+import { HOME_TITLE } from "./lib/homeDelivery";
 
 /* Tier data (will come from Supabase later) */
 const TIERS = [
@@ -149,15 +151,18 @@ function getTierColor(tier: string) {
 export default function HomePage() {
   return (
     <main className={styles.main}>
-      <FleetAnnouncementBanner />
-{/* NAVBAR */}
       <Navbar />
-      <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", border: 0 }}>
-        Green Deal Cannabis - Premium York Cannabis Dispensary
-      </h1>
+      <FleetAnnouncementBanner />
+      <section className={styles.homeHeroLock} aria-labelledby="home-title">
+        <h1 id="home-title">{HOME_TITLE}</h1>
+        <div className={styles.homeMenuActions}>
+          <Link href="/exotic" className={`${styles.homeMenuCta} ${styles.homeMenuPrimary}`}>STORE MENU</Link>
+          <Link href="/delivery" className={`${styles.homeMenuCta} ${styles.homeDeliverySecondary}`}>Delivery</Link>
+        </div>
+      </section>
 
       {/* HERO BANNER */}
-      <section className={styles.hero} id="hero" style={{ paddingTop: "92px", paddingBottom: "24px", minHeight: "auto", display: "block" }}>
+      <section className={styles.hero} id="hero" style={{ paddingTop: "0", paddingBottom: "24px", minHeight: "auto", display: "block" }}>
         <a href="#menu" className={styles.heroBanner} style={{ display: "block", position: "relative", width: "100%", cursor: "pointer" }}>
           <img
             src="/banners/Green Deal Cannabis_Homepage_Hero.webp"
@@ -167,6 +172,8 @@ export default function HomePage() {
           />
         </a>
       </section>
+
+      <HomeDeliverySection />
 
       <section className={styles.hiringCallout} aria-label="Hiring at Green Deal Cannabis">
         <div className={styles.hiringCalloutInner}>
