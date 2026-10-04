@@ -11,7 +11,7 @@ type Message = { id: string; direction: "inbound" | "outbound"; body: string; at
 type Review = { id: string; status: string; receivedAt: number; expiresAt: number };
 type CustomerIntent = "NEW_CUSTOMER" | "RETURNING_CUSTOMER";
 type Conversation = { id: string; messages: Message[]; idReviews?: Review[]; customerIntent?: CustomerIntent; customerNumberMasked?: string; phoneVersion?: number; intakeCycleId?: string | null; intakeCycleDate?: string | null; intakeCycleSequence?: number };
-type Availability = { state: "AVAILABLE" | "PAUSED"; message: string | null; resumeAt: number | null };
+type Availability = { state: "AVAILABLE" | "PAUSED"; message: string | null; mapUrl?: string | null; resumeAt: number | null };
 type UploadState = "idle" | "preparing" | "uploading" | "sent" | "error";
 
 async function payload(response: Response) {
@@ -182,7 +182,7 @@ export default function GreenDealWebChat() {
     <button className="sod-chat-launcher" type="button" onClick={() => { if (!open) void refreshAvailability(); setOpen((value) => !value); }} aria-expanded={open}>{open ? "Close chat" : "LIVE ORDER"}</button>
     {open && <section className="sod-chat-panel" role="dialog" aria-modal="true" aria-label="Green Deal Cannabis Web Chat">
       <header><div><strong>Green Deal Cannabis Web Chat</strong><small>Start your delivery order with a dispatcher</small></div><button type="button" onClick={() => setOpen(false)} aria-label="Minimize chat">&times;</button></header>
-      <div className={`sod-availability-banner ${paused ? "paused" : "unavailable"}`} role="status" hidden={!statusMessage}><strong>{paused ? "New delivery chats are paused" : "Delivery status unavailable"}</strong><span>{statusMessage}{token ? " Your existing chat remains open." : ""}</span></div>
+      <div className={`sod-availability-banner ${paused ? "paused" : "unavailable"}`} role="status" hidden={!statusMessage}><strong>{paused ? "New delivery chats are paused" : "Delivery status unavailable"}</strong><span>{statusMessage}{token ? " Your existing chat remains open." : ""}</span>{paused && availability?.mapUrl && <a href={availability.mapUrl} target="_blank" rel="noopener noreferrer">Map to store</a>}</div>
       {!token ? (!availability || availability.state !== "AVAILABLE" ? <div className="sod-chat-start sod-chat-paused"><p>{statusMessage || "Checking delivery availability..."}</p><button type="button" onClick={() => void refreshAvailability()}>Check again</button></div> : <form className="sod-chat-start" onSubmit={start}>
         <fieldset className="sod-intent-options"><legend>Tell us about your account</legend>
           <label className={intent === "NEW_CUSTOMER" ? "checked" : ""}><input required type="radio" name="customerIntent" value="NEW_CUSTOMER" checked={intent === "NEW_CUSTOMER"} onChange={() => setIntent("NEW_CUSTOMER")} /><span><strong>I&apos;m new</strong><small>Create my account and place my first order</small></span></label>
