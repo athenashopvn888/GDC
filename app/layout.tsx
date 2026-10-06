@@ -75,7 +75,7 @@ const jsonLd = {
   "@type": "Store",
   additionalType: "https://schema.org/Store",
   "@id": "https://www.greendealcannabis.com",
-  name: "Green Deal Cannabis",
+  name: "Green Deal Cannabis Dispensary Weed Delivery",
   description: "Cannabis dispensary at 1820 Jane St in York, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 hours.",
   url: "https://www.greendealcannabis.com",
   telephone: "+14372920413",
