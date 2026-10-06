@@ -499,15 +499,13 @@ body > .hermesHomepageAnnouncement ~ * nav {
 
 /* Fleet homepage announcements flow below the fixed navigation. */
 :root {
-  --fleet-homepage-announcement-height: 144px;
-  --homepage-nav-clearance: 102px;
+  --homepage-nav-clearance: 105px;
 }
 
 [data-fleet-homepage-announcement] {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  display: block;
   width: 100%;
-  height: var(--fleet-homepage-announcement-height);
+  height: auto;
   margin-top: var(--homepage-nav-clearance);
 }
 
@@ -517,4 +515,14 @@ body > .hermesHomepageAnnouncement ~ * nav {
   justify-content: center;
   min-height: 0;
   box-sizing: border-box;
+}
+
+[data-fleet-homepage-announcement] > a,
+[data-fleet-homepage-announcement] > a > img {
+  display: block;
+  width: 100%;
+}
+
+[data-fleet-homepage-announcement] > a > img {
+  height: auto;
 }
