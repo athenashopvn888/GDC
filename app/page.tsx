@@ -166,7 +166,7 @@ export default function HomePage() {
         <a href="#menu" className={styles.heroBanner} style={{ display: "block", position: "relative", width: "100%", cursor: "pointer" }}>
           <img
             src="/banners/Green Deal Cannabis_Homepage_Hero.webp"
-            alt="Green Deal Cannabis - Premium York Cannabis Dispensary"
+            alt="Green Deal Cannabis Dispensary Weed Delivery"
             className={styles.heroBannerImg}
             style={{ width: "100%", height: "auto", display: "block" }}
           />

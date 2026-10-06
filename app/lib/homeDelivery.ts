@@ -1,4 +1,4 @@
-export const HOME_TITLE = "Green Deal Cannabis Dispensary - Weed Delivery in York";
+export const HOME_TITLE = "Green Deal Cannabis Dispensary Weed Delivery";
 export const HOME_DELIVERY_H2 = "Weed Delivery in York";
 export const HOME_DELIVERY_PARAGRAPHS = [
   "Green Deal Cannabis provides a separate local delivery path from the 1820 Jane St storefront in York. Use the delivery page for current menu and ordering details, then confirm the exact address through that flow.",
