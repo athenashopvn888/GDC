@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { allItems, CATEGORY_CONFIG, type ItemProduct } from "../../lib/products";
+import { allItems, fetchLiveProducts, CATEGORY_CONFIG, type ItemProduct } from "../../lib/products";
 import { getItemData } from "../../lib/itemData";
 import { resolveStorefrontTitle } from "../../lib/metadataTitle";
 import Magnifier from "../../components/Magnifier";
@@ -21,7 +21,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const item = allItems.find((i) => i.slug === slug);
+  const { items } = await fetchLiveProducts();
+  const item = items.find((i) => i.slug === slug);
   if (!item) return {};
 
   const itemData = getItemData(item.category, item.name);
@@ -118,7 +119,8 @@ export default async function ItemPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const item = allItems.find((i) => i.slug === slug);
+  const { items } = await fetchLiveProducts();
+  const item = items.find((i) => i.slug === slug);
   if (!item) notFound();
 
   const catInfo = Object.values(CATEGORY_CONFIG).find(c => c.name.toUpperCase() === item.category.toUpperCase() || c.name === item.category);

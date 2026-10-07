@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { allFlowers, TIER_CONFIG, type FlowerProduct, type PricePoint } from "../../lib/products";
+import { allFlowers, fetchLiveProducts, TIER_CONFIG, type FlowerProduct, type PricePoint } from "../../lib/products";
 import { getStrainData } from "../../lib/strainData";
 import { resolveStorefrontTitle } from "../../lib/metadataTitle";
 import RelatedScroll from "./RelatedScroll";
@@ -22,7 +22,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const flower = allFlowers.find((f) => f.slug === slug);
+  const { flowers } = await fetchLiveProducts();
+  const flower = flowers.find((f) => f.slug === slug);
   if (!flower) return {};
 
   const tierName = TIER_CONFIG[flower.tier]?.name || flower.tier;
@@ -129,7 +130,8 @@ export default async function FlowerPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const flower = allFlowers.find((f) => f.slug === slug);
+  const { flowers } = await fetchLiveProducts();
+  const flower = flowers.find((f) => f.slug === slug);
   if (!flower) notFound();
 
   const tierConfig = TIER_CONFIG[flower.tier];
@@ -160,7 +162,7 @@ export default async function FlowerPage({
   const bestValue = perGram[0];
 
   // Related strains from same tier
-  const related = allFlowers
+  const related = flowers
     .filter((f) => f.tier === flower.tier && f.slug !== flower.slug);
 
   return (
