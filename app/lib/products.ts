@@ -36,19 +36,13 @@ export interface ItemProduct {
 /* ── Data imports (static fallback) ── */
 import flowersJson from "./flowers.json";
 import itemsJson from "./items.json";
+import { getTvData } from "./tvStock";
 
 export const allFlowers: FlowerProduct[] = flowersJson as FlowerProduct[];
 export const allItems: ItemProduct[] = itemsJson as ItemProduct[];
 
 /* ── Live stock fetch from Apps Script ── */
 const APPS_SCRIPT_URL = process.env.APPS_SCRIPT_URL || "";
-
-interface LiveStockResponse {
-  flowers: FlowerProduct[];
-  items: ItemProduct[];
-  storeCode?: string;
-  stockDate?: string;
-}
 
 /**
  * Fetch live stock-filtered products from Apps Script endpoint.
@@ -61,21 +55,17 @@ export async function fetchLiveProducts(): Promise<{
   isLive: boolean;
   stockDate: string | null;
 }> {
-  if (!APPS_SCRIPT_URL) {
-    return { flowers: allFlowers, items: allItems, isLive: false, stockDate: null };
-  }
-
   try {
-    const res = await fetch(`${APPS_SCRIPT_URL}?store=GDC01`, {
-      next: { revalidate: 300 }, // Cache for 5 min during build
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data: LiveStockResponse = await res.json();
+    const [flowerResult, itemResult] = await Promise.all([
+      getTvData({ type: "flowers", appsScriptUrl: APPS_SCRIPT_URL, staticFlowers: allFlowers, staticItems: allItems }),
+      getTvData({ type: "items", appsScriptUrl: APPS_SCRIPT_URL, staticFlowers: allFlowers, staticItems: allItems }),
+    ]);
+    const source = flowerResult.headers["x-tv-data-source"];
     return {
-      flowers: data.flowers || allFlowers,
-      items: data.items || allItems,
-      isLive: true,
-      stockDate: data.stockDate || null,
+      flowers: flowerResult.body as FlowerProduct[],
+      items: itemResult.body as ItemProduct[],
+      isLive: source === "live",
+      stockDate: flowerResult.headers["x-tv-data-as-of"] || null,
     };
   } catch (err) {
     console.warn("[products] Live fetch failed, using static data:", err);
