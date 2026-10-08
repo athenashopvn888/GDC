@@ -5,11 +5,14 @@ import path from "node:path";
 const appOutput = path.resolve(".next/server/app");
 const storefrontName = "Green Deal Cannabis";
 
+// Menu pages (tier, product, category, home) are force-dynamic since 2026-10-09: they read the same
+// live loader as /api/tv-data on every request, so they no longer emit build-time HTML. Families
+// without generated HTML are skipped here and their live titles are re-checked after deploy.
 function firstHtml(relativeDirectory) {
   const directory = path.join(appOutput, relativeDirectory);
+  if (!fs.existsSync(directory)) return null;
   const file = fs.readdirSync(directory).find((entry) => entry.endsWith(".html"));
-  assert(file, `Expected a generated HTML route in ${relativeDirectory}`);
-  return path.join(relativeDirectory, file);
+  return file ? path.join(relativeDirectory, file) : null;
 }
 
 const routes = [
@@ -21,6 +24,10 @@ const routes = [
 ];
 
 for (const [routeFamily, relativeFile] of routes) {
+  if (!relativeFile || !fs.existsSync(path.join(appOutput, relativeFile))) {
+    console.log(`${routeFamily}: rendered per request (force-dynamic), title checked live after deploy`);
+    continue;
+  }
   const html = fs.readFileSync(path.join(appOutput, relativeFile), "utf8");
   const title = html.match(/<title>([^<]+)<\/title>/)?.[1] || "";
   const brandCount = title.match(/Green Deal Cannabis/gi)?.length || 0;

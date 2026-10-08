@@ -1,11 +1,21 @@
+import { getLiveMenu } from "./lib/liveMenu";
 import Link from "next/link";
 import styles from "./page.module.css";
 import FleetAnnouncementBanner from "./components/FleetAnnouncementBanner";
 import Navbar from "./components/Navbar";
 import HomeDeliverySection from "./components/HomeDeliverySection";
 import Footer from "./components/Footer";
-import { allFlowers } from "./lib/products";
 import { HOME_TITLE } from "./lib/homeDelivery";
+
+// Products come from the same loader as /api/tv-data on every request.
+export const dynamic = "force-dynamic";
+
+// ONE product loader (same as /api/tv-data), filled per request by __loadMenuData(). Grok 2026-10-09.
+let __menu!: Awaited<ReturnType<typeof getLiveMenu>>;
+async function __loadMenuData(): Promise<void> {
+  __menu = await getLiveMenu();
+  FEATURED_STRAINS = __compute_FEATURED_STRAINS();
+}
 
 /* Tier data (will come from Supabase later) */
 const TIERS = [
@@ -97,7 +107,7 @@ const TIERS = [
 
 /* Build featured strains dynamically from real inventory */
 function buildFeatured() {
-  const pool = [...allFlowers].filter(f => f.image);
+  const pool = [...__menu.flowers].filter(f => f.image);
   
   // Shuffle pool securely
   for (let i = pool.length - 1; i > 0; i--) {
@@ -129,7 +139,10 @@ function buildFeatured() {
   }));
 }
 
-const FEATURED_STRAINS = buildFeatured();
+function __compute_FEATURED_STRAINS() {
+  return buildFeatured();
+}
+let FEATURED_STRAINS!: ReturnType<typeof __compute_FEATURED_STRAINS>;
 
 function getTypeLabel(type: string) {
   if (type.startsWith("IH")) return "Indica";
@@ -148,7 +161,8 @@ function getTierColor(tier: string) {
   return t?.color || "#94a3b8";
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+    await __loadMenuData();
   return (
     <main className={styles.main}>
       <Navbar />
