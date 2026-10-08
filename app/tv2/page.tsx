@@ -322,7 +322,7 @@ export default function TV2Page() {
                   <div
                     key={card.id}
                     className={styles.card}
-                    data-promo-card={card.id}
+                    data-promo-card={card.id === "CIGARETTES" ? "CATEGORY_COLLAGE" : card.id}
                     style={{"--accent":card.accent} as React.CSSProperties}
                   >
                     <div className={styles.cardHeader}>PROMO</div>
