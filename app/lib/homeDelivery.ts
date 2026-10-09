@@ -19,3 +19,6 @@ export const HOME_DELIVERY_FAQS = [
   { q: "Do I need photo ID?", a: "Yes. Cannabis service is for adults 19+ with valid government-issued photo ID." },
   { q: "Does the homepage promise live inventory?", a: "No. Use the linked menu or delivery page for current details and confirm a specific item before relying on availability." },
 ] as const;
+
+// Document <title> only (exact Google name | area). H1 keeps HOME_TITLE.
+export const HOME_DOC_TITLE = "Green Deal Cannabis Dispensary Weed Delivery | Jane St, York";
