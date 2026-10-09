@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
-import { HOME_TITLE } from "./lib/homeDelivery";
+import { HOME_DOC_TITLE } from "./lib/homeDelivery";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.greendealcannabis.com"),
   title: {
-    default: HOME_TITLE,
+    default: HOME_DOC_TITLE,
     template: "%s | Green Deal Cannabis",
   },
   description:
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: "https://www.greendealcannabis.com",
     siteName: "Green Deal Cannabis",
-    title: HOME_TITLE,
+    title: HOME_DOC_TITLE,
     description:
       "Browse flower tiers and cannabis categories at Green Deal Cannabis on Jane St in York. Open 24 hours.",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: HOME_TITLE,
+    title: HOME_DOC_TITLE,
     description: "Browse Green Deal Cannabis categories. Open 24 hours at 1820 Jane St, York.",
     images: ["/banners/Green Deal Cannabis_Homepage_Hero.webp"],
   },
