@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
+import { resolveItemBanner } from "../../lib/corePromotionBanners";
 import SafeImage from "../../components/SafeImage";
 import Footer from "../../components/Footer";
 import {
@@ -63,6 +64,7 @@ export default async function ItemsCategoryPage({
     items = [...items, ...uniqueAccessories];
   }
   const { config } = catInfo;
+  const categoryBanner = resolveItemBanner(catSlug, config.banner);
 
   return (
     <main className={styles.main}>
@@ -72,7 +74,7 @@ export default async function ItemsCategoryPage({
       <section style={{ width: "100%", overflow: "hidden", marginTop: "92px", marginBottom: "24px" }}>
         {config.banner ? (
           <img
-            src={config.banner}
+              src={categoryBanner}
             alt={config.name}
             style={{ width: "100%", height: "auto", display: "block", objectFit: "contain" }}
           />
