@@ -36,6 +36,7 @@ export interface ItemProduct {
 /* ── Data imports (static fallback) ── */
 import flowersJson from "./flowers.json";
 import itemsJson from "./items.json";
+import type { BoardDeal } from "./flowerDeals";
 import { getTvData } from "./tvStock";
 
 export const allFlowers: FlowerProduct[] = flowersJson as FlowerProduct[];
@@ -82,8 +83,8 @@ export const TIER_CONFIG: Record<
   {
     name: string; slug: string; color: string; icon: string; tagline: string; banner: string;
     unitPrice: number; /* $/g */
-    deal3g: { label: string; total: string; price: number } | null; /* 3g bundle pricing */
-    deal6g: { label: string; total: string; price: number } | null; /* 6g bundle pricing (top 3 only) */
+    deal3g: BoardDeal | null;
+    deal6g: BoardDeal | null;
   }
 > = {
   EXOTIC: {
@@ -94,8 +95,8 @@ export const TIER_CONFIG: Record<
     tagline: "Explore the Exotic flower tier",
     banner: "/banners/Green Deal Cannabis_Exotic.webp",
     unitPrice: 20,
-    deal3g: { label: "3g bundle", total: "3G", price: 40 },
-    deal6g: { label: "6g bundle", total: "6G", price: 60 },
+    deal3g: { label: "Buy 2g Get 1g FREE", total: "3G", price: 40, grams: 3, equals: "2g=3g" },
+    deal6g: { label: "Buy 3g Get 3g FREE", total: "6G", price: 60, grams: 6, equals: "3g=6g" },
   },
   PREMIUM: {
     name: "Premium",
@@ -105,8 +106,8 @@ export const TIER_CONFIG: Record<
     tagline: "Explore the Premium flower tier",
     banner: "/banners/Green Deal Cannabis_Premium.webp",
     unitPrice: 15,
-    deal3g: { label: "3g bundle", total: "3G", price: 30 },
-    deal6g: { label: "6g bundle", total: "6G", price: 45 },
+    deal3g: { label: "Buy 2g Get 1g FREE", total: "3G", price: 30, grams: 3, equals: "2g=3g" },
+    deal6g: { label: "Buy 3g Get 3g FREE", total: "6G", price: 45, grams: 6, equals: "3g=6g" },
   },
   "AAA+": {
     name: "AAA+",
@@ -116,8 +117,8 @@ export const TIER_CONFIG: Record<
     tagline: "Explore the AAA+ flower tier",
     banner: "/banners/Green Deal Cannabis_AAAplus.webp",
     unitPrice: 10,
-    deal3g: { label: "3g bundle", total: "3G", price: 20 },
-    deal6g: { label: "6g bundle", total: "6G", price: 30 },
+    deal3g: { label: "Buy 2g Get 1g FREE", total: "3G", price: 20, grams: 3, equals: "2g=3g" },
+    deal6g: { label: "Buy 3g Get 3g FREE", total: "6G", price: 30, grams: 6, equals: "3g=6g" },
   },
   AA: {
     name: "AA",
@@ -138,7 +139,7 @@ export const TIER_CONFIG: Record<
     tagline: "Shreds & value OZs \u00B7 From $40/oz",
     banner: "/banners/Green Deal Cannabis_Budget.webp",
     unitPrice: 3,
-    deal3g: { label: "$10 / 3g Special", total: "3G", price: 10 },
+    deal3g: { label: "$10 / 3g Special", total: "3G", price: 10, grams: 3 },
     deal6g: null,
   },
 };
