@@ -29,7 +29,7 @@ const ALL_LINKS: { href: string; label: string; featured?: boolean }[] = [
 ];
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const pathname = usePathname() || "";
   const isStoreMenuActive = ["/exotic", "/premium", "/aaa", "/aa", "/budget"].includes(pathname);
   const isDeliveryActive = pathname === "/delivery";
   const scrollBarRef = useRef<HTMLDivElement>(null);
