@@ -166,7 +166,7 @@ export default async function HomePage() {
   return (
     <main className={styles.main}>
       <Navbar />
-      <h1 data-home-store-title="" style={{ margin: 0, padding: "14px 16px", background: "#111827", color: "#ffffff", textAlign: "center", fontSize: "clamp(1.1rem, 3vw, 2rem)", fontWeight: 900, lineHeight: 1.2, position: "relative", zIndex: 60 }}>{HOME_TITLE}</h1>
+      <h1 data-home-store-title="" style={{ margin: 0, padding: "118px 16px 14px", background: "#111827", color: "#ffffff", textAlign: "center", fontSize: "clamp(1.1rem, 3vw, 2rem)", fontWeight: 900, lineHeight: 1.2, position: "relative", zIndex: 60 }}>{HOME_TITLE}</h1>
       <FleetAnnouncementBanner />
       <section className={styles.homeHeroLock} aria-label="Store menu choices">
         <div className={styles.homeMenuActions}>
