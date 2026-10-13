@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
-import { isReplacementCategory, resolveTierBanner } from "../lib/corePromotionBanners";
 import Footer from "../components/Footer";
 import FlowerCard from "../components/FlowerCard";
 import {
@@ -68,7 +67,6 @@ export default async function TierPage({
   const { flowers: liveFlowers } = await fetchLiveProducts();
   const flowers = liveFlowers.filter((flower) => flower.tier.toUpperCase() === tierInfo.key.toUpperCase());
   const { config } = tierInfo;
-  const categoryBanner = resolveTierBanner(tierSlug, config.banner);
   const seo = TIER_SEO[tierInfo.key];
   const siteUrl = "https://www.greendealcannabis.com";
   const pageUrl = `${siteUrl}/${tierSlug}`;
@@ -122,9 +120,9 @@ export default async function TierPage({
       <Navbar />
 
       {/* ── Banner Image (standalone, no overlay text) ── */}
-        <section className={styles.bannerSection} data-category-banner-replacement={isReplacementCategory(tierSlug) ? "true" : undefined}>
+      <section className={styles.bannerSection}>
         <img
-          src={categoryBanner}
+          src={config.banner}
           alt={`${config.name} Cannabis Flower — ${config.tagline}`}
           className={styles.bannerImg}
         />
