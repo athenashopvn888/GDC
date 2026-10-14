@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HalloweenNotice from "./HalloweenNotice";
 
 const STORE_NAME = "Green Deal Cannabis";
 const THEME = { accent: "#84cc16", background: "#020b03" };
@@ -37,6 +38,7 @@ export default function FleetAnnouncementBanner() {
           <figcaption style={{ ...captionStyle, borderBottom: `3px solid ${THEME.accent}` }}>{promo.caption}</figcaption>
         </figure>
       ))}
+      <HalloweenNotice storeName={STORE_NAME} />
     </aside>
   );
 }
