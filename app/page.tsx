@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar";
 import HomeDeliverySection from "./components/HomeDeliverySection";
 import Footer from "./components/Footer";
 import { HOME_TITLE } from "./lib/homeDelivery";
+import NearMeFaq from "./components/NearMeFaq";
+import nearMeFaq from "./lib/nearMeFaq.json";
 
 // Products come from the same loader as /api/tv-data on every request.
 export const dynamic = "force-dynamic";
@@ -405,6 +407,7 @@ export default async function HomePage() {
       </section>
 
       {/*  FOOTER  */}
+      <NearMeFaq id="local-near-me" q={nearMeFaq.home.q} a={nearMeFaq.home.a} />
       <Footer />
     </main>
   );
