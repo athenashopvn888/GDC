@@ -588,3 +588,20 @@
 :global(body):has(:local(.tvPage)) > :global(.deliveryAnnouncement) {
   display: none !important;
 }
+
+/* Daytime (08:00-17:00 Toronto): store's own THC vape art covers the whole cigarette card. */
+.thcFullCard {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  background: #0d3b22;
+}
+.thcFullImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #0d3b22;
+  z-index: 5;
+}

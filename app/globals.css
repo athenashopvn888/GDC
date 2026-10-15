@@ -526,3 +526,11 @@ body > .hermesHomepageAnnouncement ~ * nav {
 [data-fleet-homepage-announcement] > a > img {
   height: auto;
 }
+
+/* Pinned nav: opaque (no content showing through) and above page content, in the store's own nav colour so nav text stays readable. */
+#main-nav {
+  z-index: 1000 !important;
+  background: rgb(0, 0, 0) !important;
+  background-color: rgb(0, 0, 0) !important;
+  backdrop-filter: none !important;
+}
