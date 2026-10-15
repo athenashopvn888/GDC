@@ -9,14 +9,16 @@ import {
 
 test("TV2 daytime is fixed to America/Toronto regardless of process timezone", () => {
   assert.equal(isTv2Daytime(new Date("2026-10-07T17:35:00.000Z")), true);
-  assert.equal(isTv2Daytime(new Date("2026-10-07T13:59:00.000Z")), false);
+  assert.equal(isTv2Daytime(new Date("2026-10-07T13:59:00.000Z")), true);
+  assert.equal(isTv2Daytime(new Date("2026-10-07T12:00:00.000Z")), true);
+  assert.equal(isTv2Daytime(new Date("2026-10-07T11:59:00.000Z")), false);
   assert.equal(isTv2Daytime(new Date("2026-10-07T21:30:00.000Z")), false);
 });
 
 test("daytime cigarette slot shows the category collage without cigarette promo content", () => {
   for (const elapsedMs of [0, 10_000, 20_000]) {
     const promo = getTv2DaytimePromo("CIGARETTES", true, elapsedMs);
-    assert.equal(promo?.src, "/banners/tv2-category-collage.png");
+    assert.equal(promo?.src, "/banners/GreenDeal_THC_Vape.webp");
     assert.doesNotMatch(`${promo?.src} ${promo?.alt}`, /cig|marlboro|belmont/i);
   }
   assert.match(getTv2DaytimePromo("VAPES", true)?.alt || "", /Ultimate Cannabis Collection/);
