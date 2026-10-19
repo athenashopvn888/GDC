@@ -1,3 +1,4 @@
+import FullNameNap from "./components/FullNameNap";
 import PinnedNavClearance from "./components/PinnedNavClearance";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -77,6 +78,8 @@ const jsonLd = {
   additionalType: "https://schema.org/Store",
   "@id": "https://www.greendealcannabis.com",
   name: "Green Deal Cannabis Dispensary Weed Delivery",
+  hasMap: "https://www.google.com/maps/place/?q=place_id:ChIJt3tL4iExK4gRHaQRHYamT_g",
+  sameAs: ["https://www.google.com/maps/place/?q=place_id:ChIJt3tL4iExK4gRHaQRHYamT_g"],
   description: "Cannabis dispensary at 1820 Jane St in York, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 hours.",
   url: "https://www.greendealcannabis.com",
   telephone: "+14372920413",
@@ -85,7 +88,7 @@ const jsonLd = {
   address: {
     "@type": "PostalAddress",
     streetAddress: "1820 Jane St",
-    addressLocality: "York",
+    addressLocality: "Etobicoke",
     addressRegion: "ON",
     postalCode: "M9N 2T3",
     addressCountry: "CA",
@@ -147,6 +150,7 @@ export default function RootLayout({
           NEW DELIVERY MENU IS HERE — CLICK TO EXPLORE
         </Link>
         {children}
+        <FullNameNap />
         <PinnedNavClearance />
       </body>
     </html>

@@ -53,7 +53,7 @@ const visitJsonLd = {
       address: {
         "@type": "PostalAddress",
         streetAddress: "1820 Jane St",
-        addressLocality: "York",
+        addressLocality: "Etobicoke",
         addressRegion: "ON",
         postalCode: "M9N 2T3",
         addressCountry: "CA",
