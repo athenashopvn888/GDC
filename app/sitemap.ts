@@ -4,6 +4,7 @@ import { DELIVERY_GUIDE_REGISTRY, DELIVERY_GUIDE_STORE } from "./lib/deliveryGui
 import {TIER_CONFIG, CATEGORY_CONFIG} from "./lib/products";
 import { SEO_PAGES } from "./lib/seoPages";
 import { RESOURCE_PAGES } from "./resources/resourceData";
+import { ARTICLE_CANONICAL } from "./resources/cannabis-in-the-car-ontario/article";
 import { STRAIN_GUIDES } from "./lib/strainGuides";
 
 // Products come from the same loader as /api/tv-data on every request.
@@ -78,8 +79,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "weekly" as const,
     priority: page.slug ? 0.65 : 0.75,
   }));
+  const cannabisInTheCarPage: MetadataRoute.Sitemap = [
+    { url: ARTICLE_CANONICAL, lastModified: now, changeFrequency: "weekly" as const, priority: 0.65 },
+  ];
 
   const deliveryGuidePages: MetadataRoute.Sitemap = DELIVERY_GUIDE_REGISTRY.map((guide) => ({ url: `https://${DELIVERY_GUIDE_STORE.domain}/guides/${guide.slug}`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.75 }));
   const strainGuidePages: MetadataRoute.Sitemap = [`${BASE}/guides`, ...STRAIN_GUIDES.map((guide) => `${BASE}/guides/${guide.slug}`)].map((url) => ({ url, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 }));
-  return [...deliveryGuidePages, ...strainGuidePages, ...staticPages, ...tierPages, ...itemPages, ...flowerPages, ...itemDetailPages, ...seoPages, ...resourcePages];
+  return [...deliveryGuidePages, ...strainGuidePages, ...staticPages, ...tierPages, ...itemPages, ...flowerPages, ...itemDetailPages, ...seoPages, ...resourcePages, ...cannabisInTheCarPage];
 }
