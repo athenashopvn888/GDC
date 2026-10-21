@@ -1,3 +1,4 @@
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
 import CigaretteSeasonalNotice from "./CigaretteSeasonalNotice";
 import { Fragment } from "react";
 import Link from "next/link";
@@ -5,12 +6,15 @@ import HalloweenNotice from "./HalloweenNotice";
 
 const STORE_NAME = "Green Deal Cannabis";
 const THEME = { accent: "#84cc16", background: "#020b03" };
-const promos = [
+const promosRaw = [
   { key: "weed", href: "/exotic", image: "/banners/core-top-weed.webp", alt: `${STORE_NAME} Exotic, Premium and AAA+ flower tiers`, caption: "Top 3 tiers only (Exotic, Premium, AAA+): Buy 2g Get 1g FREE · Buy 3g Get 3g FREE (6g)" },
   { key: "vapes", href: "/items/vapes", image: "/banners/core-vapes-nicotine-thc.webp", alt: `${STORE_NAME} nicotine and THC vape categories`, caption: "Nicotine + THC vapes" },
   { key: "cigarettes", href: "/items/cigarettes", image: "/banners/core-cigarette-mix-match.webp", alt: `${STORE_NAME} 2 packs for $5 mix and match and $25 carton cigarette offer`, caption: "2 PACKS $5 / $25 CARTON" },
   { key: "premium-cigarettes", href: "/items/cigarettes", image: "/banners/core-premium-cigarettes.webp", alt: `${STORE_NAME} BB Full Flavor and Lights, Marlboro and Belmont cigarettes`, caption: "BB Full Flavor + Lights 2 packs $5 · Marlboro & Belmont $10/pack" },
 ] as const;
+const promos = SHOW_CIGARETTES
+  ? promosRaw
+  : promosRaw.filter((promo) => !/cigarette|marlboro|belmont/i.test(`${promo.key} ${promo.href} ${promo.alt} ${promo.caption}`));
 
 const STORE_ORIGIN = "https://www.greendealcannabis.com";
 const bannerImageObjects = promos.map((promo) => ({ "@type": "ImageObject", name: promo.alt, contentUrl: `${STORE_ORIGIN}${promo.image}`, description: `${promo.alt} at ${STORE_NAME}.`, caption: promo.caption }));
