@@ -1,4 +1,5 @@
 import deliveryGuideCopy from "./deliveryGuideCopy.json";
+import { SHOW_CIGARETTES, isCigaretteGuide } from "./siteConfig";
 
 export type DeliveryGuideFaq = { question: string; answer: string };
 export type DeliveryGuideEntry = {
@@ -17,5 +18,8 @@ export type DeliveryGuideEntry = {
 };
 
 export const DELIVERY_GUIDE_STORE = { domain: "www.greendealcannabis.com" } as const;
-export const DELIVERY_GUIDE_REGISTRY = deliveryGuideCopy as DeliveryGuideEntry[];
+const DELIVERY_GUIDE_REGISTRY_RAW = deliveryGuideCopy as DeliveryGuideEntry[];
+export const DELIVERY_GUIDE_REGISTRY = SHOW_CIGARETTES
+  ? DELIVERY_GUIDE_REGISTRY_RAW
+  : DELIVERY_GUIDE_REGISTRY_RAW.filter((guide) => !isCigaretteGuide(guide));
 export const getDeliveryGuide = (slug: string) => DELIVERY_GUIDE_REGISTRY.find((guide) => guide.slug === slug);

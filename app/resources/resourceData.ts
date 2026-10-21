@@ -1,3 +1,4 @@
+import { SHOW_CIGARETTES, cigaretteSafeContent, isCigarettePath } from "../lib/siteConfig";
 export interface ResourceCard {
   title: string;
   href: string;
@@ -21,7 +22,7 @@ export interface ResourcePage {
   sections: ResourceSection[];
 }
 
-export const RESOURCE_PAGES: ResourcePage[] = [
+const RESOURCE_PAGES_RAW: ResourcePage[] = [
   {
     slug: "",
     title: "Green Deal Cannabis Resources",
@@ -255,6 +256,12 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     ],
   }
 ];
+
+export const RESOURCE_PAGES = SHOW_CIGARETTES
+  ? RESOURCE_PAGES_RAW
+  : RESOURCE_PAGES_RAW
+      .filter((page) => !isCigarettePath((page as { slug?: string; path?: string }).slug ?? (page as { path?: string }).path))
+      .map((page) => cigaretteSafeContent(page));
 
 export const RESOURCE_HOME = RESOURCE_PAGES[0];
 

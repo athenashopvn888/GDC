@@ -1,3 +1,4 @@
+import { SHOW_CIGARETTES, cigaretteSafeContent, filterCigaretteEntries } from "../lib/siteConfig";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "../components/Footer";
@@ -17,6 +18,9 @@ const GROUPS = [
   { key: "sativa", label: "Sativa and sativa-leaning strains" },
   { key: "hybrid", label: "Hybrid strains" },
 ] as const;
+
+const VISIBLE_DELIVERY_GUIDES = filterCigaretteEntries(DELIVERY_GUIDE_REGISTRY);
+const DELIVERY_GUIDES_LABEL = SHOW_CIGARETTES ? "Cigarette and vape guides" : "Vape guides";
 
 export default function GuidesIndexPage() {
   const jsonLd = { "@context": "https://schema.org", "@graph": [
@@ -41,11 +45,11 @@ export default function GuidesIndexPage() {
             </div>
           </section>
         ))}
-        {DELIVERY_GUIDE_REGISTRY.length > 0 && (
-          <section className={styles.section} aria-label="Cigarette and vape guides">
+        {VISIBLE_DELIVERY_GUIDES.length > 0 && (
+          <section className={styles.section} aria-label={DELIVERY_GUIDES_LABEL}>
             <div className={styles.body}>
-              <h2>Cigarette and vape guides</h2>
-              <ul>{DELIVERY_GUIDE_REGISTRY.map((guide) => <li key={guide.slug}><Link href={`/guides/${guide.slug}`}>{guide.h1}</Link></li>)}</ul>
+              <h2>{DELIVERY_GUIDES_LABEL}</h2>
+              <ul>{VISIBLE_DELIVERY_GUIDES.map((guide) => <li key={guide.slug}><Link href={`/guides/${guide.slug}`}>{guide.h1}</Link></li>)}</ul>
             </div>
           </section>
         )}

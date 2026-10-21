@@ -1,3 +1,4 @@
+import { SHOW_CIGARETTES, filterCigaretteItems, isCigaretteCategory } from "./siteConfig";
 /* -- Product & Item Types -- */
 export interface FlowerProduct {
   sku: string;
@@ -40,7 +41,9 @@ import type { BoardDeal } from "./flowerDeals";
 import { getTvData } from "./tvStock";
 
 export const allFlowers: FlowerProduct[] = flowersJson as FlowerProduct[];
-export const allItems: ItemProduct[] = itemsJson as ItemProduct[];
+export const allItems: ItemProduct[] = SHOW_CIGARETTES
+  ? itemsJson as ItemProduct[]
+  : (itemsJson as ItemProduct[]).filter((item) => !isCigaretteCategory(item.category));
 
 /* ── Live stock fetch from Apps Script ── */
 // Shared fleet menu feed (no Gmail on requests). Read ONLY from MENU_FEED_URL; the legacy
@@ -68,7 +71,7 @@ export async function fetchLiveProducts(): Promise<{
     const source = flowerResult.headers["x-tv-data-source"];
     return {
       flowers: flowerResult.body as FlowerProduct[],
-      items: itemResult.body as ItemProduct[],
+      items: filterCigaretteItems(itemResult.body as ItemProduct[]),
       isLive: source === "live",
       stockDate: flowerResult.headers["x-tv-data-as-of"] || null,
     };
@@ -271,6 +274,7 @@ export function getTierFromSlug(
 export function getCategoryFromSlug(
   slug: string
 ): { key: string; config: (typeof CATEGORY_CONFIG)[string] } | undefined {
+  if (!SHOW_CIGARETTES && isCigaretteCategory(slug)) return undefined;
   const entry = Object.entries(CATEGORY_CONFIG).find(
     ([, v]) => v.slug === slug
   );
