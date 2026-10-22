@@ -2,6 +2,9 @@ import { getLiveMenu } from "./lib/liveMenu";
 import Link from "next/link";
 import styles from "./page.module.css";
 import FleetAnnouncementBanner from "./components/FleetAnnouncementBanner";
+import FleetSheetImage from "./components/FleetSheetImage";
+import { getFleetContent } from "./lib/fleetContent";
+import { sheetBanner } from "./lib/fleet/resolve";
 import Navbar from "./components/Navbar";
 import HomeDeliverySection from "./components/HomeDeliverySection";
 import Footer from "./components/Footer";
@@ -165,6 +168,7 @@ function getTierColor(tier: string) {
 
 export default async function HomePage() {
     await __loadMenuData();
+    const hero = sheetBanner(await getFleetContent(), "hero");
   return (
     <main className={styles.main}>
       <Navbar />
@@ -179,6 +183,11 @@ export default async function HomePage() {
 
       {/* HERO BANNER */}
       <section className={styles.hero} id="hero" style={{ paddingTop: "0", paddingBottom: "24px", minHeight: "auto", display: "block" }}>
+        {hero?.hidden ? null : hero ? (
+        <a href={hero.href || "#menu"} className={styles.heroBanner} style={{ display: "block", position: "relative", width: "100%", cursor: "pointer" }}>
+          <FleetSheetImage banner={hero} className={styles.heroBannerImg} style={{ width: "100%", height: "auto", display: "block" }} />
+        </a>
+        ) : (
         <a href="#menu" className={styles.heroBanner} style={{ display: "block", position: "relative", width: "100%", cursor: "pointer" }}>
           <img
             src="/banners/Green Deal Cannabis_Homepage_Hero.webp"
@@ -187,6 +196,7 @@ export default async function HomePage() {
             style={{ width: "100%", height: "auto", display: "block" }}
           />
         </a>
+        )}
       </section>
 
       <HomeDeliverySection />

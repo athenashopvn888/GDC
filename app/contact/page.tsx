@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { FULL_NAME_NAP } from "../lib/fullNameNap";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import FleetSheetImage from "../components/FleetSheetImage";
+import { getFleetContent } from "../lib/fleetContent";
+import { napMatchesCoded, sheetBanner } from "../lib/fleet/resolve";
 import { resolveStorefrontTitle } from "../lib/metadataTitle";
 import styles from "./contact.module.css";
 
-export const metadata: Metadata = {
+const CONTACT_METADATA: Metadata = {
   title: resolveStorefrontTitle("Contact Us — Green Deal Cannabis | 1664 Jane St, York"),
   description:
     "Visit Green Deal Cannabis at 1664 Jane St, York, ON M9N 2S1. Open 24 hours daily. Walk-ins welcome.",
@@ -19,7 +22,24 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const fleet = await getFleetContent();
+  if (!fleet.active) return CONTACT_METADATA;
+  const page = fleet.pages.Contact;
+  const description = page?.metaDescription || "";
+  const title = page?.metaTitle || "";
+  if ((!description || description === CONTACT_METADATA.description) && !title) return CONTACT_METADATA;
+  return {
+    ...CONTACT_METADATA,
+    ...(title ? { title: resolveStorefrontTitle(title) } : {}),
+    ...(description && description !== CONTACT_METADATA.description ? { description } : {}),
+  };
+}
+
+export default async function ContactPage() {
+  const fleet = await getFleetContent();
+  const contactBanner = sheetBanner(fleet, "contact");
+  const customNap = fleet.active && !napMatchesCoded(fleet.nap) ? fleet.nap : null;
   return (
     <main className={styles.main}>
       <Navbar />
@@ -27,7 +47,11 @@ export default function ContactPage() {
       {/* ── Hero ── */}
       <section className={styles.hero} style={{ paddingTop: "92px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
+          {contactBanner?.hidden ? null : contactBanner ? (
+            <FleetSheetImage banner={contactBanner} style={{ width: "100%", height: "auto", display: "block", borderRadius: "var(--radius-lg)" }} />
+          ) : (
           <img src="/banners/GreenDeal_ContactUs.webp" alt="Contact Us" style={{ width: "100%", height: "auto", display: "block", borderRadius: "var(--radius-lg)" }} />
+          )}
           <h1 className={styles.heroTitle} data-fullname-contact-h1="" style={{ marginTop: "16px", textAlign: "center", fontSize: "clamp(22px, 4vw, 34px)", lineHeight: 1.2, overflowWrap: "anywhere" }}>Contact {FULL_NAME_NAP.fullName}</h1>
         </div>
       </section>
@@ -41,11 +65,11 @@ export default function ContactPage() {
               <div className={styles.infoIcon}>📍</div>
               <h2 className={styles.infoTitle}>Location</h2>
               <p className={styles.infoText}>
-                1820 Jane St
+                {customNap ? customNap.street : "1820 Jane St"}
                 <br />
-                York, ON M9N 2T3
+                {customNap ? `${customNap.city}, ${customNap.province} ${customNap.postalCode}` : "York, ON M9N 2T3"}
                 <br />
-                <span className={styles.infoMuted}>Jane St &amp; Weston Rd</span>
+                <span className={styles.infoMuted}>{customNap?.intersection || "Jane St & Weston Rd"}</span>
               </p>
             </div>
 

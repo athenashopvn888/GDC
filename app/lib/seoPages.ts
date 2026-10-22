@@ -1,4 +1,4 @@
-import { SHOW_CIGARETTES, cigaretteSafeContent, isCigarettePath } from "./siteConfig";
+import { SHOW_CIGARETTES, cigaretteSafeContent, isCigarettePath } from "./siteConfig.ts";
 const NATIVE_HERO_DISCLOSURE = "Brand preview only. Selection varies by store; check the current cigarette menu before visiting.";
 const NATIVE_HERO_PRODUCTS = [
   { name: "BB Lights", image: "/products/1001-BB-LIGHTS-CARTONS.webp" },

@@ -1,7 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
+import FleetSheetImage from "../components/FleetSheetImage";
 import { isReplacementCategory, resolveTierBanner } from "../lib/corePromotionBanners";
+import { getFleetContent } from "../lib/fleetContent";
+import { bannerIdForSlug } from "../lib/fleet/coded";
+import { sheetBanner } from "../lib/fleet/resolve";
 import Footer from "../components/Footer";
 import FlowerCard from "../components/FlowerCard";
 import {
@@ -69,6 +73,9 @@ export default async function TierPage({
   const flowers = liveFlowers.filter((flower) => flower.tier.toUpperCase() === tierInfo.key.toUpperCase());
   const { config } = tierInfo;
   const categoryBanner = resolveTierBanner(tierSlug, config.banner);
+  const fleet = await getFleetContent();
+  const bannerId = bannerIdForSlug(tierSlug);
+  const sheet = bannerId ? sheetBanner(fleet, bannerId) : null;
   const seo = TIER_SEO[tierInfo.key];
   const siteUrl = "https://www.greendealcannabis.com";
   const pageUrl = `${siteUrl}/${tierSlug}`;
@@ -123,11 +130,17 @@ export default async function TierPage({
 
       {/* ── Banner Image (standalone, no overlay text) ── */}
         <section className={styles.bannerSection} data-category-banner-replacement={isReplacementCategory(tierSlug) ? "true" : undefined}>
+        {sheet?.hidden ? (
+          <div data-fleet-text-banner="" className={styles.bannerImg} style={{ background: "#020b03", color: "#84cc16", fontWeight: 800, fontSize: "clamp(28px, 4vw, 48px)", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>{sheet.categoryName}</div>
+        ) : sheet ? (
+          <FleetSheetImage banner={sheet} className={styles.bannerImg} />
+        ) : (
         <img
           src={categoryBanner}
           alt={`${config.name} Cannabis Flower — ${config.tagline}`}
           className={styles.bannerImg}
         />
+        )}
       </section>
 
       {/* ── Hero Content BELOW banner ── */}

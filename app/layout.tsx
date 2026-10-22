@@ -1,3 +1,8 @@
+import CigaretteStateProvider from "./components/CigaretteStateProvider";
+import FleetContentProvider from "./components/FleetContentProvider";
+import { getCigaretteSnapshot, toPublicCigaretteState } from "./lib/cigaretteFeed";
+import { getFleetContent } from "./lib/fleetContent";
+import { napMatchesCoded } from "./lib/fleet/resolve";
 import { cigaretteSafeContent } from "./lib/siteConfig";
 import FullNameNap from "./components/FullNameNap";
 import PinnedNavClearance from "./components/PinnedNavClearance";
@@ -6,7 +11,9 @@ import Link from "next/link";
 import "./globals.css";
 import { HOME_DOC_TITLE } from "./lib/homeDelivery";
 
-export const metadata: Metadata = cigaretteSafeContent({
+export const revalidate = 300;
+
+const ROOT_METADATA: Metadata = cigaretteSafeContent({
   metadataBase: new URL("https://www.greendealcannabis.com"),
   title: {
     default: HOME_DOC_TITLE,
@@ -72,6 +79,19 @@ export const metadata: Metadata = cigaretteSafeContent({
   },
 });
 
+export async function generateMetadata(): Promise<Metadata> {
+  const fleet = await getFleetContent();
+  if (!fleet.active) return ROOT_METADATA;
+  const description = fleet.pages.Home?.metaDescription || "";
+  if (!description || description === ROOT_METADATA.description) return ROOT_METADATA;
+  return {
+    ...ROOT_METADATA,
+    description,
+    openGraph: { ...ROOT_METADATA.openGraph, description },
+    twitter: { ...ROOT_METADATA.twitter, description },
+  };
+}
+
 /* ── JSON-LD Structured Data ── */
 const jsonLd = {
   "@context": "https://schema.org",
@@ -113,14 +133,39 @@ const jsonLd = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [fleet, cigaretteSnapshot] = await Promise.all([getFleetContent(), getCigaretteSnapshot()]);
+  const cigarettes = toPublicCigaretteState(cigaretteSnapshot);
+  const linkedNap = fleet.active && !napMatchesCoded(fleet.nap);
+  const renderedJsonLd = linkedNap
+    ? {
+        ...jsonLd,
+        name: fleet.nap.schemaName,
+        url: fleet.nap.website,
+        telephone: fleet.nap.phoneTel,
+        hasMap: fleet.nap.mapsSearchUrl,
+        address: {
+          ...jsonLd.address,
+          streetAddress: fleet.nap.street,
+          addressLocality: fleet.nap.city,
+          addressRegion: fleet.nap.province,
+          postalCode: fleet.nap.postalCode,
+        },
+        geo: {
+          ...jsonLd.geo,
+          latitude: Number(fleet.nap.lat),
+          longitude: Number(fleet.nap.lng),
+        },
+      }
+    : jsonLd;
   return (
     <html lang="en">
       <head>
+        <meta name="fleet-content-version" content={fleet.version} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -129,7 +174,7 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(cigaretteSafeContent(jsonLd)) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(cigaretteSafeContent(renderedJsonLd)) }}
         />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-VM2VG5WYSG"></script>
         <script
@@ -150,9 +195,13 @@ export default function RootLayout({
         <Link className="deliveryAnnouncement" href="/delivery">
           NEW DELIVERY MENU IS HERE — CLICK TO EXPLORE
         </Link>
-        {children}
-        <FullNameNap />
-        <PinnedNavClearance />
+        <FleetContentProvider value={{ active: fleet.active, version: fleet.version, nap: fleet.nap }}>
+          <CigaretteStateProvider value={cigarettes}>
+            {children}
+            <FullNameNap />
+            <PinnedNavClearance />
+          </CigaretteStateProvider>
+        </FleetContentProvider>
       </body>
     </html>
   );

@@ -1,8 +1,17 @@
+"use client";
+
+import { useCigaretteState } from "./CigaretteStateProvider";
+import { useFleetContent } from "./FleetContentProvider";
+import { napMatchesCoded } from "../lib/fleet/resolve";
 import { SHOW_CIGARETTES } from "../lib/siteConfig";
 import Link from "next/link";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
+  const cigarettes = useCigaretteState();
+  const fleet = useFleetContent();
+  const showCigarettes = SHOW_CIGARETTES && cigarettes.web;
+  const customNap = fleet.active && !napMatchesCoded(fleet.nap) ? fleet.nap : null;
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
@@ -13,13 +22,19 @@ export default function Footer() {
               GREEN DEAL CANNABIS
             </div>
             <p className={styles.desc}>
+              {customNap ? (
+                <>Your Local Cannabis Dispensary At {customNap.street}, {customNap.city}. Visit Green Deal Cannabis For Premium Flower, Edibles, Vapes &amp; More. Open 24 hours.</>
+              ) : (
+                <>
               Your Local Cannabis Dispensary At 1820 Jane St, York. Visit
               Green Deal Cannabis For Premium Flower, Edibles, Vapes &amp; More.
               Open 24 hours.
+                </>
+              )}
             </p>
             <div className={styles.buttons}>
               <a
-                href="tel:+14372920413"
+                href={customNap ? `tel:${customNap.phoneTel.replace(/^tel:/, "")}` : "tel:+14372920413"}
                 className={styles.btnPrimary}
               >
                 Call Now
@@ -32,13 +47,13 @@ export default function Footer() {
             <h3 className={styles.colTitle}>Contact Info</h3>
             <div className={styles.infoBlock}>
               <span className={styles.infoLabel}>Address:</span>
-              <span>1820 Jane St</span>
-              <span>York, ON M9N 2T3</span>
+              <span>{customNap ? customNap.street : "1820 Jane St"}</span>
+              <span>{customNap ? `${customNap.city}, ${customNap.province} ${customNap.postalCode}` : "York, ON M9N 2T3"}</span>
               <span>Canada</span>
             </div>
             <div className={styles.infoBlock}>
               <span className={styles.infoLabel}>Phone:</span>
-              <span><a href="tel:+14372920413" style={{color: "inherit"}}>+1 (437) 292-0413</a></span>
+              <span><a href={customNap ? `tel:${customNap.phoneTel.replace(/^tel:/, "")}` : "tel:+14372920413"} style={{color: "inherit"}}>{customNap ? customNap.phoneDisplay : "+1 (437) 292-0413"}</a></span>
             </div>
             <div className={styles.infoBlock}>
               <span className={styles.infoLabel}>Hours:</span>
@@ -57,13 +72,13 @@ export default function Footer() {
               <Link href="/aa">AA Flower</Link>
               <Link href="/budget">Budget Flower</Link>
               <Link href="/items/edibles">Edibles</Link>
-              {SHOW_CIGARETTES ? (<Link href="/items/cigarettes">Cigarettes</Link>) : null}
+              {showCigarettes ? (<Link href="/items/cigarettes">Cigarettes</Link>) : null}
               <Link href="/items/vapes">Vape Pens</Link>
               <Link href="/faq">FAQ</Link>
               <Link href="/delivery">Delivery Menu</Link>
               <Link href="/info/york-weed-dispensary">York Dispensary</Link>
               <Link href="/info/cheap-weed-york">Cheap Weed York</Link>
-              {SHOW_CIGARETTES ? (<Link href="/info/native-cigarettes-york">Native Cigarettes</Link>) : null}
+              {showCigarettes ? (<Link href="/info/native-cigarettes-york">Native Cigarettes</Link>) : null}
               <Link href="/info/nicotine-vapes-york">Nicotine Vapes York</Link>
               <Link href="/info/weed-delivery-york">Weed Delivery York</Link>
               <Link href="/info/dispensary-near-me-york">Dispensary Near Me</Link>
