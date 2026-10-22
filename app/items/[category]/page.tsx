@@ -1,9 +1,15 @@
 import CigaretteSeasonalNotice from "../../components/CigaretteSeasonalNotice";
+import CigaretteUnavailable from "../../components/CigaretteUnavailable";
+import FleetSheetImage from "../../components/FleetSheetImage";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import { resolveItemBanner } from "../../lib/corePromotionBanners";
+import { getCigaretteSnapshot } from "../../lib/cigaretteFeed";
+import { getFleetContent } from "../../lib/fleetContent";
+import { bannerIdForSlug } from "../../lib/fleet/coded";
+import { sheetBanner } from "../../lib/fleet/resolve";
 import SafeImage from "../../components/SafeImage";
 import Footer from "../../components/Footer";
 import {
@@ -54,6 +60,15 @@ export default async function ItemsCategoryPage({
   const { category: catSlug } = await params;
   const catInfo = getCategoryFromSlug(catSlug);
   if (!catInfo) notFound();
+  if (catSlug === "cigarettes" && !(await getCigaretteSnapshot()).web.show) {
+    return (
+      <main className={styles.main}>
+        <Navbar />
+        <CigaretteUnavailable />
+        <Footer />
+      </main>
+    );
+  }
 
   /* Pre-Rolls also shows accessories (ADD ONS) */
   const { items: liveItems } = await fetchLiveProducts();
@@ -66,6 +81,9 @@ export default async function ItemsCategoryPage({
   }
   const { config } = catInfo;
   const categoryBanner = resolveItemBanner(catSlug, config.banner);
+  const fleet = await getFleetContent();
+  const bannerId = bannerIdForSlug(catSlug);
+  const sheet = bannerId ? sheetBanner(fleet, bannerId) : null;
 
   return (
     <main className={styles.main}>
@@ -74,7 +92,11 @@ export default async function ItemsCategoryPage({
 
       {/* Hero Banner */}
       <section style={{ width: "100%", overflow: "hidden", marginTop: "92px", marginBottom: "24px" }}>
-        {config.banner ? (
+        {sheet?.hidden ? (
+          <div data-fleet-text-banner="" style={{ background: "#020b03", color: "#84cc16", fontWeight: 800, fontSize: "clamp(28px, 4vw, 48px)", padding: "48px 24px", textAlign: "center" }}>{sheet.categoryName}</div>
+        ) : sheet ? (
+          <FleetSheetImage banner={sheet} style={{ width: "100%", height: "auto", display: "block", objectFit: "contain" }} />
+        ) : config.banner ? (
           <img
               src={categoryBanner}
             alt={config.name}

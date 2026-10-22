@@ -1,5 +1,6 @@
 "use client";
 
+import { useCigaretteState } from "../components/CigaretteStateProvider";
 import { SHOW_CIGARETTES } from "../lib/siteConfig";
 
 import { isNicotineItem } from "../tv/flashMessages";
@@ -189,16 +190,17 @@ const TICKER_SLIDES = [
 ];
 
 function VerticalTicker() {
+  const cigarettes = useCigaretteState();
   const [activeIdx, setActiveIdx] = useState(0);
   const [exitIdx, setExitIdx] = useState(-1);
-  const [showCigaretteFlash, setShowCigaretteFlash] = useState(() => isCigaretteFlashWindow());
+  const [showCigaretteFlash, setShowCigaretteFlash] = useState(() => cigarettes.tv && isCigaretteFlashWindow());
   const slides = showCigaretteFlash ? [CIGARETTE_FLASH_MESSAGE, ...TICKER_SLIDES] : TICKER_SLIDES;
 
   useEffect(() => {
-    const update = () => setShowCigaretteFlash(isCigaretteFlashWindow());
+    const update = () => setShowCigaretteFlash(cigarettes.tv && isCigaretteFlashWindow());
     const iv = setInterval(update, 60_000);
     return () => clearInterval(iv);
-  }, []);
+  }, [cigarettes.tv]);
   useEffect(() => {
     const iv = setInterval(() => {
       setExitIdx(activeIdx);
@@ -223,6 +225,8 @@ function VerticalTicker() {
 
 /* -- MAIN TV2 PAGE -- */
 export default function TV2Page() {
+  const cigarettes = useCigaretteState();
+  const cards = cigarettes.tv ? CARD_CONFIG : CARD_CONFIG.filter((card) => card.id !== "CIGARETTES");
   const theme = getTvTheme(tvHiring?.store);
   const [bgUrl, setBgUrl] = useState("");
   useEffect(() => {
@@ -320,7 +324,7 @@ export default function TV2Page() {
         <div className={styles.stage}>
           <HiringRibbon hiring={tvHiring} />
           <div className={styles.grid}>
-            {CARD_CONFIG.map(card => {
+            {cards.map(card => {
               const filtered = items.filter(card.filter).filter(it => !(daytime && isNicotineItem(it)));
               const promo = getTv2DaytimePromo(card.id, daytime, promoElapsedMs);
 

@@ -102,7 +102,13 @@ function staticDataset(staticFlowers, staticItems) {
     flowers: Array.isArray(staticFlowers) ? staticFlowers : [],
     items: Array.isArray(staticItems) ? staticItems : [],
     stockDate: "",
+    cig: null,
   };
+}
+
+function normalizeCig(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  return value;
 }
 
 function rejectLiveStock(data, staticFlowers, staticItems) {
@@ -123,6 +129,7 @@ function rejectLiveStock(data, staticFlowers, staticItems) {
 
 let cached = null;
 let lastGood = null;
+let latestDataset = null;
 let failureUntil = 0;
 let failureReason = "";
 let inflight = null;
@@ -130,9 +137,24 @@ let inflight = null;
 function resetTvStockCache() {
   cached = null;
   lastGood = null;
+  latestDataset = null;
   failureUntil = 0;
   failureReason = "";
   inflight = null;
+}
+
+function presentCigDataset(dataset) {
+  const source = dataset && dataset.source ? dataset.source : "static-fallback";
+  const own = normalizeCig(dataset && dataset.cig);
+  const cig = source === "live" ? own : (own || (lastGood ? normalizeCig(lastGood.cig) : null));
+  return {
+    source,
+    flowers: dataset && Array.isArray(dataset.flowers) ? dataset.flowers : [],
+    items: dataset && Array.isArray(dataset.items) ? dataset.items : [],
+    stockDate: dataset && dataset.stockDate ? dataset.stockDate : "",
+    fallbackReason: dataset && dataset.fallbackReason ? dataset.fallbackReason : "",
+    cig,
+  };
 }
 
 function selectTvPayload(dataset, type) {
@@ -189,6 +211,7 @@ async function resolveDataset(options) {
       flowers: data.flowers,
       items: data.items,
       stockDate: data.stockDate == null ? "" : String(data.stockDate),
+      cig: normalizeCig(data.cig),
     };
     const now = options.now ?? Date.now();
     cached = { expiresAt: now + TV_STOCK_CACHE_MS, dataset };
@@ -241,7 +264,13 @@ async function getTvData(options) {
     dataset = staticDataset(options.staticFlowers, options.staticItems);
   }
 
+  latestDataset = dataset;
   return selectTvPayload(dataset, options.type);
+}
+
+async function getCigaretteDataset(options) {
+  await getTvData({ ...options, type: "items" });
+  return presentCigDataset(latestDataset);
 }
 
 module.exports = {
@@ -257,5 +286,6 @@ module.exports = {
   postprocessItems,
   resolveAppsScriptUrl,
   getTvData,
+  getCigaretteDataset,
   resetTvStockCache,
 };
