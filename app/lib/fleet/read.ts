@@ -1,12 +1,14 @@
+import { resetFleetArticleCache } from "./articles.ts";
 import { CODED_NAP, CODED_PAGES, fleetVersion } from "./coded.ts";
+import { CONTENT_MODE_ENV, EDGE_CONFIG_ENV, readEmergencyCoded } from "./emergency.ts";
 import { resolveBanners, resolveNap, resolvePages } from "./resolve.ts";
-import { FLEET_CONTENT_TAG, FLEET_STORE_CODE, type ContentBundle, type ContentManifest, type FleetState, type ManifestHealth } from "./types.ts";
+import { resolveFullscreenPromos, resolveTvCards } from "./tv.ts";
+import { FLEET_CONTENT_TAG, FLEET_STORE_CODE, type ContentBundle, type ContentManifest, type FleetState, type ManifestHealth, type TvCardSlot, type TvFullscreenPromo } from "./types.ts";
 import { parseBundle, parseManifest, rejectHttp } from "./validate.ts";
 
 export const FLEET_MANIFEST_ENV = "FLEET_CONTENT_MANIFEST_URL";
 export const FLEET_REVALIDATE_ENV = "FLEET_REVALIDATE_SECRET";
-export const EDGE_CONFIG_ENV = "EDGE_CONFIG";
-export const CONTENT_MODE_ENV = "contentMode";
+export { CONTENT_MODE_ENV, EDGE_CONFIG_ENV, readEmergencyCoded };
 /** Public blob. Used when FLEET_CONTENT_MANIFEST_URL is unset. Not a secret. */
 export const DEFAULT_FLEET_MANIFEST_URL = `https://dhaah0upvlpukv56.public.blob.vercel-storage.com/${FLEET_STORE_CODE}/manifest.json`;
 /** ISR window so a publish shows up even when the revalidate secret is unset. */
@@ -24,6 +26,7 @@ let manifestHealth: ManifestHealth = "ok";
 export function resetFleetContentCache(): void {
   accepted = null;
   manifestHealth = "ok";
+  resetFleetArticleCache();
 }
 
 export function currentManifestHealth(): ManifestHealth {
@@ -40,6 +43,8 @@ export function codedFleetState(renderedAt = new Date().toISOString()): FleetSta
     nap: CODED_NAP,
     banners: [],
     pages: CODED_PAGES,
+    tvCards: {},
+    fullscreenPromos: [],
   };
 }
 
@@ -53,6 +58,8 @@ function stateFrom(bundle: ContentBundle, manifest: ContentManifest, renderedAt:
     nap: resolveNap(bundle),
     banners: resolveBanners(bundle),
     pages: resolvePages(bundle),
+    tvCards: resolveTvCards(bundle, new Date(renderedAt)),
+    fullscreenPromos: resolveFullscreenPromos(bundle, new Date(renderedAt)),
   };
 }
 
@@ -66,27 +73,6 @@ function fleetRequestInit(headers?: Record<string, string>): RequestInit {
     headers,
     next: { revalidate: FLEET_FETCH_REVALIDATE_SECONDS, tags: [FLEET_CONTENT_TAG] },
   };
-}
-
-export async function readEmergencyCoded(fetchImpl: typeof fetch = fetch): Promise<boolean> {
-  if ((process.env[CONTENT_MODE_ENV] || "").trim() === "coded") return true;
-  const connection = process.env[EDGE_CONFIG_ENV];
-  if (!connection) return false;
-  try {
-    const url = new URL(connection);
-    const token = url.searchParams.get("token");
-    url.searchParams.delete("token");
-    const itemUrl = `${url.origin}${url.pathname.replace(/\/$/, "")}/item/contentMode`;
-    const response = await fetchImpl(itemUrl, {
-      headers: token ? { Authorization: `Bearer ${token}` } : {},
-      cache: "no-store",
-    });
-    if (!response.ok) return false;
-    const body = await response.json();
-    return body === "coded" || body?.value === "coded";
-  } catch {
-    return false;
-  }
 }
 
 export async function readFleetContent(options: {
@@ -156,13 +142,20 @@ export function manifestEtag(version: number | null): string {
   return version == null ? `"${FLEET_STORE_CODE}-coded"` : `"${FLEET_STORE_CODE}-${version}"`;
 }
 
-export function tvManifestBody(state: FleetState): ContentManifest {
+export type TvManifestPayload = ContentManifest & {
+  tvCards: Record<string, TvCardSlot>;
+  fullscreenPromos: TvFullscreenPromo[];
+};
+
+export function tvManifestBody(state: FleetState): TvManifestPayload {
   return {
     storeCode: FLEET_STORE_CODE,
     contentVersion: state.contentVersion ?? 0,
     bundleUrl: state.bundleUrl,
     publishedAt: state.renderedAt,
     jobId: state.active ? "published" : "coded",
+    tvCards: state.tvCards,
+    fullscreenPromos: state.fullscreenPromos,
   };
 }
 

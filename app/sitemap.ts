@@ -7,7 +7,8 @@ import type { MetadataRoute } from "next";
 import { DELIVERY_GUIDE_REGISTRY, DELIVERY_GUIDE_STORE } from "./lib/deliveryGuideRegistry";
 import {TIER_CONFIG, CATEGORY_CONFIG} from "./lib/products";
 import { SEO_PAGES } from "./lib/seoPages";
-import { RESOURCE_PAGES } from "./resources/resourceData";
+import { loadFleetArticles } from "./lib/fleet/articles";
+import { codedArticleLinks, RESOURCE_PAGES } from "./resources/resourceData";
 import { ARTICLE_CANONICAL } from "./resources/cannabis-in-the-car-ontario/article";
 import { STRAIN_GUIDES } from "./lib/strainGuides";
 
@@ -89,5 +90,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const deliveryGuidePages: MetadataRoute.Sitemap = DELIVERY_GUIDE_REGISTRY.map((guide) => ({ url: `https://${DELIVERY_GUIDE_STORE.domain}/guides/${guide.slug}`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.75 }));
   const strainGuidePages: MetadataRoute.Sitemap = [`${BASE}/guides`, ...STRAIN_GUIDES.map((guide) => `${BASE}/guides/${guide.slug}`)].map((url) => ({ url, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 }));
-  return withoutCigaretteUrls([...deliveryGuidePages, ...strainGuidePages, ...staticPages, ...tierPages, ...itemPages, ...flowerPages, ...itemDetailPages, ...seoPages, ...resourcePages, ...cannabisInTheCarPage]);
+
+  let fleetArticlePages: MetadataRoute.Sitemap = [];
+  try {
+    const loaded = await loadFleetArticles();
+    if (loaded.ok) {
+      const codedSlugs = new Set(codedArticleLinks().map((page) => page.slug));
+      fleetArticlePages = loaded.articles.filter((article) => !codedSlugs.has(article.slug)).map((article) => ({
+        url: `${BASE}/articles/${article.slug}`,
+        lastModified: article.publishedAt,
+        changeFrequency: "weekly" as const,
+        priority: 0.6,
+      }));
+    }
+  } catch {
+    fleetArticlePages = [];
+  }
+
+  return withoutCigaretteUrls([...deliveryGuidePages, ...strainGuidePages, ...staticPages, ...tierPages, ...itemPages, ...flowerPages, ...itemDetailPages, ...seoPages, ...resourcePages, ...cannabisInTheCarPage, ...fleetArticlePages]);
 }

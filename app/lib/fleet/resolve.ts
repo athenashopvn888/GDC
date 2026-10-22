@@ -3,9 +3,13 @@ import type { BannerId, ContentBundle, ContentField, ContentSlot, FieldMode, Fle
 
 const BLOCKED_COPY = /3\.5|farmers\s*link|telnyx|\bsod\b/i;
 
-function safeText(value: string | undefined, coded: string): string {
+export function textHasBlockedCopy(value: string): boolean {
+  return BLOCKED_COPY.test(value);
+}
+
+export function safeText(value: string | undefined, coded: string): string {
   const trimmed = value?.trim() ?? "";
-  if (!trimmed || BLOCKED_COPY.test(trimmed)) return coded;
+  if (!trimmed || textHasBlockedCopy(trimmed)) return coded;
   return trimmed;
 }
 

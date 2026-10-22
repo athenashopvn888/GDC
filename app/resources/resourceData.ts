@@ -269,3 +269,21 @@ export function getResourcePage(slug: string) {
   const cleanSlug = slug.replace(/^\/+|\/+$/g, "");
   return RESOURCE_PAGES.find((page) => page.slug === cleanSlug);
 }
+
+/** Coded guides keep their URLs when a sheet article uses the same slug. */
+export function codedArticleLinks(): { slug: string; title: string; href: string }[] {
+  const links = RESOURCE_PAGES.filter((page) => page.slug).map((page) => ({
+    slug: page.slug,
+    title: page.title,
+    href: `/resources/${page.slug}`,
+  }));
+  const carSlug = "cannabis-in-the-car-ontario";
+  if (!links.some((page) => page.slug === carSlug)) {
+    links.push({
+      slug: carSlug,
+      title: "Cannabis in the car: Ontario's sealed-or-out-of-reach rule",
+      href: `/resources/${carSlug}`,
+    });
+  }
+  return links;
+}
