@@ -8,6 +8,8 @@ import { napMatchesCoded, sheetBanner } from "../lib/fleet/resolve";
 import { resolveStorefrontTitle } from "../lib/metadataTitle";
 import styles from "./contact.module.css";
 
+export const dynamic = "force-dynamic";
+
 const CONTACT_METADATA: Metadata = {
   title: resolveStorefrontTitle("Contact Us — Green Deal Cannabis | 1664 Jane St, York"),
   description:
