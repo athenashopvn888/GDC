@@ -105,3 +105,62 @@ test("each surface hides real cigarettes itself and always keeps wraps and pouch
   const shown = reconcileSurfaceItems([vape, backwoods], [carton, backwoods], true);
   assert.deepEqual(shown.map((item) => item.slug), [vape.slug, backwoods.slug, carton.slug]);
 });
+
+test("tvOn shows cigarette items while the website stays hidden", () => {
+  const wrap = { category: "CIGARETTES", name: "HEMP WRAPS", slug: "hemp-wrap" };
+  const paper = { category: "CIGARETTES", name: "ROLLING PAPERS", slug: "rolling-papers" };
+  const cigarillo = { category: "CIGARETTES", name: "CIGARILLO PACK", slug: "cigarillo-pack" };
+  const zyn = { category: "CIGARETTES", name: "ZYN POUCH", slug: "zyn-pouch" };
+  const items = [vape, carton, grabba, backwoods, pouch, wrap, paper, cigarillo, zyn];
+  const kept = [backwoods.slug, pouch.slug, wrap.slug, paper.slug, cigarillo.slug, zyn.slug];
+  const open = decideCigaretteSurface({
+    cig: cig({ webOn: false, tvOn: true }),
+    items,
+    surface: "tv",
+    codedShow: false,
+  });
+  const web = decideCigaretteSurface({
+    cig: cig({ webOn: false, tvOn: true }),
+    items,
+    surface: "web",
+    codedShow: false,
+  });
+  assert.equal(open.show, true);
+  assert.equal(open.reason, "on");
+  assert.equal(web.show, false);
+  assert.equal(web.reason, "off");
+  assert.equal(decideCigaretteSurface({
+    cig: cig({ webOn: true, tvOn: true }),
+    items: [carton],
+    surface: "web",
+  }).show, false);
+  assert.equal(decideCigaretteSurface({
+    cig: cig({ webOn: true, tvOn: true }),
+    items: [carton],
+    surface: "web",
+    envRaw: "off",
+    codedShow: true,
+  }).reason, "env");
+  const shown = reconcileSurfaceItems(items, items, open.show);
+  assert.equal(shown.some((item) => item.slug === carton.slug), true);
+  for (const slug of kept) assert.equal(shown.some((item) => item.slug === slug), true, slug);
+  const closed = decideCigaretteSurface({
+    cig: cig({ webOn: false, tvOn: false }),
+    items,
+    surface: "tv",
+    codedShow: false,
+  });
+  assert.equal(closed.show, false);
+  assert.equal(closed.reason, "off");
+  const hidden = reconcileSurfaceItems(items, items, closed.show);
+  assert.equal(hidden.some((item) => item.slug === carton.slug), false);
+  assert.equal(hidden.some((item) => item.slug === grabba.slug), false);
+  for (const slug of kept) assert.equal(hidden.some((item) => item.slug === slug), true, slug);
+  assert.equal(decideCigaretteSurface({
+    cig: null,
+    items: [carton],
+    surface: "tv",
+    errored: true,
+    codedShow: false,
+  }).show, true);
+});

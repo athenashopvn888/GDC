@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import styles from "./tv.module.css";
 import { useCigaretteState } from "../components/CigaretteStateProvider";
+import { readCigaretteTvHeader } from "../lib/cigDecision";
 import { CIGARETTE_FLASH_MESSAGE, isCigaretteFlashWindow } from "./flashMessages";
 import { getFlowerEffects } from "./flowerEffects";
 import { TOP_TIER_BUNDLE_LABELS } from "./bundleLabels";
@@ -758,6 +759,8 @@ function VerticalTicker() {
    MAIN TV PAGE
    ============================================================ */
 export default function TVMenuPage() {
+  const seeded = useCigaretteState();
+  const [tvCig, setTvCig] = useState({ show: seeded.tv, wording: seeded.wording });
   const theme = getTvTheme(tvHiring?.store);
   const fleetTv = useFleetTvManifest();
   const [bgUrl, setBgUrl] = useState("");
@@ -788,6 +791,7 @@ export default function TVMenuPage() {
       ]);
       const fData: Flower[] = fRes.ok ? await fRes.json() : [];
       const iData: Item[] = iRes.ok ? await iRes.json() : [];
+      if (iRes.ok) setTvCig(readCigaretteTvHeader(iRes.headers));
       setStockUpdated(readStockUpdatedAt(fRes, fData) || readStockUpdatedAt(iRes, iData));
 
       for (const f of fData) {
@@ -904,7 +908,7 @@ export default function TVMenuPage() {
 
         {/* GRID */}
         <div className={styles.stage}>
-          <HiringRibbon hiring={tvHiring} />
+          <HiringRibbon hiring={tvHiring} cigaretteLine={tvCig.show ? tvCig.wording.tickerLine1 : null} />
           <div className={styles.grid}>
             {/* Row 1: EXOTIC, PREMIUM, AAA+ */}
             {TV_TIERS.slice(0,3).map(tier => (

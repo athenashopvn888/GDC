@@ -82,7 +82,10 @@ export function decideCigaretteSurface(input: {
   surface: CigaretteSurface;
   envRaw?: string;
   errored?: boolean;
-  /** Current coded behaviour. A feed error or a missing block uses this. */
+  /**
+   * Website coded behaviour. A feed error or a missing block uses this on the web.
+   * The TV surface ignores it and follows tvOn.
+   */
   codedShow?: boolean;
 }): CigaretteSurfaceDecision & { wording: CigaretteWording } {
   const wording = resolveCigWording(
@@ -90,7 +93,8 @@ export function decideCigaretteSurface(input: {
       ? (input.cig as { wording?: unknown }).wording
       : undefined,
   );
-  const codedShow = input.codedShow ?? SHOW_CIGARETTES;
+  // TV follows the feed flag only. The build-time website switch stays on web.
+  const codedShow = input.surface === "tv" ? true : (input.codedShow ?? SHOW_CIGARETTES);
   if (cigaretteEnvHardOff(input.envRaw)) return { show: false, reason: "env", wording };
   // A missing feed or a feed error keeps the coded behaviour. Only an explicit false flag hides a surface the site is allowed to show.
   if (input.errored) return { show: codedShow, reason: "error", wording };
