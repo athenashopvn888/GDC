@@ -3,7 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { TvHiringConfig } from "../lib/tvHiring";
 import { TV_POLICY_MESSAGE } from "../lib/tvPolicy";
-import { CIGARETTE_FLASH_MESSAGE, isCigaretteFlashWindow } from "../tv/flashMessages";
+import { isCigaretteFlashWindow } from "../tv/flashMessages";
 import styles from "./HiringRibbon.module.css";
 
 const PHASE_CLASS = [styles.phaseHeadline, styles.phaseApply, styles.phaseUrl];
@@ -53,12 +53,20 @@ function fitPolicyLine(node: HTMLSpanElement) {
   node.style.textOverflow = "";
 }
 
-export default function HiringRibbon({ hiring }: { hiring: TvHiringConfig | null }) {
-  const [showCigaretteFlash, setShowCigaretteFlash] = useState(() => isCigaretteFlashWindow());
+export default function HiringRibbon({
+  hiring,
+  cigaretteLine,
+}: {
+  hiring: TvHiringConfig | null;
+  cigaretteLine?: string | null;
+}) {
+  const line = trimmed(cigaretteLine);
+  const [inFlashWindow, setInFlashWindow] = useState(() => isCigaretteFlashWindow());
+  const showCigaretteFlash = Boolean(line) && inFlashWindow;
   const policy = trimmed(TV_POLICY_MESSAGE);
   const hiringOn = hiring !== null && trimmed(hiring.displayUrl).length > 0;
   const messages = [
-    ...(showCigaretteFlash ? [CIGARETTE_FLASH_MESSAGE] : []),
+    ...(showCigaretteFlash ? [line] : []),
     ...(hiringOn ? hiringLines(hiring) : []),
     ...(policy ? [policy] : []),
   ];
@@ -72,7 +80,7 @@ export default function HiringRibbon({ hiring }: { hiring: TvHiringConfig | null
   const policyRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const update = () => setShowCigaretteFlash(isCigaretteFlashWindow());
+    const update = () => setInFlashWindow(isCigaretteFlashWindow());
     const timer = window.setInterval(update, 60_000);
     return () => window.clearInterval(timer);
   }, []);

@@ -8,7 +8,7 @@ import {
   type CigaretteWording,
 } from "./cigDecision";
 import { allFlowers, allItems, type ItemProduct } from "./products";
-import { SHOW_CIGARETTES, cigaretteEnvHardOff } from "./siteConfig.ts";
+import { cigaretteEnvHardOff } from "./siteConfig.ts";
 import { getCigaretteDataset } from "./tvStock.js";
 
 export type CigaretteSnapshot = {
@@ -34,8 +34,9 @@ function snapshotFrom(cig: unknown, items: ItemProduct[], live: boolean, errored
 }
 
 export async function readCigaretteFeed(): Promise<CigaretteSnapshot> {
-  // The recall switch is the coded behaviour. While it is off, do not wait on the feed.
-  if (cigaretteEnvHardOff() || !SHOW_CIGARETTES) return snapshotFrom(null, [], false, false);
+  // An explicit env hard-off blocks every surface. The website coded switch does not,
+  // because the TV board follows tvOn on its own.
+  if (cigaretteEnvHardOff()) return snapshotFrom(null, [], false, false);
   try {
     const dataset = await getCigaretteDataset({
       staticFlowers: allFlowers,
