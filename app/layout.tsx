@@ -5,6 +5,7 @@ import { getFleetContent } from "./lib/fleetContent";
 import { napMatchesCoded } from "./lib/fleet/resolve";
 import { cigaretteSafeContent } from "./lib/siteConfig";
 import FullNameNap from "./components/FullNameNap";
+import MobileBottomBar from "./components/MobileBottomBar";
 import PinnedNavClearance from "./components/PinnedNavClearance";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -200,6 +201,7 @@ export default async function RootLayout({
             {children}
             <FullNameNap />
             <PinnedNavClearance />
+            <MobileBottomBar />
           </CigaretteStateProvider>
         </FleetContentProvider>
       </body>
