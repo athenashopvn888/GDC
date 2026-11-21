@@ -34,10 +34,6 @@ export function visibleTv2Cards<T extends { id: string }>(
 export const TV2_DAYTIME_PROMOS: Readonly<
   Partial<Record<string, Tv2DaytimePromo>>
 > = {
-  CIGARETTES: {
-    src: "/banners/GreenDeal_THC_Vape.webp",
-    alt: "Green Deal Cannabis THC Vape",
-  },
   VAPES: {
     src: "https://pub-eb3e1fe18a43477eabc885cfb791d97c.r2.dev/products/cannabis_banner_mashup_variation_01_600x600.webp",
     fallbackSrc:
